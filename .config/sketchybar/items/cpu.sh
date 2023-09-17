@@ -26,7 +26,7 @@ cpu_sys=(
   graph.fill_color=$RED
   label.drawing=off
   icon.drawing=off
-  background.height=30
+  background.height=27
   background.drawing=on
   background.color=$TRANSPARENT
 )
@@ -35,19 +35,27 @@ cpu_user=(
   graph.color=$BLUE
   label.drawing=off
   icon.drawing=off
-  background.height=30
+  background.height=27
   background.drawing=on
   background.color=$TRANSPARENT
 )
 
-sketchybar --add item cpu.top right              \
-           --set cpu.top "${cpu_top[@]}"         \
-                                                 \
-           --add item cpu.percent right          \
-           --set cpu.percent "${cpu_percent[@]}" \
-                                                 \
-           --add graph cpu.sys right 75          \
-           --set cpu.sys "${cpu_sys[@]}"         \
-                                                 \
-           --add graph cpu.user right 75         \
-           --set cpu.user "${cpu_user[@]}"
+sketchybar --add item cpu.top right \
+  --set cpu.top "${cpu_top[@]}" \
+  \
+  --add item cpu.percent right \
+  --set cpu.percent "${cpu_percent[@]}" \
+  \
+  --add graph cpu.sys right 75 \
+  --set cpu.sys "${cpu_sys[@]}" \
+  \
+  --add graph cpu.user right 75 \
+  --set cpu.user "${cpu_user[@]}"
+
+cpu_bracket=(
+  background.color=0x9c1c1c1c
+  background.border_color=$BACKGROUND_2
+)
+
+sketchybar --add bracket cpubracket cpu.top cpu.percent cpu.sys cpu.user \
+  --set cpubracket "${cpu_bracket[@]}"

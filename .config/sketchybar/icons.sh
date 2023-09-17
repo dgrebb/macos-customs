@@ -7,6 +7,7 @@ PREFERENCES=􀺽
 ACTIVITY=􀒓
 LOCK=􀒳
 BELL=􀋚
+GITHUB=
 BELL_DOT=􀝗
 
 # Git Icons

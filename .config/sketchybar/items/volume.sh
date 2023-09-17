@@ -27,17 +27,21 @@ volume_icon=(
 )
 
 status_bracket=(
-  background.color=$BACKGROUND_1
+  background.color=0x9c1c1c1c
   background.border_color=$BACKGROUND_2
 )
 
-sketchybar --add slider volume right            \
-           --set volume "${volume_slider[@]}"   \
-           --subscribe volume volume_change     \
-                              mouse.clicked     \
-                                                \
-           --add item volume_icon right         \
-           --set volume_icon "${volume_icon[@]}"
+sketchybar --add slider volume right \
+  --set volume "${volume_slider[@]}" \
+  --subscribe volume volume_change \
+  mouse.clicked \
+  \
+  --add item volume_icon right \
+  --set volume_icon "${volume_icon[@]}"
+
+sketchybar --add item spacer2 right \
+  --set spacer2 background.drawing=off \
+  width=5
 
 sketchybar --add bracket status brew github.bell volume_icon \
-           --set status "${status_bracket[@]}"
+  --set status "${status_bracket[@]}"

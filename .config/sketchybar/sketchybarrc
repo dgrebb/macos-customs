@@ -52,8 +52,9 @@ defaults=(
   padding_left=$PADDINGS
   background.height=26
   background.corner_radius=9
-  background.border_width=2
-  popup.background.border_width=2
+  background.border_width=1
+  popup.y_offset=3
+  popup.background.border_width=1
   popup.background.corner_radius=9
   popup.background.border_color=$POPUP_BORDER_COLOR
   popup.background.color=$POPUP_BACKGROUND_COLOR
@@ -74,6 +75,7 @@ source "$ITEM_DIR/spotify.sh"
 
 # Right
 source "$ITEM_DIR/calendar.sh"
+source "$ITEM_DIR/aliases.sh"
 source "$ITEM_DIR/brew.sh"
 source "$ITEM_DIR/wifi.sh"
 source "$ITEM_DIR/github.sh"
