@@ -6,8 +6,9 @@ POPUP_CLICK_SCRIPT='sketchybar --set $NAME popup.drawing=toggle'
 apple_logo=(
   icon=$APPLE
   icon.font="$FONT:Black:16.0"
-  icon.color=$GREEN
-  padding_right=15
+  icon.color=$HIGHLIGHT
+  padding_right=12
+  padding_left=10
   label.drawing=off
   click_script="$POPUP_CLICK_SCRIPT"
   popup.height=35
@@ -42,3 +43,15 @@ sketchybar --add item apple.logo left                  \
                                                        \
            --add item apple.lock popup.apple.logo      \
            --set apple.lock "${apple_lock[@]}"
+
+system_bracket=(
+  background.color=$BACKGROUND_1
+  background.border_color=$BACKGROUND_2
+)
+
+sketchybar --add item spacer0 left \
+  --set spacer0 background.drawing=off \
+  width=5
+
+sketchybar --add bracket system apple.logo \
+  --set system "${system_bracket[@]}"

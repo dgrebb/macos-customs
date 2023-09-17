@@ -23,5 +23,5 @@ sketchybar --add item calendar right \
   --set calendar "${calendar[@]}" \
   --subscribe calendar system_woke
 
-sketchybar --add bracket calendar \
-  --set calendar "${calendar_bracket[@]}"
+sketchybar --add bracket calendarb calendar \
+  --set calendarb "${calendar_bracket[@]}"
