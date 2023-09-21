@@ -8,10 +8,10 @@ brew=(
   label=?
   padding_right=10
   script="$PLUGIN_DIR/brew.sh"
+  associated_display=1
 )
 
 sketchybar --add event brew_update \
-           --add item brew right   \
-           --set brew "${brew[@]}" \
-           --subscribe brew brew_update
-
+  --add item brew right \
+  --set brew "${brew[@]}" \
+  --subscribe brew brew_update

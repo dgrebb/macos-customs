@@ -8,6 +8,7 @@ sketchybar -m --add item music center \
   label.padding_right=10 \
   icon.padding_left=10 \
   drawing=off \
+  associated_display=1 \
   --subscribe music song_update
 
 music_bracket=(

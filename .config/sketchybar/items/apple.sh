@@ -2,7 +2,16 @@
 
 POPUP_OFF='sketchybar --set apple.logo popup.drawing=off'
 POPUP_CLICK_SCRIPT='sketchybar --set $NAME popup.drawing=toggle'
+FRONT_APP_SCRIPT='[ "$SENDER" = "front_app_switched" ] && sketchybar --set $NAME label="$INFO"'
 
+front_app=(
+  icon.drawing=off
+  label.font="$FONT:Black:12.0"
+  padding_right=10
+  y_offset=1
+  associated_display=active
+  script="$FRONT_APP_SCRIPT"
+)
 apple_logo=(
   icon=$APPLE
   icon.font="$FONT:Black:16.0"
@@ -32,17 +41,21 @@ apple_lock=(
   click_script="pmset displaysleepnow; $POPUP_OFF"
 )
 
-sketchybar --add item apple.logo left                  \
-           --set apple.logo "${apple_logo[@]}"         \
-                                                       \
-           --add item apple.prefs popup.apple.logo     \
-           --set apple.prefs "${apple_prefs[@]}"       \
-                                                       \
-           --add item apple.activity popup.apple.logo  \
-           --set apple.activity "${apple_activity[@]}" \
-                                                       \
-           --add item apple.lock popup.apple.logo      \
-           --set apple.lock "${apple_lock[@]}"
+sketchybar --add item apple.logo left \
+  --set apple.logo "${apple_logo[@]}" \
+  \
+  --add item apple.prefs popup.apple.logo \
+  --set apple.prefs "${apple_prefs[@]}" \
+  \
+  --add item apple.activity popup.apple.logo \
+  --set apple.activity "${apple_activity[@]}" \
+  \
+  --add item apple.lock popup.apple.logo \
+  --set apple.lock "${apple_lock[@]}"
+
+sketchybar --add item front_app left \
+  --set front_app "${front_app[@]}" \
+  --subscribe front_app front_app_switched
 
 system_bracket=(
   background.color=$BACKGROUND_1
@@ -53,5 +66,5 @@ sketchybar --add item spacer0 left \
   --set spacer0 background.drawing=off \
   width=5
 
-sketchybar --add bracket system apple.logo \
+sketchybar --add bracket system front_app apple.logo \
   --set system "${system_bracket[@]}"

@@ -25,3 +25,7 @@ sketchybar --add item calendar right \
 
 sketchybar --add bracket calendarb calendar \
   --set calendarb "${calendar_bracket[@]}"
+
+sketchybar --add item calendar_spacer right \
+  --set calendar_spacer background.drawing=off \
+  width=5

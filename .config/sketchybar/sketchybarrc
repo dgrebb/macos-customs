@@ -20,7 +20,7 @@ launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist >/d
 
 # Setting up the general bar appearance of the bar
 bar=(
-  height=45
+  height=50
   color=$BAR_COLOR
   border_width=0
   border_color=$BAR_BORDER_COLOR
@@ -51,12 +51,12 @@ defaults=(
   padding_right=$PADDINGS
   padding_left=$PADDINGS
   background.height=26
-  background.corner_radius=9
+  background.corner_radius=50
   background.border_width=1
-  popup.y_offset=3
+  popup.y_offset=0
   popup.background.border_width=1
   popup.background.corner_radius=9
-  popup.background.border_color=$POPUP_BORDER_COLOR
+  popup.background.border_color=$BACKGROUND_2
   popup.background.color=$POPUP_BACKGROUND_COLOR
   popup.blur_radius=20
   popup.background.shadow.drawing=on
@@ -65,10 +65,10 @@ defaults=(
 sketchybar --default "${defaults[@]}"
 
 # Left
+# source "$ITEM_DIR/front_app.sh" moved inside of apple.sh
 source "$ITEM_DIR/apple.sh"
 source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/yabai.sh"
-source "$ITEM_DIR/front_app.sh"
 
 # Center
 source "$ITEM_DIR/music.sh"

@@ -13,6 +13,7 @@ github_bell=(
   popup.align=right
   script="$PLUGIN_DIR/github.sh"
   click_script="$POPUP_CLICK_SCRIPT"
+  associated_display=1
 )
 
 github_template=(

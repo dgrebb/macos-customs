@@ -39,8 +39,8 @@ sketchybar --add slider volume right \
   --add item volume_icon right \
   --set volume_icon "${volume_icon[@]}"
 
-sketchybar --add item spacer3 right \
-  --set spacer3 background.drawing=off \
+sketchybar --add item volume_gap right \
+  --set volume_gap background.drawing=off \
   width=5
 
 sketchybar --add bracket status brew github.bell volume_icon \
