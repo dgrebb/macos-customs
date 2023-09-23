@@ -1,3 +1,5 @@
+/* https://github.com/dgrebb/vscode-fonts */
+
 .mtk7,
 .mtk3,
 .mtk4,
@@ -5,7 +7,7 @@
 .mtk16 {
   margin-left: 1px;
   font-family: "Operator Mono Lig Light";
-  font-size: 1.2em;
+  /* font-size: 1.2em; */
 }
 
 .mtk1,
@@ -17,7 +19,7 @@
 .mtk12,
 .mtk4 {
   font-family: "Operator Mono Lig Light";
-  font-size: 1.2em;
+  /* font-size: 1.2em; */
 }
 
 /*
