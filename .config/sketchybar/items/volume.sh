@@ -11,6 +11,7 @@ volume_slider=(
   slider.background.color=$BACKGROUND_2
   slider.knob=􀀁
   slider.knob.drawing=on
+  associated_display=1
 )
 
 volume_icon=(
@@ -24,11 +25,13 @@ volume_icon=(
   label.width=25
   label.align=left
   label.font="$FONT:Regular:14.0"
+  associated_display=1
 )
 
 status_bracket=(
   background.color=$BACKGROUND_1
   background.border_color=$BACKGROUND_2
+  associated_display=1
 )
 
 sketchybar --add slider volume right \
@@ -43,5 +46,7 @@ sketchybar --add item volume_gap right \
   --set volume_gap background.drawing=off \
   width=5
 
-sketchybar --add bracket status brew github.bell volume_icon \
-  --set status "${status_bracket[@]}"
+#  brew github.bell
+sketchybar --add bracket status wifi volume_icon \
+  --set status "${status_bracket[@]}" \
+  associated_display=1

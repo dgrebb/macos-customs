@@ -28,10 +28,10 @@ bar=(
   shadow=off
   position=top
   sticky=on
-  padding_right=10
-  padding_left=10
-  y_offset=12
-  margin=12
+  padding_right=8
+  padding_left=8
+  y_offset=1
+  margin=6
   topmost=window
 )
 
@@ -76,12 +76,15 @@ source "$ITEM_DIR/music.sh"
 # Right
 source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/aliases.sh"
-source "$ITEM_DIR/brew.sh"
+# source "$ITEM_DIR/brew.sh"
 source "$ITEM_DIR/wifi.sh"
-source "$ITEM_DIR/github.sh"
+# source "$ITEM_DIR/github.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/volume.sh"
-source "$ITEM_DIR/cpu.sh"
+# source "$ITEM_DIR/cpu.sh"
+
+# Conditionally show/hide items
+# sketchybar -m set <item> hidden on
 
 # Forcing all item scripts to run (never do this outside of sketchybarrc)
 sketchybar --update
