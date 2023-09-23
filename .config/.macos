@@ -1,0 +1,2 @@
+# Hold cmd+ctrl + click and drag any window to move it
+defaults write -g NSWindowShouldDragOnGesture -bool true
