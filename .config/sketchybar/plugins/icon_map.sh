@@ -246,7 +246,7 @@ case $@ in
   icon_result=":spotlight:"
   ;;
 "Music")
-  icon_result=":music:"
+  icon_result="󰫔"
   ;;
 "Insomnia")
   icon_result=":insomnia:"

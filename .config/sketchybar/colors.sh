@@ -10,7 +10,7 @@ export BLUE=0xff8aadf4
 export YELLOW=0xffeed49f
 export ORANGE=0xfff5a97f
 export MAGENTA=0xffc6a0f6
-export GREY=0xff939ab7
+export GREY=0x8ca0a0a0
 export TRANSPARENT=0x00000000
 
 # General bar colors

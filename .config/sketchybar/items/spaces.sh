@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SPACE_ICONS=("󰎈" "🚜" "" "" "◌" "◌" "" "" "")
+SPACE_ICONS=("" "🚜" "" "" "◌" "◌" "" "" "")
 
 # Destroy space on right click, focus space on left click.
 # New space by left clicking separator (>)
@@ -35,8 +35,14 @@ for i in "${!SPACE_ICONS[@]}"; do
     --subscribe space.$sid mouse.clicked
 done
 
-# set code space icons larger
-sketchybar --set space.1 icon.y_offset=2
+# hide music space icon
+sketchybar --set space.1 icon.drawing=off \
+  label.font.size=18.0 \
+  label.y_offset=1 \
+  padding_left=0
+
+# adjust tractor
+sketchybar --set space.2 icon.y_offset=2
 
 # set code space icons larger
 for id in 7 8 9; do
