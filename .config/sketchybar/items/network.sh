@@ -10,6 +10,7 @@ sketchybar --add item ip_address right \
   background.height=24 \
   icon.highlight=off \
   label.highlight=off \
+  associated_display=1 \
   --subscribe ip_address wifi_change
 
 sketchybar --add item network.up right \
@@ -21,7 +22,8 @@ sketchybar --add item network.up right \
   background.height=24 \
   icon=⇡ \
   icon.color=$YELLOW \
-  label.color=$YELLOW
+  label.color=$YELLOW \
+  associated_display=1
 
 sketchybar --add item network.down right \
   --set network.down script="~/.config/sketchybar/plugins/network.sh" \
@@ -32,7 +34,8 @@ sketchybar --add item network.down right \
   background.height=24 \
   icon=⇣ \
   icon.color=$GREEN \
-  label.color=$GREEN
+  label.color=$GREEN \
+  associated_display=1
 
 # Bracket
 
