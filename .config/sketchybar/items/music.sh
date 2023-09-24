@@ -4,7 +4,7 @@ sketchybar -m --add event song_update com.apple.iTunes.playerInfo
 # Add Music Item
 sketchybar -m --add item music center \
   --set music script="$PLUGIN_DIR/music.sh" \
-  click_script="$PLUGIN_DIR/music_click.scpt" \
+  click_script="$PLUGIN_DIR/music_click.sh" \
   label.padding_right=10 \
   icon.padding_left=10 \
   drawing=off \

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+
 # FIXME: Running an osascript on an application target opens that app
 # This sleep is needed to try and ensure that theres enough time to
 # quit the app before the next osascript command is called. I assume
@@ -21,17 +23,20 @@ fi
 
 title=$(osascript -e 'tell application "Music" to get name of current track')
 artist=$(osascript -e 'tell application "Music" to get artist of current track')
-# ALBUM=$(osascript -e 'tell application "Music" to get album of current track')
+ALBUM=$(osascript -e 'tell application "Music" to get album of current track')
 loved=$(osascript -l JavaScript -e "Application('Music').currentTrack().loved()")
-if [[ $loved ]]; then
-  icon="􀊸"
+COLOR=$WHITE
+
+if [[ "$loved" = 'true' ]]; then
+  icon=""
+  COLOR=$RED
 fi
 
 if [[ $PLAYER_STATE == "paused" ]]; then
   icon="􀊘"
 fi
 
-if [[ $PLAYER_STATE == "playing" ]]; then
+if [[ $PLAYER_STATE == "playing" ]] && [[ "$loved" = 'false' ]]; then
   icon="􀊖"
 fi
 
@@ -43,10 +48,13 @@ if [[ ${#artist} -gt 25 ]]; then
   ARTIST=$(printf "$(echo $artist | cut -c 1-25)…")
 fi
 
-# if [[ ${#ALBUM} -gt 25 ]]; then
-#   ALBUM=$(printf "$(echo $ALBUM | cut -c 1-12)…")
-# fi
+if [[ ${#ALBUM} -gt 25 ]]; then
+  ALBUM=$(printf "$(echo $ALBUM | cut -c 1-12)…")
+fi
+
+echo $COLOR
 
 sketchybar -m --set music icon="$icon" \
-  --set music label="${title} | ${artist}" \
-  --set music drawing=on
+  icon.color="${COLOR}" \
+  label="${title} | ${artist} | ${ALBUM}" \
+  drawing=on
