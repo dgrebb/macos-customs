@@ -37,6 +37,10 @@ sketchybar --add item network.down right \
   label.color=$GREEN \
   associated_display=1
 
+sketchybar --add item network_spacer right \
+  --set network_spacer background.drawing=off \
+  width=5
+
 # Bracket
 
 sketchybar --add bracket status ip_address network.up network.down \
