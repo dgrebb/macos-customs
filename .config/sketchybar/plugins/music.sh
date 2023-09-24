@@ -33,11 +33,11 @@ if [[ "$loved" = 'true' ]]; then
 fi
 
 if [[ $PLAYER_STATE == "paused" ]]; then
-  icon="􀊘"
+  icon=""
 fi
 
 if [[ $PLAYER_STATE == "playing" ]] && [[ "$loved" = 'false' ]]; then
-  icon="􀊖"
+  icon=""
 fi
 
 if [[ ${#title} -gt 25 ]]; then
@@ -56,5 +56,5 @@ echo $COLOR
 
 sketchybar -m --set music icon="$icon" \
   icon.color="${COLOR}" \
-  label="${title} | ${artist} | ${ALBUM}" \
+  label="${title} • ${artist} • ${ALBUM}" \
   drawing=on

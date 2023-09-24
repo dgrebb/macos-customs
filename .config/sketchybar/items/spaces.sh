@@ -36,6 +36,9 @@ for i in "${!SPACE_ICONS[@]}"; do
 done
 
 # set code space icons larger
+sketchybar --set space.1 icon.y_offset=2
+
+# set code space icons larger
 for id in 7 8 9; do
   sketchybar --set space.$id icon.font.size=21.0
 done
