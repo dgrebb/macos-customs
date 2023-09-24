@@ -52,8 +52,6 @@ if [[ ${#ALBUM} -gt 25 ]]; then
   ALBUM=$(printf "$(echo $ALBUM | cut -c 1-12)…")
 fi
 
-echo $COLOR
-
 sketchybar -m --set music icon="$icon" \
   icon.color="${COLOR}" \
   label="${title} • ${artist} • ${ALBUM}" \
