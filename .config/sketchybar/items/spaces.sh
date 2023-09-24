@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SPACE_ICONS=("" "🚜" "" "" "◌" "◌" "" "" "")
+SPACE_ICONS=("󰽯" "🚜" "" "" "◌" "◌" "" "" "")
 
 # Destroy space on right click, focus space on left click.
 # New space by left clicking separator (>)
@@ -35,20 +35,6 @@ for i in "${!SPACE_ICONS[@]}"; do
     --subscribe space.$sid mouse.clicked
 done
 
-# hide music space icon
-sketchybar --set space.1 icon.drawing=off \
-  label.font.size=18.0 \
-  label.y_offset=1 \
-  padding_left=0
-
-# adjust tractor
-sketchybar --set space.2 icon.y_offset=2
-
-# set code space icons larger
-for id in 7 8 9; do
-  sketchybar --set space.$id icon.font.size=21.0
-done
-
 spaces_bracket=(
   background.color=$BACKGROUND_1
   background.border_color=$BACKGROUND_2
@@ -70,3 +56,20 @@ sketchybar --add bracket spaces_bracket '/space\..*/' \
   \
   --add item separator left \
   --set separator "${separator[@]}"
+
+###############################################################################
+# Custom icon sizes and offsets                                               #
+###############################################################################
+
+# Music icon offset and size
+sketchybar --set space.1 \
+  label.font.size=24.0 \
+  label.y_offset=1
+
+# adjust tractor
+sketchybar --set space.2 icon.y_offset=2
+
+# set code space icons larger
+for id in 7 8 9; do
+  sketchybar --set space.$id icon.font.size=21.0
+done
