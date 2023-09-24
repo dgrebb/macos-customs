@@ -24,17 +24,7 @@ sketchybar --add alias "Shifty,Item-0" right \
   click_script="nightlight toggle" \
   associated_display=1
 
-aliases_bracket=(
-  background.color=0x9c1c1c1c
-  background.border_color=$BACKGROUND_2
-  associated_display=1
-)
-
 sketchybar --add item spacer1 right \
   --set spacer1 background.drawing=off \
   associated_display=1 \
   width=23
-
-sketchybar --add bracket aliases "Shifty,Item-0" "iStat Menus Status,com.bjango.istatmenus.memory" "iStat Menus Status,com.bjango.istatmenus.cpu" \
-  --set aliases "${aliases_bracket[@]}" \
-  associated_display=1

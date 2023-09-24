@@ -47,6 +47,6 @@ sketchybar --add item volume_gap right \
   width=5
 
 #  brew github.bell
-sketchybar --add bracket status wifi volume_icon \
-  --set status "${status_bracket[@]}" \
-  associated_display=1
+# sketchybar --add bracket status wifi volume_icon \
+#   --set status "${status_bracket[@]}" \
+#   associated_display=1

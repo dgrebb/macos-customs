@@ -8,7 +8,7 @@ front_app=(
   icon.drawing=off
   label.font="$FONT:Black:12.0"
   padding_right=10
-  y_offset=1
+  y_offset=0
   associated_display=active
   script="$FRONT_APP_SCRIPT"
 )
