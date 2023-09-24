@@ -60,13 +60,34 @@ yabai -m config --space 1 top_padding 133 \
   left_padding 233 \
   right_padding 233
 
+yabai -m config --space 2 top_padding 133 \
+  bottom_padding 133 \
+  left_padding 233 \
+  right_padding 233
+
+yabai -m config --space 3 top_padding 133 \
+  bottom_padding 133 \
+  left_padding 233 \
+  right_padding 233 \
+  window_gap 333
+
 # focus window after active space changes
 yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
 # focus window after active display changes
 yabai -m signal --add event=display_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
 
+# Assign apps to spaces
+
+# TODO: Conditional for 1 Display
+
+# TODO: 3 Displays
+yabai -m rule --add app="^(Music)$" space=1
+yabai -m rule --add app="^(Firefox)$" space=2
+yabai -m rule --add app="^(OmniFocus|Mail)$" space=3
+yabai -m rule --add app="^(Visual Studio Code)$" space=7
+
 # Exclude problematic apps from being managed ----
-yabai -m rule --add app="^(Keyboard Maestro|CopyClip 2|Mail|TextExpander|xScope|Classic Color Meter|Digital Color Meter|OmniFocus|Music|Drafts|LuLu|Calculator|Software Update|Dictionary|VLC|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Activity Monitor)$" manage=off
+yabai -m rule --add app="^(Music|Keyboard Maestro|CopyClip 2|TextExpander|xScope|Classic Color Meter|Digital Color Meter|Drafts|LuLu|Calculator|Software Update|Dictionary|VLC|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Activity Monitor)$" manage=off
 yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
