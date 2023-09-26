@@ -15,12 +15,21 @@ launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist >
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+
+# Source a list of displays and their properties
+# https://github.com/koekeishiya/yabai/issues/1060#issuecomment-990431179
+source $HOME/.config/yabai/displays.sh
+
+# Set number of displays to configure spaces for
+
+# Display change signals
 yabai -m signal --add event=display_added action="sleep 2 && $HOME/.config/yabai/create_spaces.sh"
 yabai -m signal --add event=display_removed action="sleep 1 && $HOME/.config/yabai/create_spaces.sh"
 yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
 yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
 
-# $HOME/.config/yabai/create_spaces.sh
+# Set up spaces and bind window focus to SketchyBar
+$HOME/.config/yabai/create_spaces.sh
 
 yabai -m config external_bar all:35:0 \
   window_border off \
@@ -79,6 +88,11 @@ yabai -m signal --add event=display_changed action="yabai -m window --focus \$(y
 # Assign apps to spaces
 
 # TODO: Conditional for 1 Display
+# yabai -m signal --add event=display_added action="if [[ \"\$(yabai -m query --displays | jq \".[\$YABAI_DISPLAY_ID].uuid\")\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar main:$NORMAL_BAR:0; elif [[ \"\$(yabai -m query --displays | jq '.[].uuid')\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar main:$NORMAL_BAR:0; else yabai -m config external_bar all:$NORMAL_BAR:0; fi"
+# yabai -m signal --add event=display_removed action="if [[ \"\$(yabai -m query --displays | jq \".[\$YABAI_DISPLAY_ID].uuid\")\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar all:$NORMAL_BAR:0; elif [[ \"\$(yabai -m query --displays | jq '.[].uuid')\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar all:$NOTCH_BAR:0; fi"
+
+# global settings
+# if [[ "$(yabai -m query --displays | jq '.[].uuid')" =~ "$NOTCH_UUID" ]]; then if [ "$(yabai -m query --displays | jq length)" -gt "1" ]; then yabai -m config external_bar main:$NORMAL_BAR:0; else yabai -m config external_bar all:$NOTCH_BAR:0; fi else yabai -m config external_bar all:$NORMAL_BAR:0; fi
 
 # TODO: 3 Displays
 yabai -m rule --add app="^(Music)$" space=1
