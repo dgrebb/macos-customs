@@ -64,7 +64,7 @@ system_bracket=(
 
 sketchybar --add item spacer0 left \
   --set spacer0 background.drawing=off \
-  width=5
+  width=3
 
 sketchybar --add bracket system front_app apple.logo \
   --set system "${system_bracket[@]}"

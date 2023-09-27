@@ -61,11 +61,6 @@ sketchybar --add bracket spaces_bracket '/space\..*/' \
 # Custom icon sizes and offsets                                               #
 ###############################################################################
 
-# Music icon offset and size
-sketchybar --set space.1 \
-  label.font.size=24.0 \
-  label.y_offset=1
-
 # adjust tractor
 sketchybar --set space.2 icon.y_offset=2
 

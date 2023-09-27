@@ -37,5 +37,5 @@ sketchybar --add item calendar_spacer right \
   --set calendar_spacer background.drawing=off \
   width=5
 
-sketchybar --add bracket calendarb "iStat Menus Status,com.bjango.istatmenus.weather" calendar \
+sketchybar --add bracket calendarb battery "iStat Menus Status,com.bjango.istatmenus.weather" calendar \
   --set calendarb "${calendar_bracket[@]}"
