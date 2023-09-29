@@ -1,10 +1,15 @@
 #!/bin/bash
 
+sketchybar --add item network_r_spacer right \
+  --set network_r_spacer background.drawing=off \
+  associated_display=1 \
+  width=5
+
 sketchybar --add item ip_address right \
   --set ip_address script="~/.config/sketchybar/plugins/ip_address.sh" \
   update_freq=30 \
   padding_left=2 \
-  padding_right=8 \
+  padding_right=1 \
   background.border_width=0 \
   background.corner_radius=6 \
   background.height=24 \
@@ -39,7 +44,9 @@ sketchybar --add item network.down right \
 
 sketchybar --add item network_spacer right \
   --set network_spacer background.drawing=off \
-  width=5
+  width=5 \
+  associated_display=1
+
 
 # Bracket
 
