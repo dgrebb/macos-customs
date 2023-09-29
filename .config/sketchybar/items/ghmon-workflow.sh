@@ -5,7 +5,7 @@ POPUP_CLICK_SCRIPT="sketchybar --set \$NAME popup.drawing=toggle"
 github_status=(
   padding_right=6
   padding_left=6
-  update_freq=30
+  update_freq=15
   icon=⏺
   icon.font="Hack Nerd Font:Regular:14.0"
   icon.color=$BLUE
@@ -31,8 +31,8 @@ sketchybar --add item github.status right \
   \
   --add item github.template popup.github.status \
   --set github.template "${github_template[@]}"
-  # --subscribe github.status mouse.entered \
-  # mouse.exited \
+# --subscribe github.status mouse.entered \
+# mouse.exited \
 
 ghmon_bracket=(
   background.color=$BACKGROUND_1
@@ -40,4 +40,4 @@ ghmon_bracket=(
 )
 
 sketchybar --add bracket ghmon github.status \
---set ghmon "${ghmon_bracket[@]}"
+  --set ghmon "${ghmon_bracket[@]}"

@@ -4,10 +4,13 @@
 update() {
   # Settings
   source "$CONFIG_DIR/colors.sh"
-  REPOSITORY="dgrebb/dgrebb.com" # The repository to monitor
-  WORKFLOW_ID=67874244           # The workflow to monitor
-  LIST_LIMIT=5                   # How many runs you want in the popup
-  TIMEZONE="America/New_York"    # Replace with your desired timezone
+  REPOSITORY="dgrebb/dgrebb.com"              # The repository to monitor
+  WORKFLOW_ID=67874244                        # The workflow to monitor
+  LIST_LIMIT=5                                # How many runs you want in the popup
+  TIMEZONE="America/New_York"                 # Replace with your desired timezone
+  PYTHON="/opt/homebrew/anaconda3/bin/python" # Possibly not needed — I didn't feel like figuring out how to link homebrew python with root (sudo)
+  # More here: https://github.com/FelixKratz/SketchyBar/issues/378
+  # You could also `source ~/.zshrc` or `source ~/.bash_profile`, etc if python is defined in your path
 
   STATUS=$(gh run list --repo $REPOSITORY --workflow $WORKFLOW_ID --limit 1 --json status --jq '.[0].status')
   CONCLUSION=$(gh run list --repo $REPOSITORY --workflow $WORKFLOW_ID --limit 1 --json conclusion --jq '.[0].conclusion')
@@ -70,7 +73,7 @@ update() {
 
     # Convert the workflow run date/time to the desired timezone using Python
     # The BSD `date` function in macos is garbage — YMMV; here be dragons
-    RUN_END_TIME=$(TZ="$TIMEZONE" python -c "from dateutil import tz, parser; import sys; dt = parser.parse($end); local_dt = dt.astimezone(tz.tzlocal()); sys.stdout.write(local_dt.strftime('%y.%m.%d - %H:%M:%S'))")
+    RUN_END_TIME=$(TZ="$TIMEZONE" $PYTHON -c "from dateutil import tz, parser; import sys; dt = parser.parse($end); local_dt = dt.astimezone(tz.tzlocal()); sys.stdout.write(local_dt.strftime('%y.%m.%d - %H:%M:%S'))")
 
     case "${conclusion}" in
     "'success'")
