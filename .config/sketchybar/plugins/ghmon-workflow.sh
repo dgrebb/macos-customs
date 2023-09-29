@@ -2,39 +2,45 @@
 
 # Monitor GitHub Workflow by ID
 update() {
+  # Settings
   source "$CONFIG_DIR/colors.sh"
-  REPOSITORY="dgrebb/dgrebb.com"
-  WORKFLOW_ID=67874244
-  LIST_LIMIT=5
+  REPOSITORY="dgrebb/dgrebb.com" # The repository to monitor
+  WORKFLOW_ID=67874244           # The workflow to monitor
+  LIST_LIMIT=5                   # How many runs you want in the popup
+  TIMEZONE="America/New_York"    # Replace with your desired timezone
+
   STATUS=$(gh run list --repo $REPOSITORY --workflow $WORKFLOW_ID --limit 1 --json status --jq '.[0].status')
   CONCLUSION=$(gh run list --repo $REPOSITORY --workflow $WORKFLOW_ID --limit 1 --json conclusion --jq '.[0].conclusion')
-  LIST=$(gh run list --repo $REPOSITORY --workflow $WORKFLOW_ID --limit $LIST_LIMIT --json status,conclusion,displayTitle,headBranch,url)
+  LIST=$(gh run list --repo $REPOSITORY --workflow $WORKFLOW_ID --limit $LIST_LIMIT --json status,conclusion,startedAt,updatedAt,displayTitle,headBranch,url)
 
   COLOR=$BLUE
-  ICON=⏺
+  ICON=
   LABEL=""
-  BACKGROUND=""
+  COUNTER=0
 
   # queued, in_progress, completed,
   case "${STATUS}" in
   "queued")
-    COLOR=$GREY
-    ICON=⏺
+    COLOR=$RED
+    ICON=󱤳
+    BACKGROUND_1=0xff870000
+    BACKGROUND_2=$RED
     ;;
   "in_progress")
     COLOR=$YELLOW
-    ICON=⏺
-    BACKGROUND="$CONFIG_DIR/../static/rocket.png"
+    ICON=󱓞
     LCOLOR=$YELLOW
-    LABEL=🚀
+    LABEL=󰦖
+    BACKGROUND_1=0xff606800
+    BACKGROUND_2=$YELLOW
     ;;
   "completed")
-    COLOR=$GREEN
-    ICON=⏺
+    COLOR=$WHITE
+    ICON=
     ;;
   *)
     COLOR=$BLUE
-    ICON=⏺
+    ICON=
     ;;
   esac
 
@@ -43,37 +49,84 @@ update() {
   "success")
     LCOLOR=$GREEN
     LABEL=✓
-    break
     ;;
-  "canceled")
-    LCOLOR=$GREY
+  "cancelled")
+    LCOLOR=$YELLOW
     LABEL=⚠
-    break
     ;;
   "failed")
     LCOLOR=$RED
     LABEL=⊘
-    break
     ;;
   esac
 
-  echo "updating github workflow status $STATUS $COLOR $ICON $CONCLUSION"
-  sketchybar --set github.status icon="$ICON" icon.color="$COLOR" label="$LABEL" label.color="$LCOLOR"
+  args+=(--remove '/github.run\.*/')
+  while read -r url status conclusion start end branch title; do
+    TITLE="$(echo "$title" | sed -e "s/^'//" -e "s/'$//")"
+    URL="$(echo -e "${url}")"
+    COUNTER=$((COUNTER + 1))
+    RUNICON=󰦖
+    ICOLOR=$YELLOW
+
+    # Convert the workflow run date/time to the desired timezone using Python
+    # The BSD `date` function in macos is garbage — YMMV; here be dragons
+    RUN_END_TIME=$(TZ="$TIMEZONE" python -c "from dateutil import tz, parser; import sys; dt = parser.parse($end); local_dt = dt.astimezone(tz.tzlocal()); sys.stdout.write(local_dt.strftime('%y.%m.%d - %H:%M:%S'))")
+
+    case "${conclusion}" in
+    "'success'")
+      ICOLOR=$GREEN
+      RUNICON=✓
+      ;;
+    "'cancelled'")
+      ICOLOR=$YELLOW
+      RUNICON=⚠
+      ;;
+    "'failed'")
+      ICOLOR=$RED
+      RUNICON=⊘
+      ;;
+    esac
+
+    run=(
+      label="$TITLE | $RUN_END_TIME"
+      icon=$RUNICON
+      icon.padding_left=10
+      label.padding_right=10
+      icon.color="$ICOLOR"
+      position=popup.github.status
+      icon.background.color=$BACKGROUND2
+      drawing=on
+      click_script="open $URL; sketchybar --set github.status popup.drawing=off"
+    )
+
+    args+=(--clone github.run.$COUNTER github.template
+      --set github.run.$COUNTER "${run[@]}")
+
+  done <<<"$(echo $LIST | jq -r '.[] | [.url, .status, .conclusion, .startedAt, .updatedAt, .headBranch, .displayTitle] | @sh')"
+
+  sketchybar -m "${args[@]}" >/dev/null
+
+  sketchybar --set github.status icon="$ICON" icon.color="$COLOR" label="$LABEL" label.color="$LCOLOR" \
+    --set ghmon background.color=$BACKGROUND_1 background.border_color=$BACKGROUND_2
+}
+
+popup() {
+  sketchybar --set $NAME popup.drawing=$1
 }
 
 case "$SENDER" in
 "routine" | "forced")
   update
   ;;
-# "mouse.entered")
-#   popup on
-#   ;;
-# "mouse.exited" | "mouse.exited.global")
-#   popup off
-#   ;;
-# "mouse.clicked")
-#   popup toggle
-#   ;;
+"mouse.entered")
+  popup on
+  ;;
+"mouse.exited" | "mouse.exited.global")
+  popup off
+  ;;
+"mouse.clicked")
+  popup toggle
+  ;;
 esac
 
 # for i in {1..100}; do
