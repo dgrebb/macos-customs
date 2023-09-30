@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SPACE_ICONS=("󰽯" "🚜" "" "" "◌" "◌" "" "" "")
+SPACE_ICONS=("󰽯" "🚜" "󱁐" "" "" "◌" "" "" "")
 
 # Destroy space on right click, focus space on left click.
 # New space by left clicking separator (>)
