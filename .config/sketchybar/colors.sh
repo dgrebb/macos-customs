@@ -5,7 +5,7 @@
 export BLACK=0xff181926
 export WHITE=0xbaffffff
 export RED=0xffd75a00
-export GREEN=0xffa6da95
+export GREEN=0xff08da00
 export BLUE=0xff8aadf4
 export YELLOW=0xfff4ff00
 export ORANGE=0xfff5a97f
@@ -20,6 +20,7 @@ export ICON_COLOR=$WHITE           # Color of all icons
 export LABEL_COLOR=$WHITE          # Color of all labels
 export BACKGROUND_1=0x9c1c1c1c
 export BACKGROUND_2=0x4a787878
+export BACKGROUND_ACTIVE=0xc9292929
 export HIGHLIGHT_BORDER=0x63c8c8c8
 export HIGHLIGHT=0x54ffffff
 

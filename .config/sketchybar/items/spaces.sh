@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SPACE_ICONS=("󰽯" "🚜" "" "" "◌" "◌" "" "" "")
+SPACE_ICONS=("󰽯" "🚜" "" "" "◌" "◌" "" "" "")
 
 # Destroy space on right click, focus space on left click.
 # New space by left clicking separator (>)
@@ -65,6 +65,6 @@ sketchybar --add bracket spaces_bracket '/space\..*/' \
 sketchybar --set space.2 icon.y_offset=2
 
 # set code space icons larger
-for id in 7 8 9; do
+for id in 7 8; do
   sketchybar --set space.$id icon.font.size=21.0
 done
