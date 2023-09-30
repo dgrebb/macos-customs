@@ -35,7 +35,8 @@ mouse_clicked() {
     yabai -m space --destroy $SID
     sketchybar --trigger windows_on_spaces --trigger space_change
   else
-    yabai -m space --focus $SID 2>/dev/null || switchdesktop $SID
+    # yabai -m space --focus $SID 2>/dev/null ||
+    switchdesktop $SID
   fi
 }
 
