@@ -16,50 +16,65 @@ update() {
   CONCLUSION=$(gh run list --repo $REPOSITORY --workflow $WORKFLOW_ID --limit 1 --json conclusion --jq '.[0].conclusion')
   LIST=$(gh run list --repo $REPOSITORY --workflow $WORKFLOW_ID --limit $LIST_LIMIT --json status,conclusion,startedAt,updatedAt,displayTitle,headBranch,url)
 
+  # Nerd Font icons for icon/label states
+  HOURGLASS_ICON=
+  OCTOCAT_ICON=
+  QUEUED_ICON=󰏧
+  PROGRESS_ICON=󰔚
+  ROCKET_ICON=󱓞
+  SUCCESS_ICON=✓
+  CANCELLED_ICON=⚠
+  FAILED_ICON=⊘
+
+  # dark colors
+  DARK_RED=0xff870000
+  DARK_YELLOW=0xff606800
+
+  # initial loading state
+  ICON=$OCTOCAT_ICON
   COLOR=$BLUE
-  ICON=
-  LABEL=""
+  LABEL=$HOURGLASS_ICON
+  LCOLOR=$BLUE
   COUNTER=0
 
-  # queued, in_progress, completed,
+  # queued, in_progress, completed states
   case "${STATUS}" in
   "queued")
-    COLOR=$RED
-    ICON=󱤳
-    BACKGROUND_1=0xff870000
+    COLOR=$WHITE
+    LABEL=$QUEUED_ICON
+    LCOLOR=$RED
+    BACKGROUND_1=$DARK_RED
     BACKGROUND_2=$RED
     ;;
   "in_progress")
-    COLOR=$YELLOW
-    ICON=󱓞
+    COLOR=$WHITE
+    LABEL=$ROCKET_ICON
     LCOLOR=$YELLOW
-    LABEL=󰦖
-    BACKGROUND_1=0xff606800
+    BACKGROUND_1=$DARK_YELLOW
     BACKGROUND_2=$YELLOW
     ;;
   "completed")
     COLOR=$WHITE
-    ICON=
+    # Labels for completed state are set by `conclusion`, below
     ;;
   *)
     COLOR=$BLUE
-    ICON=
     ;;
   esac
 
-  # queued, in_progress, completed,
+  # Workflow Conclusion State
   case "${CONCLUSION}" in
   "success")
     LCOLOR=$GREEN
-    LABEL=✓
+    LABEL=$SUCCESS_ICON
     ;;
   "cancelled")
     LCOLOR=$YELLOW
-    LABEL=⚠
+    LABEL=$CANCELLED_ICON
     ;;
   "failed")
     LCOLOR=$RED
-    LABEL=⊘
+    LABEL=$FAILED_ICON
     ;;
   esac
 
@@ -68,8 +83,8 @@ update() {
     TITLE="$(echo "$title" | sed -e "s/^'//" -e "s/'$//")"
     URL="$(echo -e "${url}")"
     COUNTER=$((COUNTER + 1))
-    RUNICON=󰦖
-    ICOLOR=$YELLOW
+    RUN_ICON=$PROGRESS_ICON
+    RUN_COLOR=$YELLOW
 
     # Convert the workflow run date/time to the desired timezone using Python
     # The BSD `date` function in macos is garbage — YMMV; here be dragons
@@ -77,27 +92,26 @@ update() {
 
     case "${conclusion}" in
     "'success'")
-      ICOLOR=$GREEN
-      RUNICON=✓
+      RUN_COLOR=$GREEN
+      RUN_ICON=$SUCCESS_ICON
       ;;
     "'cancelled'")
-      ICOLOR=$YELLOW
-      RUNICON=⚠
+      RUN_COLOR=$YELLOW
+      RUN_ICON=$CANCELLED_ICON
       ;;
     "'failed'")
-      ICOLOR=$RED
-      RUNICON=⊘
+      RUN_COLOR=$RED
+      RUN_ICON=$FAILED_ICON
       ;;
     esac
 
     run=(
       label="$TITLE | $RUN_END_TIME"
-      icon=$RUNICON
+      icon=$RUN_ICON
       icon.padding_left=10
       label.padding_right=10
-      icon.color="$ICOLOR"
+      icon.color="$RUN_COLOR"
       position=popup.github.status
-      icon.background.color=$BACKGROUND2
       drawing=on
       click_script="open $URL; sketchybar --set github.status popup.drawing=off"
     )
@@ -106,6 +120,7 @@ update() {
       --set github.run.$COUNTER "${run[@]}")
 
   done <<<"$(echo $LIST | jq -r '.[] | [.url, .status, .conclusion, .startedAt, .updatedAt, .headBranch, .displayTitle] | @sh')"
+  # NOTE: the order these property values are passed in is intentional - `displayName` can have breaking-characters, so it goes last
 
   sketchybar -m "${args[@]}" >/dev/null
 
