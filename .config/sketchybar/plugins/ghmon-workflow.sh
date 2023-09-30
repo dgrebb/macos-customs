@@ -108,8 +108,6 @@ update() {
     run=(
       label="$TITLE | $RUN_END_TIME"
       icon=$RUN_ICON
-      icon.padding_left=10
-      label.padding_right=10
       icon.color="$RUN_COLOR"
       position=popup.github.status
       drawing=on
@@ -124,8 +122,12 @@ update() {
 
   sketchybar -m "${args[@]}" >/dev/null
 
+  sketchybar -m --add item gh.spacer_bottom popup.github.status \
+    --set gh.spacer_bottom "${gh_spacer[@]}"
+
   sketchybar --set github.status icon="$ICON" icon.color="$COLOR" label="$LABEL" label.color="$LCOLOR" \
     --set ghmon background.color=$BACKGROUND_1 background.border_color=$BACKGROUND_2
+
 }
 
 popup() {
