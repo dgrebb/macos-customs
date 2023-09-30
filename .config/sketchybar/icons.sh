@@ -9,6 +9,8 @@ LOCK=􀒳
 BELL=􀋚
 GITHUB=
 BELL_DOT=􀝗
+REBOOT=󰜉
+REBOOT_NOW=󱄌
 
 # Git Icons
 GIT_ISSUE=􀍷

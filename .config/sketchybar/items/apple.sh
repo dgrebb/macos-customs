@@ -41,6 +41,18 @@ apple_lock=(
   click_script="pmset displaysleepnow; $POPUP_OFF"
 )
 
+apple_reboot=(
+  icon=$REBOOT
+  label="Reboot"
+  click_script="reboot"
+)
+
+apple_reboot_now=(
+  icon=$REBOOT_NOW
+  label="Reboot Now"
+  click_script="reboot now"
+)
+
 sketchybar --add item apple.logo left \
   --set apple.logo "${apple_logo[@]}" \
   \
@@ -51,9 +63,15 @@ sketchybar --add item apple.logo left \
   --set apple.activity "${apple_activity[@]}" \
   \
   --add item apple.lock popup.apple.logo \
-  --set apple.lock "${apple_lock[@]}"
-
-sketchybar --add item front_app left \
+  --set apple.lock "${apple_lock[@]}" \
+  \
+  --add item apple.reboot popup.apple.logo \
+  --set apple.reboot "${apple_reboot[@]}" \
+  \
+  --add item apple.reboot_now popup.apple.logo \
+  --set apple.reboot_now "${apple_reboot_now[@]}" \
+  \
+  sketchybar --add item front_app left \
   --set front_app "${front_app[@]}" \
   --subscribe front_app front_app_switched
 
