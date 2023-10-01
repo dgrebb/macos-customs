@@ -44,13 +44,13 @@ apple_lock=(
 apple_reboot=(
   icon=$REBOOT
   label="Reboot"
-  click_script="reboot"
+  click_script="reboot; $POPUP_OFF"
 )
 
 apple_reboot_now=(
   icon=$REBOOT_NOW
   label="Reboot Now"
-  click_script="reboot now"
+  click_script="reboot now; $POPUP_OFF"
 )
 
 sketchybar --add item apple.logo left \
@@ -69,9 +69,9 @@ sketchybar --add item apple.logo left \
   --set apple.reboot "${apple_reboot[@]}" \
   \
   --add item apple.reboot_now popup.apple.logo \
-  --set apple.reboot_now "${apple_reboot_now[@]}" \
-  \
-  sketchybar --add item front_app left \
+  --set apple.reboot_now "${apple_reboot_now[@]}"
+
+sketchybar --add item front_app left \
   --set front_app "${front_app[@]}" \
   --subscribe front_app front_app_switched
 
