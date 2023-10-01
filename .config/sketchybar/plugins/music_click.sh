@@ -1,11 +1,11 @@
 #!/usr/bin/env osascript
 
 tell application "Music"
-    if loved of current track is true then
-        set loved of current track to false
+    if favorited of current track is true then
+        set favorited of current track to false
         do shell script "sketchybar -m --set music icon=♥ icon.color=0xbaffffff"
       else
-        set loved of current track to true
+        set favorited of current track to true
         do shell script "sketchybar -m --set music icon="
     end if
 end tell
