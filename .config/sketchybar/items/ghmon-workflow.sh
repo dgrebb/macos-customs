@@ -21,7 +21,6 @@ github_status=(
 gh_spacer=(
   icon.drawing=off
   label.drawing=off
-  background.height=7
   width=110
   background.drawing=on
 )
@@ -31,6 +30,7 @@ github_template=(
   background.corner_radius=12
   label.padding_right=5
   icon.padding_left=5
+  icon.width=23
   padding_left=7
   padding_right=7
   background.height=22
@@ -43,7 +43,7 @@ sketchybar --add item github.status right \
   --subscribe github.status mouse.exited.global \
   \
   --add item gh.spacer popup.github.status \
-  --set gh.spacer "${gh_spacer[@]}" \
+  --set gh.spacer "${gh_spacer[@]}" background.height=5 \
   --add item github.template popup.github.status \
   --set github.template "${github_template[@]}"
 # --subscribe github.status mouse.entered \

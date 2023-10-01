@@ -78,7 +78,7 @@ update() {
     ;;
   esac
 
-  args+=(--remove '/github.run\.*/')
+  args+=(--remove '/github.run\.*/' --remove gh.spacer_bottom)
   while read -r url status conclusion start end branch title; do
     TITLE="$(echo "$title" | sed -e "s/^'//" -e "s/'$//")"
     URL="$(echo -e "${url}")"
@@ -120,13 +120,16 @@ update() {
   done <<<"$(echo $LIST | jq -r '.[] | [.url, .status, .conclusion, .startedAt, .updatedAt, .headBranch, .displayTitle] | @sh')"
   # NOTE: the order these property values are passed in is intentional - `displayName` can have breaking-characters, so it goes last
 
-  sketchybar -m "${args[@]}" >/dev/null
+  args+=(--add item gh.spacer_bottom popup.github.status
+    --set gh.spacer_bottom "${gh_spacer[@]}" background.height=5)
 
-  sketchybar -m --add item gh.spacer_bottom popup.github.status \
-    --set gh.spacer_bottom "${gh_spacer[@]}"
+  sketchybar -m "${args[@]}" >/dev/null
 
   sketchybar --set github.status icon="$ICON" icon.color="$COLOR" label="$LABEL" label.color="$LCOLOR" \
     --set ghmon background.color=$BACKGROUND_1 background.border_color=$BACKGROUND_2
+
+  # sketchybar -m --add item gh.spacer_bottom popup.github.status \
+  #   --set gh.spacer_bottom "${gh_spacer[@]}"
 
 }
 
