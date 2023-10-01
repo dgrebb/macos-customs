@@ -4,6 +4,6 @@ utils_bracket=(
   associated_display=1
 )
 
-sketchybar --add bracket utils volume_icon "Shifty,Item-0" "iStat Menus Status,com.bjango.istatmenus.memory" "iStat Menus Status,com.bjango.istatmenus.cpu" \
+sketchybar --add bracket utils volume_icon omnifocus "Shifty,Item-0" "iStat Menus Status,com.bjango.istatmenus.memory" "iStat Menus Status,com.bjango.istatmenus.cpu" \
   --set utils "${utils_bracket[@]}" \
   associated_display=1
