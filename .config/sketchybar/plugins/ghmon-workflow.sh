@@ -4,11 +4,11 @@
 update() {
   # Settings
   source "$CONFIG_DIR/colors.sh"
-  REPOSITORY="dgrebb/dgrebb.com"              # The repository to monitor
-  WORKFLOW_ID=67874244                        # The workflow to monitor
-  LIST_LIMIT=5                                # How many runs you want in the popup
-  TIMEZONE="America/New_York"                 # Replace with your desired timezone
-  PYTHON="/opt/homebrew/anaconda3/bin/python" # Possibly not needed — I didn't feel like figuring out how to link homebrew python with root (sudo)
+  REPOSITORY="dgrebb/dgrebb.com" # The repository to monitor
+  WORKFLOW_ID=67874244           # The workflow to monitor
+  LIST_LIMIT=5                   # How many runs you want in the popup
+  TIMEZONE="America/New_York"    # Replace with your desired timezone
+  PYTHON=$(which python)         # Possibly not needed — I didn't feel like figuring out how to link homebrew python with root (sudo)
   # More here: https://github.com/FelixKratz/SketchyBar/issues/378
   # You could also `source ~/.zshrc` or `source ~/.bash_profile`, etc if python is defined in your path
 
