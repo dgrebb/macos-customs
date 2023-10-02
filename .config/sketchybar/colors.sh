@@ -5,10 +5,11 @@
 export BLACK=0xff181926
 export WHITE=0xbaffffff
 export RED=0xffd75a00
+export ORANGE=0xfff5a97f
+export YELLOW=0xfff4ff00
 export GREEN=0xff08da00
 export BLUE=0xff8aadf4
-export YELLOW=0xfff4ff00
-export ORANGE=0xfff5a97f
+export PURPLE=0xffcd3fdf
 export MAGENTA=0xffc6a0f6
 export GREY=0x8ca0a0a0
 export TRANSPARENT=0x00000000

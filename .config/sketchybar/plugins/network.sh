@@ -6,6 +6,9 @@ function getBytes {
   kill $!
 }
 
+# Clean mid-stream corrupted network.out
+rm -rf ~/.config/.sketchyrw/network.out
+
 BYTES=$(getBytes >/dev/null)
 BYTES=$(cat ~/.config/.sketchyrw/network.out | grep '[0-9].*')
 
@@ -29,7 +32,7 @@ function human_readable() {
   for item in "${abbrevs[@]}"; do
     local factor="${item%:*}"
     local abbrev="${item#*:}"
-    if [[ "${bytes}" -ge "${factor}" ]]; then
+    if [ "${bytes}" -ge "${factor}" ]; then
       local size="$(bc -l <<<"${bytes} / ${factor}")"
       printf "%.*f %s\n" "${precision}" "${size}" "${abbrev}"
       break
