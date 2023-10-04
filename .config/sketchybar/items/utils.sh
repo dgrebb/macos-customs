@@ -1,4 +1,5 @@
 #!/bin/bash
+source "$CONFIG_DIR/machine.sh"
 
 utils_bracket=(
   background.color=$BACKGROUND_1
@@ -9,7 +10,7 @@ utils_bracket=(
 # Set up machine-specific apps
 utils=()
 
-if [[ ! -z "$TEAMS" ]]; then
+if [[ "$MACHINE" == 'work' ]]; then
   utils+=teams
 else
   echo "Skipping Teams util as it is not installed."

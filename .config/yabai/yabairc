@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+source "$CONFIG_DIR/machine.sh"
 
 # Useful keyboard scripts
 # https://gist.github.com/dgrebb/d3ca843c61d9cabfdd30bf89976e454e
@@ -109,6 +110,10 @@ yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
 yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Select file to save to" manage=off
 
-yabai -m config layout bsp
+if [[ "$MACHINE" == 'work' ]]; then
+  yabai -m config layout float
+else
+  yabai -m config layout bsp
+fi
 
 echo "yabai configuration loaded.."

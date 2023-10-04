@@ -1,6 +1,11 @@
 #!/bin/bash
-PATH+=:/opt/homebrew/anaconda3/bin/
-PATH+=:/usr/local/opt/python/libexec/bin/
+source "$CONFIG_DIR/machine.sh"
+
+if [[ "$MACHINE" == 'work' ]]; then
+  PATH+=:/usr/local/opt/python/libexec/bin/
+else
+  PATH+=:/opt/homebrew/anaconda3/bin/
+fi
 
 # Monitor GitHub Workflow by ID
 update() {

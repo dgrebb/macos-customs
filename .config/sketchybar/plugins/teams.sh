@@ -4,13 +4,14 @@ source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 
 STATUS_LABEL=$(lsappinfo info -only StatusLabel "Microsoft Teams (work or school)")
 ICON="󰊻"
+LABEL="213"
 ICON_COLOR="$WHITE"
 DRAWING=on
 WIDTH=0
 PADDING=0
 if [[ $STATUS_LABEL =~ \"label\"=\"([^\"]*)\" ]]; then
   LABEL="${BASH_REMATCH[1]}"
-  echo " label is $LABEL"
+  echo "${BASH_REMATCH[2]} label is $LABEL"
 
   if [[ $LABEL == "" ]]; then
     ICON_COLOR="$WHITE"
