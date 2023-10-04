@@ -64,6 +64,9 @@ defaults=(
 
 sketchybar --default "${defaults[@]}"
 
+# App checks
+TEAMS=$(lsappinfo info "Microsoft Teams (work or school)")
+
 # Left
 # source "$ITEM_DIR/front_app.sh" moved inside of apple.sh
 source "$ITEM_DIR/apple.sh"
@@ -79,6 +82,12 @@ source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/network.sh"
 source "$ITEM_DIR/aliases.sh"
 source "$ITEM_DIR/omnifocus.sh"
+if [[ ! -z "$TEAMS" ]]; then
+  utils+=teams
+  source "$ITEM_DIR/teams.sh"
+else
+  echo "Skipping Teams util as it is not installed."
+fi
 source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/utils.sh"
 source "$ITEM_DIR/ghmon-workflow.sh"

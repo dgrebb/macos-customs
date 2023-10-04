@@ -8,15 +8,13 @@ utils_bracket=(
 
 # Set up machine-specific apps
 utils=()
-TEAMS=$(lsappinfo info "Microsoft Teams")
 
-if [[ $TEAMS ]]; then
+if [[ ! -z "$TEAMS" ]]; then
   utils+=teams
-  source "$ITEM_DIR/teams.sh"
 else
   echo "Skipping Teams util as it is not installed."
 fi
 
-sketchybar --add bracket utils volume_icon omnifocus $utils "Shifty,Item-0" "iStat Menus Status,com.bjango.istatmenus.memory" "iStat Menus Status,com.bjango.istatmenus.cpu" \
+sketchybar --add bracket utils volume_icon $utils omnifocus "Shifty,Item-0" "iStat Menus Status,com.bjango.istatmenus.memory" "iStat Menus Status,com.bjango.istatmenus.cpu" \
   --set utils "${utils_bracket[@]}" \
   associated_display=1

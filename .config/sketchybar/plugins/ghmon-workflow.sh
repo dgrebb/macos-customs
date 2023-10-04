@@ -1,5 +1,6 @@
 #!/bin/bash
 PATH+=:/opt/homebrew/anaconda3/bin/
+PATH+=:/usr/local/opt/python/libexec/bin/
 
 # Monitor GitHub Workflow by ID
 update() {
