@@ -4,17 +4,19 @@ source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 
 STATUS_LABEL=$(lsappinfo info -only StatusLabel "Microsoft Teams (work or school)")
 ICON="󰊻"
+ICON_COLOR="$WHITE"
 DRAWING=on
 WIDTH=0
 PADDING=0
 if [[ $STATUS_LABEL =~ \"label\"=\"([^\"]*)\" ]]; then
   LABEL="${BASH_REMATCH[1]}"
+  echo " label is $LABEL"
 
   if [[ $LABEL == "" ]]; then
     ICON_COLOR="$WHITE"
     # DRAWING=off
   elif [[ $LABEL == "•" ]]; then
-    ICON_COLOR="0xffeed49f"
+    ICON_COLOR=$RED
     # DRAWING=off
   elif [[ $LABEL =~ ^[0-9]+$ ]]; then
     ICON_COLOR="$BLUE"
@@ -22,6 +24,7 @@ if [[ $STATUS_LABEL =~ \"label\"=\"([^\"]*)\" ]]; then
     # WIDTH=10
     # PADDING=3
   else
+    ICON_COLOR=$GREY
     # DRAWING=off
     # WIDTH=0
     # PADDING=0
@@ -31,7 +34,7 @@ else
   exit 0
 fi
 
-sketchybar --set $NAME icon=$ICON label="${LABEL}" icon.color=${ICON_COLOR} drawing=$DRAWING \
+sketchybar --set $NAME icon=$ICON label="${LABEL}" icon.color="${ICON_COLOR}" drawing=$DRAWING \
   background.padding_left=500 \
   background.padding_right=3 \
   icon.padding_left=3 \

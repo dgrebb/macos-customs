@@ -83,7 +83,6 @@ source "$ITEM_DIR/network.sh"
 source "$ITEM_DIR/aliases.sh"
 source "$ITEM_DIR/omnifocus.sh"
 if [[ ! -z "$TEAMS" ]]; then
-  utils+=teams
   source "$ITEM_DIR/teams.sh"
 else
   echo "Skipping Teams util as it is not installed."
