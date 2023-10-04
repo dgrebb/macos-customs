@@ -7,5 +7,6 @@ sketchybar --add item teams right \
   label.y_offset=-1 \
   icon.y_offset=1 \
   icon.font.size=18 \
-  associated_display=1 \
-  --subscribe teams system_woke
+  associated_display=1
+
+sketchybar --subscribe teams system_woke

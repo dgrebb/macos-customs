@@ -39,6 +39,6 @@ sketchybar --set $NAME icon=$ICON label="${LABEL}" icon.color="${ICON_COLOR}" dr
   background.padding_right=3 \
   icon.padding_left=3 \
   icon.padding_right=0 \
-  label.padding_left=0 \
+  label.padding_left=3 \
   label.padding_right=3 \
   width=45
