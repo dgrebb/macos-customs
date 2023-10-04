@@ -25,3 +25,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 .config/sketchybar/plugins/network.out
+
+# Machine ID
+.config/.machine
