@@ -19,13 +19,6 @@ sketchybar --add alias "iStat Menus Status,com.bjango.istatmenus.memory" right \
   width=20 \
   associated_display=1
 
-sketchybar --add alias "Shifty,Item-0" right \
-  --set "Shifty,Item-0" "${alias[@]}" \
-  alias.color=$WHITE \
-  width=15 \
-  click_script="nightlight toggle" \
-  associated_display=1
-
 sketchybar --add item spacer1 right \
   --set spacer1 background.drawing=off \
   associated_display=1 \

@@ -82,6 +82,7 @@ source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/network.sh"
 source "$ITEM_DIR/aliases.sh"
+source "$ITEM_DIR/nightshift.sh"
 source "$ITEM_DIR/omnifocus.sh"
 if [[ "$MACHINE" == 'work' ]]; then
   source "$ITEM_DIR/teams.sh"
