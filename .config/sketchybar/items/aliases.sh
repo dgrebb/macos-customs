@@ -5,16 +5,18 @@ alias=(
   associated_display=1
 )
 
-sketchybar --add alias "iStat Menus Status,com.bjango.istatmenus.memory" right \
-  --set "iStat Menus Status,com.bjango.istatmenus.memory" "${alias[@]}" \
-  alias.color=yellow \
-  width=15 \
-  associated_display=1
-
 sketchybar --add alias "iStat Menus Status,com.bjango.istatmenus.cpu" right \
   --set "iStat Menus Status,com.bjango.istatmenus.cpu" "${alias[@]}" \
   alias.color=#RED \
   width=25 \
+  label.padding_right=0 \
+  icon.padding_right=0 \
+  associated_display=1
+
+sketchybar --add alias "iStat Menus Status,com.bjango.istatmenus.memory" right \
+  --set "iStat Menus Status,com.bjango.istatmenus.memory" "${alias[@]}" \
+  alias.color=yellow \
+  width=20 \
   associated_display=1
 
 sketchybar --add alias "Shifty,Item-0" right \

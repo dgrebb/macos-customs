@@ -86,7 +86,7 @@ source "$ITEM_DIR/omnifocus.sh"
 if [[ "$MACHINE" == 'work' ]]; then
   source "$ITEM_DIR/teams.sh"
 else
-  echo "Skipping Teams util as it is not installed."
+  echo "Skipping Teams for home."
 fi
 source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/utils.sh"
