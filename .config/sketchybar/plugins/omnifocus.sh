@@ -17,7 +17,9 @@ if [[ $STATUS_LABEL =~ \"label\"=\"([^\"]*)\" ]]; then
     exit 0
   fi
 else
-  exit 0
+  LABEL="0"
+  ICON_COLOR="$GREY"
 fi
 
-sketchybar --set $NAME icon=$ICON label="${LABEL}" icon.color=${ICON_COLOR}
+sketchybar --set $NAME icon=$ICON label="${LABEL}" icon.color=${ICON_COLOR} \
+  click_script="osascript -e 'tell application \"OmniFocus\" to activate'"
