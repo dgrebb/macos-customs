@@ -19,7 +19,8 @@ zen_on() {
     --set "Shifty,Item-0" drawing=off \
     --set network.up drawing=off \
     --set network.down drawing=off \
-    --set ip_address drawing=off
+    --set ip_address drawing=off \
+    --set teams drawing=off
 }
 
 zen_off() {
@@ -40,7 +41,8 @@ zen_off() {
     --set "Shifty,Item-0" drawing=on \
     --set network.up drawing=on \
     --set network.down drawing=on \
-    --set ip_address drawing=on
+    --set ip_address drawing=on \
+    --set teams drawing=on
 }
 
 if [ "$1" = "on" ]; then
