@@ -12,10 +12,11 @@ utils=()
 
 if [[ "$MACHINE" == 'work' ]]; then
   utils+=teams
-else
-  echo "Skipping Teams util as it is not installed."
 fi
 
-sketchybar --add bracket utils volume_icon $utils omnifocus "Shifty,Item-0" "iStat Menus Status,com.bjango.istatmenus.memory" "iStat Menus Status,com.bjango.istatmenus.cpu" \
+sketchybar --add bracket utils volume_icon $utils omnifocus "Shifty,Item-0" \
+  "iStat Menus Status,com.bjango.istatmenus.cpu" \
+  "iStat Menus Status,com.bjango.istatmenus.memory" \
+  ip_address network.up network.down \
   --set utils "${utils_bracket[@]}" \
   associated_display=1

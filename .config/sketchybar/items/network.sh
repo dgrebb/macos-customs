@@ -9,10 +9,9 @@ sketchybar --add item ip_address right \
   --set ip_address script="~/.config/sketchybar/plugins/ip_address.sh" \
   click_script="$PLUGIN_DIR/network_click.sh" \
   update_freq=30 \
-  padding_left=2 \
+  padding_left=1 \
   padding_right=1 \
-  background.border_width=0 \
-  background.corner_radius=6 \
+  width=25 \
   background.height=24 \
   icon.highlight=off \
   label.highlight=off \
@@ -21,10 +20,10 @@ sketchybar --add item ip_address right \
 
 sketchybar --add item network.up right \
   --set network.up script="~/.config/sketchybar/plugins/network.sh" \
+  drawing=off \
   update_freq=10 \
   padding_left=2 \
-  padding_right=2 \
-  background.border_width=0 \
+  padding_right=10 \
   background.height=24 \
   icon=⇡ \
   icon.color=$YELLOW \
@@ -33,8 +32,9 @@ sketchybar --add item network.up right \
 
 sketchybar --add item network.down right \
   --set network.down script="~/.config/sketchybar/plugins/network.sh" \
+  drawing=off \
   update_freq=10 \
-  padding_left=8 \
+  padding_left=0 \
   padding_right=2 \
   background.border_width=0 \
   background.height=24 \
@@ -42,14 +42,3 @@ sketchybar --add item network.down right \
   icon.color=$GREEN \
   label.color=$GREEN \
   associated_display=1
-
-sketchybar --add item network_spacer right \
-  --set network_spacer background.drawing=off \
-  width=5 \
-  associated_display=1
-
-# Bracket
-
-sketchybar --add bracket status ip_address network.up network.down \
-  --set status background.color=$BACKGROUND_1 \
-  background.border_color=$BACKGROUND_2
