@@ -42,4 +42,5 @@ sketchybar --set $NAME icon=$ICON label="${LABEL}" icon.color="${ICON_COLOR}" dr
   icon.padding_right=0 \
   label.padding_left=3 \
   label.padding_right=3 \
+  click_script="osascript -e 'tell application \"Microsoft Teams (work or school)\" to activate'" \
   width=45
