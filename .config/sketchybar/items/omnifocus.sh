@@ -10,4 +10,5 @@ sketchybar --add item omnifocus right \
   icon.y_offset=1 \
   icon.font.size=18 \
   associated_display=1 \
+  click_script="$PLUGIN_DIR/omnifocus_click.sh" \
   --subscribe omnifocus system_woke

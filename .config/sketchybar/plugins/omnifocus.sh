@@ -21,5 +21,4 @@ else
   ICON_COLOR="$GREY"
 fi
 
-sketchybar --set $NAME icon=$ICON label="${LABEL}" icon.color=${ICON_COLOR} \
-  click_script="osascript -e 'tell application \"OmniFocus\" to activate'"
+sketchybar --set $NAME icon=$ICON label="${LABEL}" icon.color=${ICON_COLOR}
