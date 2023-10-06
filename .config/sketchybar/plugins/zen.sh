@@ -16,7 +16,7 @@ zen_on() {
     --set omnifocus drawing=off \
     --set "iStat Menus Status,com.bjango.istatmenus.cpu" drawing=off \
     --set "iStat Menus Status,com.bjango.istatmenus.memory" drawing=off \
-    --set "Shifty,Item-0" drawing=off \
+    --set nightshift drawing=off \
     --set network.up drawing=off \
     --set network.down drawing=off \
     --set ip_address drawing=off \
@@ -38,7 +38,7 @@ zen_off() {
     --set omnifocus drawing=on \
     --set "iStat Menus Status,com.bjango.istatmenus.cpu" drawing=on \
     --set "iStat Menus Status,com.bjango.istatmenus.memory" drawing=on \
-    --set "Shifty,Item-0" drawing=on \
+    --set nightshift drawing=on \
     --set network.up drawing=on \
     --set network.down drawing=on \
     --set ip_address drawing=on \
