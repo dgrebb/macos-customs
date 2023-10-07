@@ -30,7 +30,7 @@ update() {
   ROCKET_ICON=󱓞
   SUCCESS_ICON=✓
   CANCELLED_ICON=⚠
-  FAILED_ICON=⊘
+  FAILURE_ICON=󰜺
 
   # dark colors
   DARK_RED=0xff870000
@@ -78,9 +78,9 @@ update() {
     LCOLOR=$YELLOW
     LABEL=$CANCELLED_ICON
     ;;
-  "failed")
+  "failure")
     LCOLOR=$RED
-    LABEL=$FAILED_ICON
+    LABEL=$FAILURE_ICON
     ;;
   esac
 
@@ -105,9 +105,9 @@ update() {
       RUN_COLOR=$YELLOW
       RUN_ICON=$CANCELLED_ICON
       ;;
-    "'failed'")
+    "'failure'")
       RUN_COLOR=$RED
-      RUN_ICON=$FAILED_ICON
+      RUN_ICON=$FAILURE_ICON
       ;;
     esac
 
