@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$CONFIG_DIR/machine.sh"
+source "$HOME/.config/machine.sh"
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 source "$CONFIG_DIR/icons.sh"  # Loads all defined icons
 

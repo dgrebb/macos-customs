@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$CONFIG_DIR/machine.sh"
+source "$HOME/.config/machine.sh"
 
 if [[ "$MACHINE" == 'work' ]]; then
   PATH+=:/usr/local/opt/python/libexec/bin/

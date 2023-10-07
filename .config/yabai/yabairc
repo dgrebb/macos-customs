@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-source "$CONFIG_DIR/machine.sh"
+source "$HOME/.config/machine.sh"
 
 # Useful keyboard scripts
 # https://gist.github.com/dgrebb/d3ca843c61d9cabfdd30bf89976e454e

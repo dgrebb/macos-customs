@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$CONFIG_DIR/machine.sh"
+source "$HOME/.config/machine.sh"
 
 utils_bracket=(
   background.color=$BACKGROUND_1
