@@ -25,7 +25,7 @@ update() {
   # Nerd Font icons for icon/label states
   HOURGLASS_ICON=
   OCTOCAT_ICON=
-  QUEUED_ICON=󰏧
+  QUEUED_ICON=󱖒
   PROGRESS_ICON=󰔚
   ROCKET_ICON=󱓞
   SUCCESS_ICON=✓
@@ -48,7 +48,7 @@ update() {
   "queued")
     COLOR=$WHITE
     LABEL=$QUEUED_ICON
-    LCOLOR=$RED
+    LCOLOR=$GREY
     BACKGROUND_1=$DARK_RED
     BACKGROUND_2=$RED
     ;;
@@ -75,7 +75,7 @@ update() {
     LABEL=$SUCCESS_ICON
     ;;
   "cancelled")
-    LCOLOR=$YELLOW
+    LCOLOR=$GREY
     LABEL=$CANCELLED_ICON
     ;;
   "failure")
@@ -102,7 +102,7 @@ update() {
       RUN_ICON=$SUCCESS_ICON
       ;;
     "'cancelled'")
-      RUN_COLOR=$YELLOW
+      RUN_COLOR=$GREY
       RUN_ICON=$CANCELLED_ICON
       ;;
     "'failure'")
@@ -124,7 +124,7 @@ update() {
       --set github.run.$COUNTER "${run[@]}")
 
   done <<<"$(echo $LIST | jq -r '.[] | [.url, .status, .conclusion, .startedAt, .updatedAt, .headBranch, .displayTitle] | @sh')"
-  # NOTE: the order these property values are passed in is intentional - `displayName` can have breaking-characters, so it goes last
+  # NOTE: the evaluation order of these property values is important - `displayTitle` can have breaking-characters, so it goes last
 
   args+=(--add item gh.spacer_bottom popup.github.status
     --set gh.spacer_bottom "${gh_spacer[@]}" background.height=5)
