@@ -11,7 +11,7 @@ if [[ $STATUS_LABEL =~ \"label\"=\"([^\"]*)\" ]]; then
   if [[ $LABEL == "" ]]; then
     ICON="󰪱"
     ICON_COLOR="$GREY"
-  LABEL_PADDING=0
+    LABEL_PADDING=0
   elif [[ $LABEL == "•" ]]; then
     ICON_COLOR="0xffeed49f"
   elif [[ $LABEL =~ ^[0-9]+$ ]]; then
