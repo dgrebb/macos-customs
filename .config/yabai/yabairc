@@ -99,7 +99,7 @@ yabai -m signal --add event=display_changed action="yabai -m window --focus \$(y
 # TODO: 3 Displays
 yabai -m rule --add app="^(Music)$" space=1
 yabai -m rule --add app="^(Firefox)$" space=2
-yabai -m rule --add app="^(OmniFocus|Mail|Calendar|Notion)$" space=3
+yabai -m rule --add app="^(OmniFocus|Mail|Calendar|Notion|Discord)$" space=3
 yabai -m rule --add app="^(iTerm)$" space=4
 yabai -m rule --add app="^(Visual Studio Code)$" space=7
 
