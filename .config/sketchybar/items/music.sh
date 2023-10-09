@@ -18,7 +18,7 @@ sketchybar -m --add item music.artist center \
   click_script="$PLUGIN_DIR/music.artist_click.sh" \
   icon="»" \
   icon.y_offset=1 \
-  label.font="$FONT:Bold:12" \
+  label.font="SF Compact Display:Bold:14" \
   background.padding_right=0 \
   background.padding_left=0 \
   associated_display=1 \
