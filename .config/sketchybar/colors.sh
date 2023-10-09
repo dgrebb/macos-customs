@@ -4,6 +4,7 @@
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 export BLACK=0xff181926
 export WHITE=0xbaffffff
+export LIGHT_RED=0xffff9d60
 export RED=0xffd75a00
 export ORANGE=0xfff5a97f
 export YELLOW=0xfff4ff00

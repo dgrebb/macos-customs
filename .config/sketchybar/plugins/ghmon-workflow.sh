@@ -48,7 +48,7 @@ update() {
   "queued")
     COLOR=$WHITE
     LABEL=$QUEUED_ICON
-    LCOLOR=$GREY
+    LCOLOR=$LIGHT_RED
     BACKGROUND_1=$DARK_RED
     BACKGROUND_2=$RED
     ;;
