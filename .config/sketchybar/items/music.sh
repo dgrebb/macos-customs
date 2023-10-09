@@ -1,5 +1,5 @@
 # Add event
-sketchybar -m --add event song_update com.apple.iTunes.playerInfo
+sketchybar -m --add event song_update com.apple.Music.playerInfo
 
 # Add Music Item
 sketchybar -m --add item music.title center \
@@ -10,24 +10,27 @@ sketchybar -m --add item music.title center \
   background.padding_left=0 \
   drawing=off \
   associated_display=1 \
-  --subscribe music song_update
+  --subscribe music.title song_update
 
 # Add Music Item
 sketchybar -m --add item music.artist center \
   --set music.artist drawing=off \
-  icon="" \
+  click_script="$PLUGIN_DIR/music.artist_click.sh" \
+  icon="»" \
   icon.y_offset=1 \
+  label.font="$FONT:Bold:12" \
   background.padding_right=0 \
   background.padding_left=0 \
   associated_display=1 \
-  label.padding_right=3 \
+  label.padding_right=5 \
   label.padding_left=5 \
-  icon.padding_left=0
+  label.y_offset=1 \
+  icon.padding_left=3
 
 # Add Music Item
 sketchybar -m --add item music.album center \
   --set music.album drawing=off \
-  icon="»" \
+  icon="«" \
   icon.y_offset=1 \
   background.padding_right=0 \
   background.padding_left=0 \

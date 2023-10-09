@@ -59,7 +59,6 @@ sketchybar -m --set music.title icon="$icon" \
 
 sketchybar -m --set music.artist \
   label.color="${WHITE}" \
-  label.font="sketchybar-app-font:Bold:14.0" \
   label="${ARTIST}" \
   drawing=on
 
