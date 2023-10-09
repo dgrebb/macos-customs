@@ -21,8 +21,8 @@ if [[ $PLAYER_STATE == "stopped" ]]; then
   exit 0
 fi
 
-title=$(osascript -e 'tell application "Music" to get name of current track')
-artist=$(osascript -e 'tell application "Music" to get artist of current track')
+TITLE=$(osascript -e 'tell application "Music" to get name of current track')
+ARTIST=$(osascript -e 'tell application "Music" to get artist of current track')
 ALBUM=$(osascript -e 'tell application "Music" to get album of current track')
 loved=$(osascript -l JavaScript -e "Application('Music').currentTrack().favorited()")
 COLOR=$WHITE
@@ -40,19 +40,29 @@ if [[ $PLAYER_STATE == "playing" ]] && [[ "$loved" = 'false' ]]; then
   icon=""
 fi
 
-if [[ ${#title} -gt 25 ]]; then
-  TITLE=$(printf "$(echo $title | cut -c 1-25)…")
+if [[ ${#TITLE} -gt 25 ]]; then
+  TITLE=$(printf "$(echo $TITLE | cut -c 1-25)…")
 fi
 
-if [[ ${#artist} -gt 25 ]]; then
-  ARTIST=$(printf "$(echo $artist | cut -c 1-25)…")
+if [[ ${#ARTIST} -gt 25 ]]; then
+  ARTIST=$(printf "$(echo $ARTIST | cut -c 1-25)…")
 fi
 
 if [[ ${#ALBUM} -gt 25 ]]; then
   ALBUM=$(printf "$(echo $ALBUM | cut -c 1-12)…")
 fi
 
-sketchybar -m --set music icon="$icon" \
+sketchybar -m --set music.title icon="$icon" \
   icon.color="${COLOR}" \
-  label="${title} • ${artist} • ${ALBUM}" \
+  label="${TITLE}" \
+  drawing=on
+
+sketchybar -m --set music.artist \
+  label.color="${WHITE}" \
+  label.font="sketchybar-app-font:Bold:14.0" \
+  label="${ARTIST}" \
+  drawing=on
+
+sketchybar -m --set music.album \
+  label="${ALBUM}" \
   drawing=on
