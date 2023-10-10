@@ -20,6 +20,7 @@ zen_on() {
     --set network.up drawing=off \
     --set network.down drawing=off \
     --set ip_address drawing=off \
+    --set mail drawing=off \
     --set teams drawing=off
 }
 
@@ -42,6 +43,7 @@ zen_off() {
     --set network.up drawing=on \
     --set network.down drawing=on \
     --set ip_address drawing=on \
+    --set mail drawing=on \
     --set teams drawing=on
 }
 
