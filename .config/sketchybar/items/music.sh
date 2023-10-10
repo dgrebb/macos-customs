@@ -5,7 +5,7 @@ sketchybar -m --add event song_update com.apple.Music.playerInfo
 sketchybar -m --add item music.title center \
   --set music.title script="$PLUGIN_DIR/music.sh" \
   click_script="$PLUGIN_DIR/music_click.sh" \
-  icon.padding_left=10 \
+  icon.padding_left=15 \
   background.padding_right=0 \
   background.padding_left=0 \
   drawing=off \
@@ -30,14 +30,16 @@ sketchybar -m --add item music.artist center \
 # Add Music Item
 sketchybar -m --add item music.album center \
   --set music.album drawing=off \
+  script="$PLUGIN_DIR/music.art.sh" \
   icon="«" \
   icon.y_offset=1 \
   background.padding_right=0 \
   background.padding_left=0 \
   associated_display=1 \
-  label.padding_right=0 \
+  label.padding_right=15 \
   label.padding_left=5 \
-  icon.padding_left=0
+  icon.padding_left=0 \
+  --subscribe music.album song_update
 
 music_bracket=(
   background.color=$BACKGROUND_1
