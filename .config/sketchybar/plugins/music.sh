@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+source "$HOME/.config/machine.sh"
 
 # FIXME: Running an osascript on an application target opens that app
 # This sleep is needed to try and ensure that theres enough time to
@@ -24,7 +25,12 @@ fi
 TITLE=$(osascript -e 'tell application "Music" to get name of current track')
 ARTIST=$(osascript -e 'tell application "Music" to get artist of current track')
 ALBUM=$(osascript -e 'tell application "Music" to get album of current track')
-loved=$(osascript -l JavaScript -e "Application('Music').currentTrack().favorited()")
+if [[ "$MACHINE" == 'work' ]]; then
+  loved=$(osascript -l JavaScript -e "Application('Music').currentTrack().loved()")
+else
+  loved=$(osascript -l JavaScript -e "Application('Music').currentTrack().favorited()")
+fi
+
 COLOR=$WHITE
 
 if [[ "$loved" = 'true' ]]; then

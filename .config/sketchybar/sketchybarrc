@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Log location
+# tail -f /usr/local/var/log/sketchybar/sketchybar.out.log
+# tail -f /usr/local/var/log/sketchybar/sketchybar.err.log
+
 source "$HOME/.config/machine.sh"
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 source "$CONFIG_DIR/icons.sh"  # Loads all defined icons
