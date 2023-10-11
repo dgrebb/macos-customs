@@ -1,0 +1,79 @@
+[user]
+name =
+email =
+
+[core]
+editor = code -n -w # VS Code
+ignorecase = false
+
+[diff]
+tool = vscode
+
+[difftool "vscode"]
+cmd = code --wait --diff $LOCAL $REMOTE
+
+[merge]
+tool = vscode
+
+[push]
+autosetupremote = true
+
+[mergetool "vscode"]
+cmd = code --wait $MERGED
+
+[color]
+ui = auto
+
+[color "branch"]
+current = yellow bold
+local = green bold
+remote = cyan bold
+
+[color "diff"]
+meta = yellow bold
+frag = magenta bold
+old = red bold
+new = green bold
+whitespace = red reverse
+
+[color "status"]
+added = green bold
+changed = yellow bold
+untracked = red bold
+
+[branch]
+autosetuprebase = always
+
+[push]
+default = upstream
+
+[sequence]
+editor = interactive-rebase-tool
+
+[delta]
+features = line-numbers decorations
+line-numbers = true
+
+[delta "decorations"]
+minus-style = red bold normal
+plus-style = green bold normal
+minus-emph-style = white bold red
+minus-non-emph-style = red bold normal
+plus-emph-style = white bold green
+plus-non-emph-style = green bold normal
+file-style = yellow bold none
+file-decoration-style = yellow box
+hunk-header-style = magenta bold
+hunk-header-decoration-style = magenta box
+minus-empty-line-marker-style = normal normal
+plus-empty-line-marker-style = normal normal
+line-numbers-right-format = "{np:^4}│ "
+
+[init]
+defaultBranch = main
+
+[alias]
+cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 -r git branch -d"
+
+[advice]
+skippedCherryPicks = false

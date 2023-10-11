@@ -24,7 +24,9 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-.config/sketchybar/plugins/network.out
 
 # Machine ID
 .config/.machine
+.config/.sketchyrw/album_art.png
+.config/iterm2/AppSupport
+.config/.sketchyrw/network.out
