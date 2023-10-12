@@ -1,7 +1,33 @@
 #!/bin/bash
+source $HOME/.config/yabai/displays.sh
+source $HOME/.config/sketchybar/plugins/zenfuncs.sh
 
 DESIRED_SPACES_PER_DISPLAY=3
 CURRENT_SPACES="$(yabai -m query --displays | jq -r '.[].spaces | @sh')"
+
+DISPLAY_1_UUID=$(yabai -m query --displays | jq -r '.[0].uuid')
+if [[ "$DISPLAY_1_UUID" == "$HOME_MACBOOK_UUID" ]] || [[ "$DISPLAY_1_UUID" == "$WORK_MACBOOK_UUID" ]]; then
+  echo "that's your laptop!"
+  # Reconfigure music items
+  sketchybar -m --set music.title drawing=off \
+    --move music.artist drawing=off \
+    --set music.album drawing=off \
+    --set music drawing=off \
+    --set network.up drawing=off \
+    --set network.down drawing=off
+
+  zen_on
+  yabai -m config layout float
+else
+  # Reconfigure music items
+  sketchybar -m --set music.title drawing=on \
+    --set music.artist drawing=on \
+    --set music.album drawing=on \
+    --set music drawing=on
+
+  zen_off
+  yabai -m config layout bsp
+fi
 
 DELTA=0
 while read -r line; do
