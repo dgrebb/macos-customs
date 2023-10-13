@@ -28,6 +28,7 @@ update() {
   QUEUED_ICON=󱖒
   PROGRESS_ICON=󰔚
   ROCKET_ICON=󱓞
+  SKULL_ICON=󰯆
   SUCCESS_ICON=✓
   CANCELLED_ICON=⚠
   FAILURE_ICON=󰜺
@@ -48,9 +49,9 @@ update() {
   "queued")
     COLOR=$WHITE
     LABEL=$QUEUED_ICON
-    LCOLOR=$LIGHT_RED
-    BACKGROUND_1=$DARK_RED
-    BACKGROUND_2=$RED
+    LCOLOR=$GREY
+    BACKGROUND_1=$BLUE
+    BACKGROUND_2=$GREY
     ;;
   "in_progress")
     COLOR=$WHITE
@@ -58,6 +59,13 @@ update() {
     LCOLOR=$YELLOW
     BACKGROUND_1=$DARK_YELLOW
     BACKGROUND_2=$YELLOW
+    ;;
+  "waiting")
+    COLOR=$RED
+    LABEL=$SKULL_ICON
+    LCOLOR=$WHITE
+    BACKGROUND_1=$DARK_RED
+    BACKGROUND_2=$RED
     ;;
   "completed")
     COLOR=$WHITE
