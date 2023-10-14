@@ -11,6 +11,8 @@ utils_bracket=(
 utils=()
 
 if [[ "$MACHINE" == 'work' ]]; then
+  utils+=rescuetime
+  utils+=' '
   utils+=teams
 else
   utils+=mail

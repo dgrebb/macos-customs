@@ -87,11 +87,13 @@ source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/network.sh"
 source "$ITEM_DIR/aliases.sh"
 source "$ITEM_DIR/nightshift.sh"
-source "$ITEM_DIR/omnifocus.sh"
 if [[ "$MACHINE" == 'work' ]]; then
+  source "$ITEM_DIR/omnifocus.sh"
+  source "$ITEM_DIR/rescuetime.sh"
   source "$ITEM_DIR/teams.sh"
 else
   source "$ITEM_DIR/mail.sh"
+  source "$ITEM_DIR/omnifocus.sh"
 fi
 source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/utils.sh"

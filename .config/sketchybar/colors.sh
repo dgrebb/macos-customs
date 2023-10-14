@@ -10,6 +10,7 @@ export ORANGE=0xfff5a97f
 export YELLOW=0xfff4ff00
 export GREEN=0xff08da00
 export BLUE=0xff8aadf4
+export LIGHT_BLUE=0xb09393ff
 export PURPLE=0xffcd3fdf
 export MAGENTA=0xffc6a0f6
 export GREY=0x8ca0a0a0
