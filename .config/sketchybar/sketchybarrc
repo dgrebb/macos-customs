@@ -92,8 +92,8 @@ if [[ "$MACHINE" == 'work' ]]; then
   source "$ITEM_DIR/rescuetime.sh"
   source "$ITEM_DIR/teams.sh"
 else
-  source "$ITEM_DIR/mail.sh"
   source "$ITEM_DIR/omnifocus.sh"
+  source "$ITEM_DIR/mail.sh"
 fi
 source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/utils.sh"
@@ -103,7 +103,7 @@ if [[ "$MACHINE" != 'work' ]]; then
 else
   echo "Skipping ghmon for work."
 fi
-# source "$ITEM_DIR/wallpaper.sh"
+source "$ITEM_DIR/wallpaper.sh"
 # source "$ITEM_DIR/wifi.sh"
 # source "$ITEM_DIR/brew.sh"
 # source "$ITEM_DIR/github.sh"
