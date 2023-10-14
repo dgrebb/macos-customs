@@ -1,4 +1,7 @@
 case $@ in
+"dg project")
+  icon_result=":git_hub:"
+  ;;
 "Brave Browser")
   icon_result=":brave_browser:"
   ;;
