@@ -2,6 +2,9 @@ case $@ in
 "dg project")
   icon_result=":git_hub:"
   ;;
+"GitHub Actions")
+  icon_result=":gear:"
+  ;;
 "Brave Browser")
   icon_result=":brave_browser:"
   ;;
