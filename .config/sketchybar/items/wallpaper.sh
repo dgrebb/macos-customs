@@ -4,14 +4,14 @@ ICON=󰟾
 
 wallpaper=(
   drawing=on
+  click_script="$PLUGIN_DIR/wallpaper.sh"
   background.padding_left=3
   background.padding_right=3
   icon=$ICON
-  icon.color=$RED
+  icon.color=$WHITE
   icon.padding_left=3
   icon.padding_right=3
   label.drawing=off
-  click_script="$PLUGIN_DIR/wallpaper.sh"
   # associated_display=1
 )
 

@@ -1,39 +1,37 @@
 #!/bin/bash
 
-source "$HOME/.config/sketchybar/colors.sh"
+# Requires `curl`, `jq`, and `wget`
+# TODO List
+# 1. Set up a `.secrets` file in `$HOME/.config`.
+#   Use the `.secrets.example` as a template.
+# 2. Set up Unsplash API Access/Account
+#   "Applications" page — https://unsplash.com/oauth/applications
+#   (register one here: https://unsplash.com/oauth/applications/new)
+#   it's free but limited to 50 requests / hour
+# 3. Add `ACCESS_KEY` with the "Access Key" from the Unsplash API
+# 4. Set up writeable directory to store saved images
+# 5. Change `WALLPAPER_PATH` below to Step 4's path
 
-# Requires `curl` and `m-cli`
-# TODO: Set up a `.secrets` file in `~/.config`.
-# Use the `.secrets.example` as a template.
-# Add `ACCESS_KEY` with the "Access Key" from the Unsplash API
-# "Applications" page — https://unsplash.com/oauth/applications
-# (register one here: https://unsplash.com/oauth/applications/new)
+source "$HOME/.config/sketchybar/colors.sh"
 source "$HOME/.config/.secrets"
 
 # Update
-QUERY="water"
+QUERY="lake"
 ORIENTATION="landscape"
+TIMESTAMP=$(echo '('$(date +"%s.%N") ' * 10)/1' | bc)
+WALLPAPER_PATH="$HOME/.config/.sketchyrw/wallpaper"
 
-# # Update all Wallpapers
-function wallpaper() {
-  sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '$1'" && killall Dock
-}
+# TODO: Create popup with multiple options to choose from, search again, or change query via macos dialog
 
 URL=$(
   curl --location "https://api.unsplash.com/photos/random?query=${QUERY}&orientation=${ORIENTATION}" \
     --header "Authorization: Client-ID ${ACCESS_KEY}" | jq -r '.urls.full'
 )
+# Note: change the `jq` query to `.urls.raw` for larger displays
 
-# open $URL
-TIMESTAMP=$(echo '('$(date +"%s.%N") ' * 1000000)/1' | bc)
-WALLPAPER_PATH="$HOME/.config/.sketchyrw/wallpaper"
-rm -rf "${WALLPAPER_PATH}/*"
-wget $URL -O "${WALLPAPER_PATH}/wallpaper${TIMESTAMP}.jpg"
+wget $URL -O "${WALLPAPER_PATH}/wallpaper_${TIMESTAMP}.jpg"
+WALLPAPER="${WALLPAPER_PATH}/wallpaper_${TIMESTAMP}.jpg"
 
-# TODO: After macos Sonoma figures out its Wallpaper issues, finish the below functionality and distribute to Sketchybar Discussions
-# chmod 777 "${WALLPAPER_PATH}/wallpaper${TIMESTAMP}.jpg" &&
-# WALLPAPER="${WALLPAPER_PATH}/wallpaper${TIMESTAMP}.jpg" &&
-# echo $WALLPAPER &&
-# osascript -e "tell application \"System Events\" to tell every desktop to set picture to \"~/.config/.sketchyrw/wallpaper/wallpaper${EPOCHSECONDS}.jpg\" as POSIX file"
-# wallpaper $WALLPAPER
-# echo 'done'
+# TODO: Set wallpaper on all spaces via yet-to be determined Mission Control API
+osascript -e "tell application \"System Events\" to tell every desktop to set picture to \"$WALLPAPER\" as POSIX file"
+# osascript -e "tell application \"System Events\" to set desktop picture of to \"$WALLPAPER\" as POSIX file"
