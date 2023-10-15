@@ -4,7 +4,7 @@ source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 
 STATUS_LABEL=$(lsappinfo info -only StatusLabel "Mail")
 ICON="󰇮"
-  DRAWING=off
+DRAWING=off
 LABEL_PADDING=3
 if [[ $STATUS_LABEL =~ \"label\"=\"([^\"]*)\" ]]; then
   LABEL="${BASH_REMATCH[1]}"
@@ -13,11 +13,11 @@ if [[ $STATUS_LABEL =~ \"label\"=\"([^\"]*)\" ]]; then
     ICON="󰪱"
     ICON_COLOR="$GREY"
     LABEL_PADDING=0
-  DRAWING=off
+    DRAWING=off
   elif [[ $LABEL == "•" ]]; then
     ICON_COLOR="0xffeed49f"
   elif [[ $LABEL =~ ^[0-9]+$ ]]; then
-  DRAWING=on
+    DRAWING=on
     ICON="󰇮"
     ICON_COLOR="$BLUE"
   else
