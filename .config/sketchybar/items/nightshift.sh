@@ -14,7 +14,7 @@ nightshift=(
   click_script="$PLUGIN_DIR/nightshift_click.sh"
   icon.color=$WHITE
   icon=$ICON
-  width=18
+  width=27
   associated_display=1
 )
 

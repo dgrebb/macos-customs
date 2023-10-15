@@ -14,6 +14,5 @@ sketchybar --add item teams right \
   click_script="$PLUGIN_DIR/teams_click.sh" \
   associated_display=1 \
   width=25
-associated_display=1
 
 sketchybar --subscribe teams system_woke

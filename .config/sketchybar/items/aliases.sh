@@ -16,7 +16,7 @@ sketchybar --add alias "iStat Menus Status,com.bjango.istatmenus.cpu" right \
 sketchybar --add alias "iStat Menus Status,com.bjango.istatmenus.memory" right \
   --set "iStat Menus Status,com.bjango.istatmenus.memory" "${alias[@]}" \
   alias.color=yellow \
-  width=20 \
+  width=10 \
   associated_display=1
 
 sketchybar --add item spacer1 right \
