@@ -40,8 +40,8 @@ zen_off() {
     --set "iStat Menus Status,com.bjango.istatmenus.cpu" drawing=on \
     --set "iStat Menus Status,com.bjango.istatmenus.memory" drawing=on \
     --set nightshift drawing=on \
-    --set network.up drawing=on \
-    --set network.down drawing=on \
+    --set network.up drawing=off \
+    --set network.down drawing=off \
     --set ip_address drawing=on \
     --set mail drawing=on \
     --set teams drawing=on

@@ -4,7 +4,8 @@ ICON=󰟾
 
 wallpaper=(
   drawing=on
-  click_script="$PLUGIN_DIR/wallpaper.sh"
+  update_freq=900
+  script="$PLUGIN_DIR/wallpaper.sh"
   background.padding_left=3
   background.padding_right=3
   icon=$ICON
