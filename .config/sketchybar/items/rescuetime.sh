@@ -8,7 +8,7 @@ sketchybar --add item rescuetime right \
   icon.color=$LIGHT_BLUE \
   icon.padding_left=3 \
   icon.padding_right=0 \
-  label.drawing=off
-associated_display=1
+  label.drawing=off \
+  associated_display=1
 
 sketchybar --subscribe rescuetime system_woke
