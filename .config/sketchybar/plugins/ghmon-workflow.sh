@@ -4,7 +4,7 @@ source "$HOME/.config/machine.sh"
 if [[ "$MACHINE" == 'work' ]]; then
   PATH+=:/usr/local/opt/python/libexec/bin/
 else
-  PATH+=:/opt/homebrew/anaconda3/bin/
+  PATH+=:/opt/homebrew/opt/python@3.11/libexec/bin/
 fi
 
 # Monitor GitHub Workflow by ID
