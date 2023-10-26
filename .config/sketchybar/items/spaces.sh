@@ -1,6 +1,12 @@
 #!/bin/bash
+source "$HOME/.config/machine.sh"
 
-SPACE_ICONS=("󰽯" "🚜" "󱁐" "" "" "◌" "" "" "")
+
+if [[ "$MACHINE" != 'work' ]]; then
+  SPACE_ICONS=("󰟅" "🚜" "󱁐" "" "" "◌" "" "" "")
+else
+  SPACE_ICONS=("󰟅" "🚜" "󱁐" "" "" "◌" "" "" "")
+fi
 
 # Destroy space on right click, focus space on left click.
 # New space by left clicking separator (>)
