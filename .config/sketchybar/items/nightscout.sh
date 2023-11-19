@@ -5,6 +5,7 @@ ICON=
 nightscout=(
   drawing=on
   update_freq=60
+  click_script="open http://local.glu.7ub3s.net:8106/"
   script="$PLUGIN_DIR/nightscout.sh"
   background.padding_left=3
   background.padding_right=3
@@ -19,7 +20,7 @@ nightscout=(
   label.color=$RED
   icon.width=33
   background.drawing=on
-  # associated_display=1
+  associated_display=1
 )
 
 sketchybar --add item nightscout right \

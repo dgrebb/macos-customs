@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ICON=󰟾
+ICON=
 
 wallpaper=(
   drawing=on
@@ -14,7 +14,8 @@ wallpaper=(
   icon.padding_left=3
   icon.padding_right=3
   label.drawing=off
-  # associated_display=1
+  background.drawing=on
+  associated_display=1
 )
 
 sketchybar --add item wallpaper right \
