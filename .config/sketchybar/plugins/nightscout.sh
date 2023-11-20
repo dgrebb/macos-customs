@@ -12,16 +12,16 @@ data=$(
 
 BG=$(echo $data | jq -r '.[0].sgv')
 
-if [[ $BG -gt "120" ]]; then
+if [[ $BG -gt "233" ]]; then
   ICON_COLOR=$YELLOW
-elif [[ $BG -gt "200" ]]; then
-  ICON_COLOR=$RED
-elif [[ $BG -gt "200" ]]; then
+elif [[ $BG -gt "233" ]]; then
   ICON_COLOR=$RED
 elif [[ $BG -gt "300" ]]; then
   ICON_COLOR=$BLACK
 elif [[ $BG -lt "80" ]]; then
   ICON_COLOR=$YELLOW
+elif [[ $BG -lt "75" ]]; then
+  ICON_COLOR=$BLACK
 fi
 
 sketchybar --set nightscout icon=$BG icon.color=$ICON_COLOR

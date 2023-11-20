@@ -20,7 +20,7 @@ nightscout=(
   label.color=$RED
   icon.width=33
   background.drawing=on
-  associated_display=1
+  # associated_display=1
 )
 
 sketchybar --add item nightscout right \
