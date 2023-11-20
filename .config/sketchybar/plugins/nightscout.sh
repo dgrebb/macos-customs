@@ -6,7 +6,7 @@ ICON_COLOR=$WHITE
 
 data=$(
   curl -X 'GET' \
-    'http://local.glu.7ub3s.net:8106/api/v1/entries/sgv?count=1' \
+    'http://glu.7ub3s.net/api/v1/entries/sgv?count=1' \
     -H 'accept: application/json'
 )
 
