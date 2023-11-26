@@ -2,10 +2,6 @@
 # Source which machine you're running
 source "$HOME/.config/machine.sh"
 
-# Source a list of displays and their properties
-# https://github.com/koekeishiya/yabai/issues/1060#issuecomment-990431179
-source $HOME/.config/yabai/displays.sh
-
 # Useful keyboard scripts
 # https://gist.github.com/dgrebb/d3ca843c61d9cabfdd30bf89976e454e
 
@@ -15,43 +11,36 @@ source $HOME/.config/yabai/displays.sh
 # view the last lines of the debug log
 # tail -f /tmp/yabai_$USER.out.log
 
-# Unload the macOS WindowManager process
-launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist >/dev/null 2>&1 &
-
 if [[ "$MACHINE" != 'work' ]]; then
-  yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
   sudo yabai --load-sa
+  yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 else
   echo "Skipping yabai scripting addition for work."
 fi
 
+# Unload the macOS WindowManager process
+launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist >/dev/null 2>&1 &
 yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
 
-# Display change signals
-yabai -m signal --add event=display_added action="sleep 2 && $HOME/.config/yabai/create_spaces.sh"
-yabai -m signal --add event=display_removed action="sleep 1 && $HOME/.config/yabai/create_spaces.sh"
-yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
-yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
+# Source a list of displays and their properties
+# https://github.com/koekeishiya/yabai/issues/1060#issuecomment-990431179
+source $HOME/.config/yabai/displays.sh
 
 # focus window after active space changes
 yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
 # focus window after active display changes
 yabai -m signal --add event=display_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
 
-# TODO: Conditional for 1 Display
-# yabai -m signal --add event=display_added action="if [[ \"\$(yabai -m query --displays | jq \".[\$YABAI_DISPLAY_ID].uuid\")\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar main:$NORMAL_BAR:0; elif [[ \"\$(yabai -m query --displays | jq '.[].uuid')\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar main:$NORMAL_BAR:0; else yabai -m config external_bar all:$NORMAL_BAR:0; fi"
-# yabai -m signal --add event=display_remov ed action="if [[ \"\$(yabai -m query --displays | jq \".[\$YABAI_DISPLAY_ID].uuid\")\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar all:$NORMAL_BAR:0; elif [[ \"\$(yabai -m query --displays | jq '.[].uuid')\" =~ \"$NOTCH_UUID\" ]]; then yabai -m config external_bar all:$NOTCH_BAR:0; fi"
+# fix window focus across displays
+# yabai -m signal --add event=application_front_switched action="yabai -m window recent --opacity 0.8; yabai -m window --opacity 0.0"
 
-# global settings
-# if [[ "$(yabai -m query --displays | jq '.[].uuid')" =~ "$NOTCH_UUID" ]]; then if [ "$(yabai -m query --displays | jq length)" -gt "1" ]; then yabai -m config external_bar main:$NORMAL_BAR:0; else yabai -m config external_bar all:$NOTCH_BAR:0; fi else yabai -m config external_bar all:$NORMAL_BAR:0; fi
-
-yabai -m config external_bar all:35:0 \
-  config window_topmost off \
+yabai -m config \
+  external_bar all:50:20 \
   mouse_follows_focus off \
   focus_follows_mouse autoraise \
   window_zoom_persist off \
   window_placement second_child \
-  window_shadow float \
+  window_shadow on \
   window_opacity on \
   window_opacity_duration 0.2 \
   active_window_opacity 0.95 \
@@ -87,27 +76,68 @@ yabai -m config --space 3 top_padding 133 \
   right_padding 233 \
   window_gap 333
 
-# Assign apps to spaces
-yabai -m rule --add app="^(Music)$" space=1
-yabai -m rule --add app="^(Firefox)$" space=2
-yabai -m rule --add app="^(OmniFocus|Mail|Calendar|Notion|Discord|Photoshop|Lightroom|Pym)$" space=3
-yabai -m rule --add app="^(iTerm)$" space=4
-yabai -m rule --add app="^(Visual Studio Code)$" space=7
+#
+# setup spaces
+#
+for _ in $(yabai -m query --spaces | jq '.[].index | select(. > 9)'); do
+  yabai -m space --destroy 10
+done
+
+setup_space() {
+  local idx="$1"
+  local name="$2"
+  local space=
+  echo "setup space $idx : $name"
+
+  space=$(yabai -m query --spaces --space "$idx")
+  if [ -z "$space" ]; then
+    yabai -m space --create
+  fi
+
+  echo "setting up $idx space"
+
+  yabai -m space "$idx" --label "$name"
+
+  # if ( (idx >3 && idx <7)); then
+  #   yabai -m space $idx --display 2
+  # fi
+  # if ( (idx >6)); then
+  #   yabai -m space $idx --display 3
+  # fi
+}
 
 # Fix layering issues with unmanaged windows
 yabai -m rule --add app=".*" layer=normal
 
 # Exclude problematic apps from being managed ----
-yabai -m rule --add app="^(Nightscout Menu Bar|Verve|zoom.us|Zoom|Contrast|Min|Gifox|Bartender 5|GeekTool|CleanMyMac X|Airfoil|OmniFocusWidgetsExtension|Messages|Calendar|1Password Helper|1Password Helper (GPU)|1Password Helper (Renderer)|1Password Browser Helper|^1Password$|Mail|Fantastical|Fantastical Helper|com.flexibits.fantastical.core.libical-XPC|OmniFocus|Music|Keyboard Maestro|TextExpander|xScope|Classic Color Meter|Digital Color Meter|Drafts|LuLu|Calculator|Software Update|Dictionary|VLC|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Activity Monitor|sketchybar)$" manage=off layer=below
+yabai -m rule --add app="^(Nightscout Menu Bar|Verve|zoom.us|Zoom|Contrast|Min|Gifox|Bartender 5|GeekTool|CleanMyMac X|Airfoil|OmniFocusWidgetsExtension|Messages|Calendar|1Password Helper|1Password Helper (GPU)|Mail|Fantastical|Fantastical Helper|com.flexibits.fantastical.core.libical-XPC|OmniFocus|Music|Keyboard Maestro|TextExpander|Classic Color Meter|Digital Color Meter|Drafts|LuLu|Calculator|Software Update|Dictionary|VLC|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Activity Monitor|sketchybar)$" manage=off layer=below
 yabai -m rule --add title="(Co(py|nnect)|Move|Info|Pref)" manage=off layer=below
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off layer=below
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off layer=below
-yabai -m rule --add app="^(CopyClip 2|iStat Menus Status|com.bjango.istatmenus.weather)$" manage=off layer=above
+yabai -m rule --add app="^(CopyClip 2|xScope|iStat Menus Status|com.bjango.istatmenus.weather|1Password Helper (Renderer)|1Password Browser Helper|^1Password$)$" manage=off layer=above
 
 if [[ "$MACHINE" == 'work' ]]; then
   yabai -m config layout float
 else
   yabai -m config layout bsp
 fi
+
+setup_space 1 music
+setup_space 2 web
+setup_space 3 office
+setup_space 4 terminal
+setup_space 5 other
+setup_space 6 other
+setup_space 7 code
+setup_space 8 code
+setup_space 9 project
+
+# Assign apps to spaces
+yabai -m rule --add app="^(Music)$" space=1
+yabai -m rule --add app="^(Firefox)$" space=2
+yabai -m rule --add app="^(Notion|Discord|Photoshop|Lightroom|Pym)$" space=3
+yabai -m rule --add app="^(OmniFocus|Mail|Calendar)$" space=8
+yabai -m rule --add app="^(iTerm)$" space=7
+yabai -m rule --add app="^(Visual Studio Code)$" space=4
 
 echo "yabai configuration loaded.."

@@ -104,7 +104,7 @@ else
   echo "Skipping ghmon for work."
 fi
 source "$ITEM_DIR/wallpaper.sh"
-source "$ITEM_DIR/nightscout.sh"
+# source "$ITEM_DIR/nightscout.sh"
 # source "$ITEM_DIR/wifi.sh"
 # source "$ITEM_DIR/brew.sh"
 # source "$ITEM_DIR/github.sh"

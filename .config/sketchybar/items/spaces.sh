@@ -1,9 +1,8 @@
 #!/bin/bash
 source "$HOME/.config/machine.sh"
 
-
 if [[ "$MACHINE" != 'work' ]]; then
-  SPACE_ICONS=("󰟅" "🚜" "󱁐" "" "" "◌" "" "" "")
+  SPACE_ICONS=("󰟅" "🚜" "󱁐" "" "" "" "" "" "◌")
 else
   SPACE_ICONS=("󰟅" "🚜" "󱁐" "" "" "◌" "" "" "")
 fi
@@ -31,8 +30,6 @@ for i in "${!SPACE_ICONS[@]}"; do
     label.y_offset=-1
     background.color=$BACKGROUND_1
     background.border_color=$BACKGROUND_2
-    background.drawing=off
-    label.drawing=off
     script="$PLUGIN_DIR/space.sh"
   )
 
@@ -40,11 +37,6 @@ for i in "${!SPACE_ICONS[@]}"; do
     --set space.$sid "${space[@]}" \
     --subscribe space.$sid mouse.clicked
 done
-
-spaces_bracket=(
-  background.color=$BACKGROUND_1
-  background.border_color=$BACKGROUND_2
-)
 
 separator=(
   icon=􀆊
@@ -57,11 +49,21 @@ separator=(
   icon.color=$WHITE
 )
 
-sketchybar --add bracket spaces_bracket '/space\..*/' \
-  --set spaces_bracket "${spaces_bracket[@]}" \
-  \
-  --add item separator left \
-  --set separator "${separator[@]}"
+space_creator=(
+  icon=􀆊
+  icon.font="$FONT:Heavy:16.0"
+  padding_left=10
+  padding_right=8
+  label.drawing=off
+  display=active
+  click_script='yabai -m space --create'
+  script="$PLUGIN_DIR/space_windows.sh"
+  icon.color=$WHITE
+)
+
+sketchybar --add item space_creator left \
+  --set space_creator "${space_creator[@]}" \
+  --subscribe space_creator space_windows_change
 
 ###############################################################################
 # Custom icon sizes and offsets                                               #
