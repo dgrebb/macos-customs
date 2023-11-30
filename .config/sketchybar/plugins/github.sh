@@ -8,7 +8,7 @@ update() {
   COUNT="$(echo "$NOTIFICATIONS" | jq 'length')"
   args=()
   if [ "$NOTIFICATIONS" = "[]" ]; then
-    args+=(--set $NAME icon=$GITHUB label="0")
+    args+=(--set $NAME icon=$BELL label="0")
   else
     args+=(--set $NAME icon=$BELL_DOT label="$COUNT")
   fi
@@ -21,6 +21,7 @@ update() {
 
   COUNTER=0
   COLOR=$BLUE
+  URL="https://www.github.com/notifications"
   args+=(--set github.bell icon.color=$COLOR)
 
   while read -r repo url type title; do
@@ -71,7 +72,7 @@ update() {
       position=popup.github.bell
       icon.background.color=$COLOR
       drawing=on
-      click_script="open $URL; sketchybar --set github.bell popup.drawing=off"
+      click_script="open \"$URL\"; sketchybar --set github.bell popup.drawing=off; sleep 5; sketchybar --trigger github.update"
     )
 
     args+=(--clone github.notification.$COUNTER github.template
@@ -83,6 +84,10 @@ update() {
   if [ $COUNT -gt $PREV_COUNT ] 2>/dev/null || [ "$SENDER" = "forced" ]; then
     sketchybar --animate tanh 15 --set github.bell label.y_offset=5 label.y_offset=0
   fi
+
+  if [ $COUNT -lt '1' ]; then
+    sketchybar --set github.bell drawing=off
+  fi
 }
 
 popup() {
@@ -90,8 +95,11 @@ popup() {
 }
 
 case "$SENDER" in
-"routine" | "forced")
+"routine" | "forced" | "github.update")
   update
+  ;;
+"system_woke")
+  sleep 10 && update # Wait for network to connect
   ;;
 "mouse.entered")
   popup on

@@ -2,7 +2,7 @@
 
 POPUP_CLICK_SCRIPT="sketchybar --set \$NAME popup.drawing=toggle"
 
-github_status=(
+ghmon_status=(
   padding_right=6
   padding_left=6
   update_freq=15
@@ -13,7 +13,7 @@ github_status=(
   label.highlight_color=$BLUE
   popup.align=right
   popup.height=5
-  script="$PLUGIN_DIR/ghmon-workflow.sh"
+  script="$PLUGIN_DIR/ghmon.sh"
   click_script="$POPUP_CLICK_SCRIPT"
   # associated_display=1
 )
@@ -25,7 +25,7 @@ gh_spacer=(
   background.drawing=on
 )
 
-github_template=(
+ghmon_template=(
   drawing=off
   background.corner_radius=12
   label.padding_right=5
@@ -38,15 +38,15 @@ github_template=(
   background.drawing=on
 )
 
-sketchybar --add item github.status right \
-  --set github.status "${github_status[@]}" \
-  --subscribe github.status mouse.exited.global \
+sketchybar --add item ghmon.status right \
+  --set ghmon.status "${ghmon_status[@]}" \
+  --subscribe ghmon.status mouse.exited.global \
   \
-  --add item gh.spacer popup.github.status \
+  --add item gh.spacer popup.ghmon.status \
   --set gh.spacer "${gh_spacer[@]}" background.height=5 \
-  --add item github.template popup.github.status \
-  --set github.template "${github_template[@]}"
-# --subscribe github.status mouse.entered \
+  --add item ghmon.template popup.ghmon.status \
+  --set ghmon.template "${ghmon_template[@]}"
+# --subscribe ghmon.status mouse.entered \
 # mouse.exited \
 
 ghmon_bracket=(
@@ -54,5 +54,5 @@ ghmon_bracket=(
   background.border_color=$BACKGROUND_2
 )
 
-sketchybar --add bracket ghmon github.status \
+sketchybar --add bracket ghmon github.bell ghmon.status \
   --set ghmon "${ghmon_bracket[@]}"

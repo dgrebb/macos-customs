@@ -92,7 +92,7 @@ update() {
     ;;
   esac
 
-  args+=(--remove '/github.run\.*/' --remove gh.spacer_bottom)
+  args+=(--remove '/ghmon.run\.*/' --remove gh.spacer_bottom)
   while read -r url status conclusion start end branch title; do
     TITLE="$(echo "$title" | sed -e "s/^'//" -e "s/'$//")"
     URL="$(echo -e "${url}")"
@@ -123,26 +123,26 @@ update() {
       label="$TITLE | $RUN_END_TIME"
       icon=$RUN_ICON
       icon.color="$RUN_COLOR"
-      position=popup.github.status
+      position=popup.ghmon.status
       drawing=on
-      click_script="open $URL; sketchybar --set github.status popup.drawing=off"
+      click_script="open $URL; sketchybar --set ghmon.status popup.drawing=off"
     )
 
-    args+=(--clone github.run.$COUNTER github.template
-      --set github.run.$COUNTER "${run[@]}")
+    args+=(--clone ghmon.run.$COUNTER ghmon.template
+      --set ghmon.run.$COUNTER "${run[@]}")
 
   done <<<"$(echo $LIST | jq -r '.[] | [.url, .status, .conclusion, .startedAt, .updatedAt, .headBranch, .displayTitle] | @sh')"
   # NOTE: the evaluation order of these property values is important - `displayTitle` can have breaking-characters, so it goes last
 
-  args+=(--add item gh.spacer_bottom popup.github.status
+  args+=(--add item gh.spacer_bottom popup.ghmon.status
     --set gh.spacer_bottom "${gh_spacer[@]}" background.height=5)
 
   sketchybar -m "${args[@]}" >/dev/null
 
-  sketchybar --set github.status icon="$ICON" icon.color="$COLOR" label="$LABEL" label.color="$LCOLOR" \
+  sketchybar --set ghmon.status icon="$ICON" icon.color="$COLOR" label="$LABEL" label.color="$LCOLOR" \
     --set ghmon background.color=$BACKGROUND_1 background.border_color=$BACKGROUND_2
 
-  # sketchybar -m --add item gh.spacer_bottom popup.github.status \
+  # sketchybar -m --add item gh.spacer_bottom popup.ghmon.status \
   #   --set gh.spacer_bottom "${gh_spacer[@]}"
 
 }

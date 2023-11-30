@@ -18,7 +18,7 @@ else
   utils+=mail
 fi
 
-sketchybar --add bracket utils volume_icon $utils omnifocus nightshift "iStat Menus Status,com.bjango.istatmenus.cpu" \
+sketchybar --add bracket utils volume_icon $utils omnifocus nightshift "iStat Menus Status,com.bjango.istatmenus.cpu" "SystemUIServer,TimeMachine.TMMenuExtraHost" \
   "iStat Menus Status,com.bjango.istatmenus.memory" \
   ip_address network.up network.down \
   --set utils "${utils_bracket[@]}" \
