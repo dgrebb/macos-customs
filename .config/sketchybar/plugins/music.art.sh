@@ -12,20 +12,28 @@ mkdir -p "$temp_dir"
 # Run AppleScript to get the album art path
 album_art_path=$(osascript -e '
 tell application "Music"
-    if player state is playing then
-        set currentTrack to current track
-        set artworkData to raw data of artwork 1 of currentTrack
-        if artworkData is not {} then
-            set fileName to POSIX file "'"$temp_file"'"
-            set fileNumber to open for access fileName with write permission
-            write artworkData to fileNumber
-            close access fileNumber
-            return fileName
+    try
+        set fileName to POSIX file "'"$temp_file"'"
+        set fileNumber to open for access fileName with write permission
+        if player state is playing then
+            set currentTrack to current track
+            set artworkData to raw data of artwork 1 of currentTrack
+            if artworkData is not {} then
+                write artworkData to fileNumber
+                close access fileNumber
+                close access fileName
+                return fileName
+            else
+                return "No album art"
+            end if
         else
-            return "No album art"
+            return "No music playing"
         end if
-    else
-        return "No music playing"
-    end if
+    on error
+        try
+            close access fileNumber
+            close access fileName
+        end try
+    end try
 end tell
 ')
