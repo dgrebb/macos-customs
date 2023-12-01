@@ -1,7 +1,7 @@
 #!/bin/bash
 source "$HOME/.config/machine.sh"
 
-if [[ "$MACHINE" != 'work' ]]; then
+if [[ "$MACHINE" == 'home' ]]; then
   SPACE_ICONS=("󰟅" "🚜" "󱁐" "" "" "" "" "" "◌")
 else
   SPACE_ICONS=("󰟅" "🚜" "󱁐" "" "" "◌" "" "" "")
@@ -73,10 +73,10 @@ sketchybar --add item space_creator left \
 sketchybar --set space.2 icon.y_offset=2
 
 # set code space icons larger
-for id in 7 8; do
+for id in 4 5; do
   sketchybar --set space.$id icon.font.size=21.0
 done
 
-for id in 9; do
+for id in 6; do
   sketchybar --set space.$id icon.y_offset=-1
 done
