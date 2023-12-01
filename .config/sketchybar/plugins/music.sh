@@ -47,7 +47,7 @@ if [[ $PLAYER_STATE == "playing" ]] && [[ "$loved" = 'false' ]]; then
 fi
 
 if [[ ${#TITLE} -gt 25 ]]; then
-  TITLE=$(printf "$(echo $TITLE | cut -c 1-25)…")
+  TITLE=$(printf "$(echo $TITLE)")
 fi
 
 if [[ ${#ARTIST} -gt 25 ]]; then

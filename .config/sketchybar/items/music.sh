@@ -13,6 +13,8 @@ sketchybar -m --add item music.title center \
   --set music.title script="$PLUGIN_DIR/music.sh" \
   click_script="$MUSIC_CLICK_SCRIPT" \
   icon.padding_left=15 \
+  scroll_texts=on \
+  label.max_chars=20 \
   background.padding_right=0 \
   background.padding_left=0 \
   label.font="SF Compact Display:Regular:14" \
