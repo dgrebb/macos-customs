@@ -38,13 +38,16 @@ office=$home
 
 # Load Yabai
 if [[ "$MACHINE" == 'home' ]]; then
+  sh $HOME/.config/yabai/_spaces.sh
+  sh $HOME/.config/yabai/_signals.sh
+  sh $HOME/.config/yabai/_app-management.sh
   yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
   sudo yabai --load-sa
   $home
-  sh $HOME/.config/yabai/_signals.sh
-  sh $HOME/.config/yabai/_spaces.sh
-  sh $HOME/.config/yabai/_app-rules.sh
   yabai -m config layout bsp
+  yabai -m space --layout
+  yabai -m config --space 1 layout float
+  yabai -m config --space 3 layout float
 else
   printf "\033[0;32mSkipping yabai scripting addition for work.\033[0m\n\n" # global settings
   yabai -m signal --add event=dock_did_restart action="sudo yabai"
