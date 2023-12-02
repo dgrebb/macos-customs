@@ -65,9 +65,9 @@ sketchybar -m --set music.title icon="$icon" \
 
 sketchybar -m --set music.artist \
   label.color="${WHITE}" \
-  label="${ARTIST}" \
+  label="${ARTIST} »" \
   drawing=on
 
 sketchybar -m --set music.album \
-  label="${ALBUM}" \
+  label="« ${ALBUM}" \
   drawing=on
