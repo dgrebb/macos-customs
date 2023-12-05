@@ -21,6 +21,9 @@ zen_on() {
     --set network.down drawing=off \
     --set ip_address drawing=off \
     --set mail drawing=off \
+    --set wallpaper drawing=off \
+    --set rescuetime drawing=off \
+    --set "Glucose Graph,Item-0" drawing=off \
     --set teams drawing=off
 }
 
@@ -44,5 +47,8 @@ zen_off() {
     --set network.down drawing=off \
     --set ip_address drawing=on \
     --set mail drawing=on \
+    --set wallpaper drawing=on \
+    --set rescuetime drawing=on \
+    --set "Glucose Graph,Item-0" drawing=on \
     --set teams drawing=on
 }
