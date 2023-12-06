@@ -21,6 +21,9 @@ alias gbc='gbclean'
 alias gbcs='git pull --prune && git rm-merged'
 alias yr='yabai --restart-service'
 
+# zsh git plugin overrides
+alias gco='kill -9 $( lsof -i:1337 -t )>/dev/null 2>&1 || git checkout'
+
 # Projects
 alias p="cd ~/Projects/"
 

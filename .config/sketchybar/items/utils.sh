@@ -1,5 +1,6 @@
 #!/bin/bash
 source "$HOME/.config/machine.sh"
+source "$HOME/.config/yabai/_displays.sh"
 
 utils_bracket=(
   background.color=$BACKGROUND_1
@@ -9,17 +10,25 @@ utils_bracket=(
 
 # Set up machine-specific apps
 utils=()
+utils+=wallpaper
 
 if [[ "$MACHINE" == 'work' ]]; then
   utils+=rescuetime
-  utils+=' '
   utils+=teams
 else
+  utils+=nightshift
   utils+=mail
+  utils+=omnifocus
 fi
 
-sketchybar --add bracket utils volume_icon $utils omnifocus nightshift "iStat Menus Status,com.bjango.istatmenus.cpu" "SystemUIServer,TimeMachine.TMMenuExtraHost" \
+sketchybar --add bracket utils \
+  volume_icon \
+  $utils \
+  "iStat Menus Status,com.bjango.istatmenus.cpu" \
   "iStat Menus Status,com.bjango.istatmenus.memory" \
-  ip_address network.up network.down \
+  "SystemUIServer,TimeMachine.TMMenuExtraHost" \
+  ip_address \
+  network.up \
+  network.down \
   --set utils "${utils_bracket[@]}" \
   associated_display=1

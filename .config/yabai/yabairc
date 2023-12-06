@@ -1,7 +1,8 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 # Source which machine you're running
 source "$HOME/.config/machine.sh"
+source "$HOME/.config/yabai/_displays.sh"
 
 # Set up Home Configuration
 home=$(yabai -m config \
@@ -44,10 +45,30 @@ if [[ "$MACHINE" == 'home' ]]; then
   yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
   sudo yabai --load-sa
   $home
-  yabai -m config layout bsp
-  yabai -m config --space 1 layout float
-  yabai -m config --space 3 layout float
-  yabai -m config --space 5 layout float
+  # If Home Clamshell Open
+  main_display=$(getMainDisplayUUID)
+  if [[ "$main_display" == "$HOME_MACBOOK_UUID" ]]; then
+    yabai -m config layout float
+    LAYOUT=float
+
+    main_display_padding=(
+      top_padding 133
+      bottom_padding 133
+      left_padding 233
+      right_padding 233
+    )
+
+    # Set space padding
+    yabai -m config --space 1 "${main_display_padding[@]}"
+    yabai -m config --space 2 "${main_display_padding[@]}"
+    yabai -m config --space 3 "${main_display_padding[@]}"
+  else
+    yabai -m config layout bsp
+    LAYOUT=bsp
+  fi
+  yabai -m config --space 1 layout $LAYOUT
+  yabai -m config --space 3 layout $LAYOUT
+  yabai -m config --space 8 layout $LAYOUT
 else
   printf "\033[0;32mSkipping yabai scripting addition for work.\033[0m\n\n" # global settings
   yabai -m signal --add event=dock_did_restart action="sudo yabai"

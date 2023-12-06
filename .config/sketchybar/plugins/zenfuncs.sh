@@ -16,6 +16,7 @@ zen_on() {
     --set omnifocus drawing=off \
     --set "iStat Menus Status,com.bjango.istatmenus.cpu" drawing=off \
     --set "iStat Menus Status,com.bjango.istatmenus.memory" drawing=off \
+    --set "SystemUIServer,TimeMachine.TMMenuExtraHost" drawing=off \
     --set nightshift drawing=off \
     --set network.up drawing=off \
     --set network.down drawing=off \
@@ -42,6 +43,7 @@ zen_off() {
     --set omnifocus drawing=on \
     --set "iStat Menus Status,com.bjango.istatmenus.cpu" drawing=on \
     --set "iStat Menus Status,com.bjango.istatmenus.memory" drawing=on \
+    --set "SystemUIServer,TimeMachine.TMMenuExtraHost" drawing=on \
     --set nightshift drawing=on \
     --set network.up drawing=off \
     --set network.down drawing=off \

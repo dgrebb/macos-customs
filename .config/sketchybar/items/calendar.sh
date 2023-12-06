@@ -34,5 +34,7 @@ sketchybar --add alias "iStat Menus Status,com.bjango.istatmenus.weather" right 
   position=right \
   alias.scale=0.88
 
-sketchybar --add bracket calendarb battery calendar "iStat Menus Status,com.bjango.istatmenus.weather" \
+source "$ITEM_DIR/nightscout.sh"
+
+sketchybar --add bracket calendarb battery calendar "Glucose Graph,Item-0" "iStat Menus Status,com.bjango.istatmenus.weather" \
   --set calendarb "${calendar_bracket[@]}"

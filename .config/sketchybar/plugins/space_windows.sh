@@ -1,7 +1,6 @@
 #!/bin/bash
 
 if [ "$SENDER" = "space_windows_change" ]; then
-  echo "app icons should be updating here"
   args=(--animate sin 10)
 
   space="$(echo "$INFO" | jq -r '.space')"

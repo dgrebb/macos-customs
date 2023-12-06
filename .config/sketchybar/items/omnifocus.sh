@@ -5,7 +5,7 @@ sketchybar --add item omnifocus right \
   update_freq=180 \
   script="$PLUGIN_DIR/omnifocus.sh" \
   background.padding_left=3 \
-  background.padding_right=15 \
+  background.padding_right=12 \
   label.y_offset=-1 \
   icon.font.size=16 \
   associated_display=1 \

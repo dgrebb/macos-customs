@@ -5,6 +5,7 @@
 # tail -f /usr/local/var/log/sketchybar/sketchybar.err.log
 
 source "$HOME/.config/machine.sh"
+source "$HOME/.config/yabai/_displays.sh"
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 source "$CONFIG_DIR/icons.sh"  # Loads all defined icons
 
@@ -75,36 +76,28 @@ TEAMS=$(lsappinfo info "Microsoft Teams (work or school)")
 # Left
 # source "$ITEM_DIR/front_app.sh" moved inside of apple.sh
 source "$ITEM_DIR/apple.sh"
-source "$ITEM_DIR/spaces.sh"
-source "$ITEM_DIR/yabai.sh"
 
-# Center
-source "$ITEM_DIR/music.sh"
+main_display=$(getMainDisplayUUID)
+if [[ "$main_display" != "$HOME_MACBOOK_UUID" ]]; then
+  source "$ITEM_DIR/spaces.sh"
+  source "$ITEM_DIR/yabai.sh"
+
+  # Center
+  source "$ITEM_DIR/music.sh"
+fi
 
 # Right
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/network.sh"
 source "$ITEM_DIR/aliases.sh"
+source "$ITEM_DIR/wallpaper.sh"
 source "$ITEM_DIR/nightshift.sh"
-if [[ "$MACHINE" == 'work' ]]; then
-  source "$ITEM_DIR/omnifocus.sh"
-  source "$ITEM_DIR/rescuetime.sh"
-  source "$ITEM_DIR/teams.sh"
-else
-  source "$ITEM_DIR/omnifocus.sh"
-  source "$ITEM_DIR/mail.sh"
-fi
 source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/utils.sh"
 
-if [[ "$MACHINE" == 'home' ]]; then
-  source "$ITEM_DIR/github.sh"
-  source "$ITEM_DIR/ghmon.sh"
-else
-  echo "Skipping ghmon for work."
-fi
-source "$ITEM_DIR/wallpaper.sh"
+source "$ITEM_DIR/group.office.sh"
+
 # source "$ITEM_DIR/nightscout.sh"
 # source "$ITEM_DIR/wifi.sh"
 # source "$ITEM_DIR/brew.sh"
