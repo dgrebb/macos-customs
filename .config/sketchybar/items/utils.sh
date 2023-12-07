@@ -10,7 +10,6 @@ utils_bracket=(
 
 # Set up machine-specific apps
 utils=()
-utils+='wallpaper '
 
 if [[ "$MACHINE" == 'work' ]]; then
   utils+='rescuetime '
@@ -24,6 +23,7 @@ sketchybar --add bracket utils \
   $utils \
   "iStat Menus Status,com.bjango.istatmenus.cpu" \
   "iStat Menus Status,com.bjango.istatmenus.memory" \
+  wallpaper \
   "SystemUIServer,TimeMachine.TMMenuExtraHost" \
   ip_address \
   network.up \

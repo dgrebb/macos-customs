@@ -3,25 +3,25 @@
 POPUP_CLICK_SCRIPT="sketchybar --set \$NAME popup.drawing=toggle"
 
 ghmon_status=(
+  script="$PLUGIN_DIR/ghmon.sh"
+  click_script="$POPUP_CLICK_SCRIPT"
+  update_freq=15
   padding_right=6
   padding_left=12
-  update_freq=15
+  background.height=18
+  background.corner_radius=8
+  background.padding_left=5
+  background.padding_right=5
+  blur_radius=90
   icon=⏺
   icon.font="Hack Nerd Font:Regular:14.0"
   icon.color=$BLUE
+  icon.padding_left=6
   label=$LOADING
   label.highlight_color=$BLUE
+  label.padding_right=6
   popup.align=right
   popup.height=5
-  script="$PLUGIN_DIR/ghmon.sh"
-  click_script="$POPUP_CLICK_SCRIPT"
-  background.height=21
-  icon.padding_left=9
-  background.corner_radius=8
-  background.padding_left=2
-  background.padding_right=2
-  blur_radius=90
-  label.padding_right=9
   label.y_offset=1
   # associated_display=1
 )

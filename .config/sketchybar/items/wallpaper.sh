@@ -12,7 +12,7 @@ wallpaper=(
   width=18
   icon.color=$WHITE
   icon.padding_left=3
-  icon.padding_right=3
+  icon.padding_right=5
   label.drawing=off
   associated_display=1
 )

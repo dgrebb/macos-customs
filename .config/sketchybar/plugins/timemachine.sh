@@ -1,5 +1,9 @@
 #!/bin/bash
 
-running=$(ps ax | grep "/System/Library/CoreServices/backupd.bundle/Contents/Resources/backupd-helper" | grep -v 'grep')
+running=$(tmutil status | grep "Running = 1;")
 
-echo $running
+if [[ $running ]]; then
+  sketchybar --set "SystemUIServer,TimeMachine.TMMenuExtraHost" drawing=on
+else
+  sketchybar --set "SystemUIServer,TimeMachine.TMMenuExtraHost" drawing=off
+fi

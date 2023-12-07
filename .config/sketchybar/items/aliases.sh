@@ -25,13 +25,7 @@ sketchybar --add alias "iStat Menus Status,com.bjango.istatmenus.memory" right \
   alias.scale=0.8 \
   associated_display=1
 
-sketchybar --add alias "SystemUIServer,TimeMachine.TMMenuExtraHost" right \
-  --set "SystemUIServer,TimeMachine.TMMenuExtraHost" "${alias[@]}" \
-  width=30 \
-  label.padding_right=0 \
-  icon.padding_right=0 \
-  alias.scale=0.8 \
-  associated_display=1
+source "$ITEM_DIR/timemachine.sh"
 
 # sketchybar --add item spacer1 right \
 #   --set spacer1 background.drawing=off \
