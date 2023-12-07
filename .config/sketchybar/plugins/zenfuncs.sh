@@ -1,19 +1,15 @@
 #!/bin/bash
 
 zen_on() {
-  sketchybar --set wifi drawing=off \
+  sketchybar \
     --set apple.logo drawing=off \
     --set '/cpu.*/' drawing=off \
     --set calendar icon.drawing=off \
-    --set separator drawing=off \
     --set front_app drawing=off \
     --set volume_icon drawing=off \
-    --set spotify.anchor drawing=off \
-    --set spotify.play updates=off \
     --set utils drawing=off \
-    --set ghmon drawing=off \
-    --set github.status drawing=off \
     --set omnifocus drawing=off \
+    --set office drawing=off \
     --set "iStat Menus Status,com.bjango.istatmenus.cpu" drawing=off \
     --set "iStat Menus Status,com.bjango.istatmenus.memory" drawing=off \
     --set "SystemUIServer,TimeMachine.TMMenuExtraHost" drawing=off \
@@ -21,7 +17,6 @@ zen_on() {
     --set network.up drawing=off \
     --set network.down drawing=off \
     --set ip_address drawing=off \
-    --set mail drawing=off \
     --set wallpaper drawing=off \
     --set rescuetime drawing=off \
     --set "Glucose Graph,Item-0" drawing=off \
@@ -29,18 +24,15 @@ zen_on() {
 }
 
 zen_off() {
-  sketchybar --set wifi drawing=on \
+  sketchybar \
     --set apple.logo drawing=on \
     --set '/cpu.*/' drawing=on \
     --set calendar icon.drawing=on \
-    --set separator drawing=on \
     --set front_app drawing=on \
     --set volume_icon drawing=on \
-    --set spotify.play updates=on \
     --set utils drawing=on \
-    --set ghmon drawing=on \
-    --set github.status drawing=on \
     --set omnifocus drawing=on \
+    --set office drawing=off \
     --set "iStat Menus Status,com.bjango.istatmenus.cpu" drawing=on \
     --set "iStat Menus Status,com.bjango.istatmenus.memory" drawing=on \
     --set "SystemUIServer,TimeMachine.TMMenuExtraHost" drawing=on \
@@ -48,7 +40,6 @@ zen_off() {
     --set network.up drawing=off \
     --set network.down drawing=off \
     --set ip_address drawing=on \
-    --set mail drawing=on \
     --set wallpaper drawing=on \
     --set rescuetime drawing=on \
     --set "Glucose Graph,Item-0" drawing=on \

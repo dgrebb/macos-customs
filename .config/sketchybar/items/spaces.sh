@@ -17,9 +17,10 @@ for i in "${!SPACE_ICONS[@]}"; do
 
   space=(
     associated_space=$sid
-    icon="${SPACE_ICONS[i]}"
-    icon.padding_left=10
-    icon.padding_right=5
+    # icon="${SPACE_ICONS[i]}"
+    # icon.padding_left=10
+    # icon.padding_right=5
+    icon.drawing=off
     padding_left=2
     padding_right=2
     label.padding_right=20
@@ -70,13 +71,13 @@ sketchybar --add item space_creator left \
 ###############################################################################
 
 # adjust tractor
-sketchybar --set space.2 icon.y_offset=2
+# sketchybar --set space.2 icon.y_offset=2
 
 # set code space icons larger
-for id in 4 5; do
-  sketchybar --set space.$id icon.font.size=21.0
-done
+# for id in 4 5; do
+#   sketchybar --set space.$id icon.font.size=21.0
+# done
 
-for id in 6; do
-  sketchybar --set space.$id icon.y_offset=-1
-done
+# for id in 6; do
+#   sketchybar --set space.$id icon.y_offset=-1
+# done

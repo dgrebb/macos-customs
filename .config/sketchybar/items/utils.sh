@@ -10,15 +10,13 @@ utils_bracket=(
 
 # Set up machine-specific apps
 utils=()
-utils+=wallpaper
+utils+='wallpaper '
 
 if [[ "$MACHINE" == 'work' ]]; then
-  utils+=rescuetime
-  utils+=teams
+  utils+='rescuetime '
+  utils+='teams '
 else
-  utils+=nightshift
-  utils+=mail
-  utils+=omnifocus
+  utils+='nightshift '
 fi
 
 sketchybar --add bracket utils \
@@ -30,5 +28,4 @@ sketchybar --add bracket utils \
   ip_address \
   network.up \
   network.down \
-  --set utils "${utils_bracket[@]}" \
-  associated_display=1
+  --set utils "${utils_bracket[@]}"

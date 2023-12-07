@@ -57,7 +57,7 @@ defaults=(
   padding_right=$PADDINGS
   padding_left=$PADDINGS
   background.height=26
-  background.corner_radius=50
+  background.corner_radius=9
   background.border_width=1
   popup.y_offset=0
   popup.background.border_width=1
@@ -102,7 +102,6 @@ source "$ITEM_DIR/group.office.sh"
 # source "$ITEM_DIR/wifi.sh"
 # source "$ITEM_DIR/brew.sh"
 # source "$ITEM_DIR/github.sh"
-# source "$ITEM_DIR/cpu.sh"
 
 # Conditionally show/hide items
 # sketchybar -m set <item> hidden on

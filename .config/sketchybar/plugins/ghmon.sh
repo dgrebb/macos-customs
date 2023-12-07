@@ -140,7 +140,7 @@ update() {
   sketchybar -m "${args[@]}" >/dev/null
 
   sketchybar --set ghmon.status icon="$ICON" icon.color="$COLOR" label="$LABEL" label.color="$LCOLOR" \
-    --set ghmon background.color=$BACKGROUND_1 background.border_color=$BACKGROUND_2
+    --set ghmon.status background.color=$BACKGROUND_1 background.border_color=$BACKGROUND_2
 
   # sketchybar -m --add item gh.spacer_bottom popup.ghmon.status \
   #   --set gh.spacer_bottom "${gh_spacer[@]}"
