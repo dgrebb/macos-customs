@@ -26,8 +26,3 @@ sketchybar --add alias "iStat Menus Status,com.bjango.istatmenus.memory" right \
   associated_display=1
 
 source "$ITEM_DIR/timemachine.sh"
-
-# sketchybar --add item spacer1 right \
-#   --set spacer1 background.drawing=off \
-#   associated_display=1 \
-#   width=9
