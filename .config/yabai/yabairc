@@ -4,8 +4,9 @@
 # tail -f /tmp/yabai_$USER.err.log
 # tail -f /tmp/yabai_$USER.out.log
 
-# Set up visudo
+# Set up scripting addition with visudo
 # echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai)"
+# sudo visudo -f /private/etc/sudoers.d/yabai
 
 # Source which machine you're running
 source "$HOME/.config/machine.sh"
