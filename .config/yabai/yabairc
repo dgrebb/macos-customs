@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Logs
+# tail -f /tmp/yabai_$USER.err.log
+# tail -f /tmp/yabai_$USER.out.log
+
 # Source which machine you're running
 source "$HOME/.config/machine.sh"
 source "$HOME/.config/yabai/_displays.sh"
