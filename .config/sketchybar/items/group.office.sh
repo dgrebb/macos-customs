@@ -31,11 +31,10 @@ if [[ "$MACHINE" == 'home' ]]; then
     office_items+="omnifocus mail github ghmon"
   fi
 else
-  source "$ITEM_DIR/github.sh"
   source "$ITEM_DIR/omnifocus.sh"
   source "$ITEM_DIR/teams.sh"
   source "$ITEM_DIR/rescuetime.sh"
-  office_items+="rescuetime teams omnifocus github"
+  office_items+="rescuetime teams omnifocus"
 fi
 
 office_bracket=(
