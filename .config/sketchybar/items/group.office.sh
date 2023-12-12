@@ -7,12 +7,16 @@ office_items=()
 
 office_spacer=(
   background.drawing=off
-  associated_display=1
-  width=0
+  # associated_display=1
+  # width=0
   icon.padding_left=0
   icon.padding_right=0
   label.padding_left=0
   label.padding_right=0
+  background.padding_left=0
+  background.padding_right=0
+  padding_left=0
+  padding_right=3
 )
 
 sketchybar --add item spacer1 right \

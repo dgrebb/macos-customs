@@ -22,10 +22,10 @@ if [[ $STATUS_LABEL =~ \"label\"=\"([^\"]*)\" ]]; then
   fi
 else
   DRAWING=off
-  # ICON=""
-  # LABEL=""
-  # LABEL_PADDING=0
-  # ICON_COLOR="$GREY"
+  ICON=""
+  LABEL=""
+  LABEL_PADDING=0
+  ICON_COLOR="$GREY"
 fi
 
 sketchybar --set omnifocus icon=$ICON label="${LABEL}" \
