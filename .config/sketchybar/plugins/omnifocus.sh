@@ -28,7 +28,7 @@ else
   # ICON_COLOR="$GREY"
 fi
 
-sketchybar --set $NAME icon=$ICON label="${LABEL}" \
+sketchybar --set omnifocus icon=$ICON label="${LABEL}" \
   icon.color="${ICON_COLOR}" icon.padding_right="${LABEL_PADDING}" \
   icon.padding_left="${LABEL_PADDING}" \
   label.padding_left="${LABEL_PADDING}" \

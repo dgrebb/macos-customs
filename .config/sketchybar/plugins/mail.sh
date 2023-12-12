@@ -31,7 +31,7 @@ else
   # ICON_COLOR="$GREY"
 fi
 
-sketchybar --set $NAME icon=$ICON label="${LABEL}" icon.color=${ICON_COLOR} \
+sketchybar --set mail icon=$ICON label="${LABEL}" icon.color=${ICON_COLOR} \
   icon.padding_right="$LABEL_PADDING" icon.padding_left="$LABEL_PADDING" \
   label.padding_left="$LABEL_PADDING" label.padding_right="$LABEL_PADDING" \
   drawing=$DRAWING

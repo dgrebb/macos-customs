@@ -7,7 +7,6 @@ sketchybar --add item mail right \
   background.padding_left=3 \
   background.padding_right=3 \
   label.y_offset=-1 \
-  \
   icon.font.size=18 \
   associated_display=1 \
   click_script="$PLUGIN_DIR/mail_click.sh" \
