@@ -18,7 +18,7 @@ if [[ $STATUS_LABEL =~ \"label\"=\"([^\"]*)\" ]]; then
     ICON=""
     ICON_COLOR="$PURPLE"
   else
-    exit 0
+    DRAWING=off
   fi
 else
   DRAWING=off

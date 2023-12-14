@@ -16,7 +16,7 @@ source "$HOME/.config/sketchybar/colors.sh"
 source "$HOME/.config/.secrets"
 
 # Update
-QUERY="rain"
+QUERY="mountain%20trees"
 ORIENTATION="landscape"
 TIMESTAMP=$(echo '('$(date +"%s.%N") ' * 10)/1' | bc)
 WALLPAPER_PATH="$HOME/.config/.sketchyrw/wallpaper"
