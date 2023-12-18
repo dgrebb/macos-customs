@@ -46,8 +46,8 @@ home=$(yabai -m config \
 office=$home
 
 # Load Yabai
+source $HOME/.config/yabai/_spaces.sh
 if [[ "$MACHINE" == 'home' ]]; then
-  source $HOME/.config/yabai/_spaces.sh
   source $HOME/.config/yabai/_signals.sh
   source $HOME/.config/yabai/_app-management.sh
   yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
@@ -71,7 +71,6 @@ if [[ "$MACHINE" == 'home' ]]; then
     yabai -m config --space 2 "${main_display_padding[@]}"
     yabai -m config --space 3 "${main_display_padding[@]}"
   else
-    yabai -m config layout bsp
     LAYOUT=bsp
   fi
   yabai -m config --space 1 layout $LAYOUT
@@ -82,7 +81,8 @@ else
   yabai -m signal --add event=dock_did_restart action="sudo yabai"
   yabai
   $office
-  yabai -m config layout float
 fi
+
+yabai -m config layout bsp
 
 printf "\033[0;32m✓ Yabai configuration loaded!\033[0m\n\n"
