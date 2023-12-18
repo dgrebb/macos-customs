@@ -19,7 +19,7 @@ source "$HOME/.config/.secrets"
 QUERY="moss macro"
 ORIENTATION="landscape"
 TIMESTAMP=$(echo '('$(date +"%s.%N") ' * 10)/1' | bc)
-WALLPAPER_PATH="$HOME/.config/.sketchyrw/wallpaper"
+WALLPAPER_PATH="$HOME/Pictures/wallpaper"
 
 # TODO: Create popup with multiple options to choose from, search again, or change query via macos dialog
 
