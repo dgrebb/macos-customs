@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 # A list of displays and their properties
 HOME_EX_MAIN_UUID="B63E3652-FEA6-43EE-8D06-66978CE762DC"
