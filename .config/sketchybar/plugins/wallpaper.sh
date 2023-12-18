@@ -16,7 +16,7 @@ source "$HOME/.config/sketchybar/colors.sh"
 source "$HOME/.config/.secrets"
 
 # Update
-QUERY="mountain%20trees"
+QUERY="moss macro"
 ORIENTATION="landscape"
 TIMESTAMP=$(echo '('$(date +"%s.%N") ' * 10)/1' | bc)
 WALLPAPER_PATH="$HOME/.config/.sketchyrw/wallpaper"
@@ -24,12 +24,13 @@ WALLPAPER_PATH="$HOME/.config/.sketchyrw/wallpaper"
 # TODO: Create popup with multiple options to choose from, search again, or change query via macos dialog
 
 URL=$(
-  curl --location "https://api.unsplash.com/photos/random?query=${QUERY}&orientation=${ORIENTATION}" \
+  curl -G --location https://api.unsplash.com/photos/random \
+    --data-urlencode "query=${QUERY}" --data-urlencode "orientation=${ORIENTATION}" \
     --header "Authorization: Client-ID ${ACCESS_KEY}" | jq -r '.urls.full'
 )
 # Note: change the `jq` query to `.urls.raw` for larger displays
 
-wget $URL -O "${WALLPAPER_PATH}/wallpaper_${TIMESTAMP}.jpg"
+wget -q $URL -O "${WALLPAPER_PATH}/wallpaper_${TIMESTAMP}.jpg"
 WALLPAPER="${WALLPAPER_PATH}/wallpaper_${TIMESTAMP}.jpg"
 
 # TODO: Set wallpaper on all spaces via yet-to be determined Mission Control API
