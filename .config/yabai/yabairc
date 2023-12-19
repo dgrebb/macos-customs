@@ -37,7 +37,7 @@ home=$(yabai -m config \
   right_padding 33 \
   window_gap 33 \
   layout bsp \
-  mouse_modifier fn \
+  mouse_modifier ctrl \
   mouse_action1 move \
   mouse_action2 resize \
   mouse_drop_action swap)
@@ -46,12 +46,12 @@ home=$(yabai -m config \
 office=$home
 
 # Load Yabai
-source $HOME/.config/yabai/_spaces.sh
 if [[ "$MACHINE" == 'home' ]]; then
-  source $HOME/.config/yabai/_signals.sh
-  source $HOME/.config/yabai/_app-management.sh
+
   yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
   sudo yabai --load-sa
+
+  # load config
   $home
 
   main_display_padding=(
@@ -77,12 +77,38 @@ if [[ "$MACHINE" == 'home' ]]; then
   yabai -m config --space 3 layout $LAYOUT
   yabai -m config --space 8 layout $LAYOUT
 else
+
   printf "\033[0;32mSkipping yabai scripting addition for work.\033[0m\n\n" # global settings
   yabai -m signal --add event=dock_did_restart action="sudo yabai"
   yabai
+
+  # load office-adjusted config
   $office
+
 fi
 
-yabai -m config layout bsp
+main_display_padding=(
+  top_padding 133
+  bottom_padding 133
+  left_padding 233
+  right_padding 233
+)
+
+# Set space padding
+yabai -m config --space 1 "${main_display_padding[@]}"
+yabai -m config --space 2 "${main_display_padding[@]}"
+yabai -m config --space 3 "${main_display_padding[@]}"
+
+source $HOME/.config/yabai/_signals.sh
+source $HOME/.config/yabai/_app-management.sh
+
+# If Home Clamshell Open
+main_display=$(getMainDisplayUUID)
+if [[ "$main_display" == "$HOME_MACBOOK_UUID" ]]; then
+  yabai -m config layout float
+fi
+
+# set up spaces after applying all configuration
+source $HOME/.config/yabai/_spaces.sh
 
 printf "\033[0;32m✓ Yabai configuration loaded!\033[0m\n\n"

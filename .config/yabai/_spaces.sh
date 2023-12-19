@@ -41,9 +41,9 @@ yabai -m config --space 2 "${main_display_padding[@]}"
 yabai -m config --space 3 "${main_display_padding[@]}"
 
 # Assign apps to spaces
-yabai -m rule --add app="^(Music)$" space=music
-yabai -m rule --add app="^(Firefox)$" space=web
-yabai -m rule --add app="^(Notion|Photoshop|Lightroom|Pym)$" space=work
-yabai -m rule --add app="^(OmniFocus|Calendar)$" space=office
-yabai -m rule --add app="^(iTerm)$" space=terminal
-yabai -m rule --add app="^(Visual Studio Code)$" space=maincode
+yabai -m rule --add app="^(Music)$" space=1
+yabai -m rule --add app="^(Firefox)$" space=^2
+yabai -m rule --add app="^(Notion|Photoshop|Lightroom|Pym)$" space=3
+yabai -m rule --add app="^(iTerm)$" space=^4
+yabai -m rule --add app="^(OmniFocus|Mail|Calendar)$" space=5
+yabai -m rule --add app="^(Visual Studio Code)$" space=^8
