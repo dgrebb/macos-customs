@@ -53,24 +53,24 @@ if [[ "$MACHINE" == 'home' ]]; then
   yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
   sudo yabai --load-sa
   $home
+
+  main_display_padding=(
+    top_padding 133
+    bottom_padding 133
+    left_padding 233
+    right_padding 233
+  )
+
   # If Home Clamshell Open
   main_display=$(getMainDisplayUUID)
   if [[ "$main_display" == "$HOME_MACBOOK_UUID" ]]; then
     yabai -m config layout float
     LAYOUT=float
-
-    main_display_padding=(
-      top_padding 133
-      bottom_padding 133
-      left_padding 233
-      right_padding 233
-    )
-
+  else
     # Set space padding
     yabai -m config --space 1 "${main_display_padding[@]}"
     yabai -m config --space 2 "${main_display_padding[@]}"
     yabai -m config --space 3 "${main_display_padding[@]}"
-  else
     LAYOUT=bsp
   fi
   yabai -m config --space 1 layout $LAYOUT
