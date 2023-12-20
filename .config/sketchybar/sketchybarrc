@@ -82,9 +82,10 @@ if [[ "$main_display" != "$HOME_MACBOOK_UUID" ]] && [[ "$MACHINE" != 'work' ]]; 
   source "$ITEM_DIR/spaces.sh"
   source "$ITEM_DIR/yabai.sh"
 
-  # Center
-  source "$ITEM_DIR/music.sh"
 fi
+
+# Center
+source "$ITEM_DIR/music.sh"
 
 # Right
 source "$ITEM_DIR/battery.sh"

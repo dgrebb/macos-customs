@@ -4,7 +4,7 @@
 
 # Specify the temporary directory and file name with a .png extension
 temp_dir="$HOME/.config/.sketchyrw"
-temp_file="$temp_dir/album_art.png"
+temp_file="$HOME/Pictures/album_art.png"
 
 # Ensure the temporary directory exists
 mkdir -p "$temp_dir"
