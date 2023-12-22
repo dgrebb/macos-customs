@@ -26,6 +26,7 @@ alias gco='kill -9 $( lsof -i:1337 -t )>/dev/null 2>&1 || git checkout'
 
 # Projects
 alias p="cd ~/Projects/"
+alias dgc "cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Home/dgrebb.com\ content"
 
 # Github
 alias ghpl='nocorrect ghpl'
