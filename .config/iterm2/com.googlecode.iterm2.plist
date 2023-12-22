@@ -8,6 +8,8 @@
 	<string>Desk</string>
 	<key>Default Bookmark Guid</key>
 	<string>CD5192D4-5BEE-4668-93B8-B87AE032BCE7</string>
+	<key>DimBackgroundWindows</key>
+	<true/>
 	<key>DimOnlyText</key>
 	<false/>
 	<key>GlobalKeyMap</key>
@@ -138,6 +140,8 @@
 	<key>HideScrollbar</key>
 	<true/>
 	<key>HideTab</key>
+	<true/>
+	<key>HideTabNumber</key>
 	<true/>
 	<key>Hotkey</key>
 	<false/>
@@ -422,6 +426,8 @@
 			<integer>0</integer>
 			<key>Idle Code</key>
 			<integer>0</integer>
+			<key>Initial Use Transparency</key>
+			<true/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -1195,6 +1201,8 @@
 			<true/>
 			<key>Use Bright Bold</key>
 			<true/>
+			<key>Use Custom Tab Title</key>
+			<false/>
 			<key>Use Italic Font</key>
 			<true/>
 			<key>Use Non-ASCII Font</key>
@@ -2264,6 +2272,8 @@
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
+	<key>PerPaneBackgroundImage</key>
+	<false/>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -2308,13 +2318,15 @@
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.51272830703883487</real>
+	<real>0.2879497876213592</real>
 	<key>StatusBarPosition</key>
 	<integer>1</integer>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
+	<key>TabsHaveCloseButton</key>
+	<false/>
 	<key>TerminalMargin</key>
 	<integer>33</integer>
 	<key>TerminalVMargin</key>
