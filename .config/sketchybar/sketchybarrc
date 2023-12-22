@@ -81,11 +81,12 @@ main_display=$(getMainDisplayUUID)
 if [[ "$main_display" != "$HOME_MACBOOK_UUID" ]] && [[ "$MACHINE" != 'work' ]]; then
   source "$ITEM_DIR/spaces.sh"
   source "$ITEM_DIR/yabai.sh"
-
 fi
 
-# Center
-source "$ITEM_DIR/music.sh"
+if [ "$main_display" != "$HOME_MACBOOK_UUID" ] || [ "$main_display" == "$WORK_MACBOOK_UUID" ]; then
+  # Center
+  source "$ITEM_DIR/music.sh"
+fi
 
 # Right
 source "$ITEM_DIR/battery.sh"
