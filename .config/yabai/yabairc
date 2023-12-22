@@ -54,24 +54,6 @@ if [[ "$MACHINE" == 'home' ]]; then
 
   # load config
   $home
-
-  main_display_padding=(
-    top_padding 133
-    bottom_padding 133
-    left_padding 233
-    right_padding 233
-  )
-
-  # If Home Clamshell Open
-  main_display=$(getMainDisplayUUID)
-  if [[ "$main_display" == "$HOME_MACBOOK_UUID" ]]; then
-    yabai -m config layout float
-  else
-    # Set space padding
-    yabai -m config --space 1 "${main_display_padding[@]}"
-    yabai -m config --space 2 "${main_display_padding[@]}"
-    yabai -m config --space 3 "${main_display_padding[@]}"
-  fi
 else
 
   printf "\033[0;32mSkipping yabai scripting addition for work.\033[0m\n\n" # global settings
@@ -84,6 +66,9 @@ else
 
 fi
 
+# set up spaces after applying all configuration
+source $HOME/.config/yabai/_spaces.sh
+
 main_display_padding=(
   top_padding 133
   bottom_padding 133
@@ -95,20 +80,15 @@ main_display_padding=(
 yabai -m config --space 1 "${main_display_padding[@]}"
 yabai -m config --space 2 "${main_display_padding[@]}"
 yabai -m config --space 3 "${main_display_padding[@]}"
-yabai -m config --space 1 layout $LAYOUT
-yabai -m config --space 3 layout $LAYOUT
-yabai -m config --space 8 layout $LAYOUT
-
-source $HOME/.config/yabai/_signals.sh
-source $HOME/.config/yabai/_app-management.sh
 
 # If Home Clamshell Open
 main_display=$(getMainDisplayUUID)
-if [[ "$main_display" == "$HOME_MACBOOK_UUID" ]]; then
+if [ "$main_display" == "$HOME_MACBOOK_UUID" ] || [ "$main_display" == "$WORK_MACBOOK_UUID" ]]; then
   yabai -m config layout float
 fi
 
-# set up spaces after applying all configuration
-source $HOME/.config/yabai/_spaces.sh
+# add signals and manage applications
+source $HOME/.config/yabai/_signals.sh
+source $HOME/.config/yabai/_app-management.sh
 
 printf "\033[0;32m✓ Yabai configuration loaded!\033[0m\n\n"
