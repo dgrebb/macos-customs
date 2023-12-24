@@ -12,5 +12,5 @@ yabai -m signal --add event=display_changed \
 yabai -m signal --add event=display_removed action="sleep 10 && yabai --restart-service sketchybar --reload"
 
 # restart to adjust for display additions
-yabai -m signal --add event=display_removed \
+yabai -m signal --add event=display_added \
   action="sleep 10 && yabai --restart-service sketchybar --reload"
