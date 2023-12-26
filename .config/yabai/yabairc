@@ -44,7 +44,7 @@ home=$(yabai -m config \
 
 # Set up Office Configuration
 office=$home
-LAYOUT=float
+LAYOUT=bsp
 
 # Load Yabai
 if [[ "$MACHINE" == 'home' ]]; then
@@ -67,14 +67,16 @@ else
 
 fi
 
-# set up spaces after applying all configuration
-source $HOME/.config/yabai/_spaces.sh
-
 # If Home Clamshell Open
 main_display=$(getMainDisplayUUID)
 if [ "$main_display" == "$HOME_MACBOOK_UUID" ] || [ "$main_display" == "$WORK_MACBOOK_UUID" ]; then
-  yabai -m config layout float
+  LAYOUT=float
 fi
+
+yabai -m config layout $LAYOUT
+
+# set up spaces after applying all configuration
+source $HOME/.config/yabai/_spaces.sh
 
 # add signals and manage applications
 source $HOME/.config/yabai/_signals.sh

@@ -43,6 +43,10 @@ yabai -m config --space 1 "${main_display_padding[@]}"
 yabai -m config --space 2 "${main_display_padding[@]}"
 yabai -m config --space 3 "${main_display_padding[@]}"
 
+# Set floating spaces
+yabai -m config --space 1 layout float
+yabai -m config --space 3 layout float
+
 # Assign apps to spaces
 yabai -m rule --add app="^Music$" space=1
 yabai -m rule --add app="^(Firefox|Obsidian)$" space=^2

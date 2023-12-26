@@ -347,11 +347,11 @@
 			<key>Badge Max Width</key>
 			<real>0.029999999999999999</real>
 			<key>Badge Right Margin</key>
-			<real>10</real>
+			<real>33</real>
 			<key>Badge Text</key>
 			<string>🚜</string>
 			<key>Badge Top Margin</key>
-			<real>0.0</real>
+			<real>11</real>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
