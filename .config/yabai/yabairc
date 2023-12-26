@@ -62,6 +62,7 @@ else
 
   # load office-adjusted config
   $office
+  yabai -m config focus_follows_mouse off
   LAYOUT=bsp
 
 fi
