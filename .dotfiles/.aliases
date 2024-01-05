@@ -38,6 +38,9 @@ function ghpv() {
 	gh project view --owner "@me" $1 -w
 }
 
+# pnpm
+alias pn=pnpm
+
 # Obsidian
 alias obs="/Applications/Obsidian.app/Contents/MacOS/Obsidian"
 
