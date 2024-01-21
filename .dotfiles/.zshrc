@@ -12,9 +12,10 @@ plugins=(
     zsh-autocomplete
 )
 
+ZSHRC_DIR=$(dirname $(readlink -f $0))
 source $ZSH/oh-my-zsh.sh
-source $HOME/.aliases
-source $HOME/.functions
+source $ZSHRC_DIR/.aliases
+source $ZSHRC_DIR/.functions
 
 # Python
 export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
@@ -23,10 +24,10 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # Cargo
-export PATH="/Users/dgrebb/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Terraform
-export PATH="/Users/dgrebb/Projects/terravision:$PATH"
+export PATH="$HOME/Projects/terravision:$PATH"
 
 GPG_TTY=$(tty)
 export GPG_TTY
