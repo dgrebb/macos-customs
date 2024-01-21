@@ -25,6 +25,9 @@ fi
 # Cargo
 export PATH="/Users/dgrebb/.cargo/bin:$PATH"
 
+# Terraform
+export PATH="/Users/dgrebb/Projects/terravision:$PATH"
+
 GPG_TTY=$(tty)
 export GPG_TTY
 
