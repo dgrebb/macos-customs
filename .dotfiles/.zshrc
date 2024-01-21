@@ -12,10 +12,9 @@ plugins=(
     zsh-autocomplete
 )
 
-ZSHRC_DIR=$(dirname $(readlink -f $0))
 source $ZSH/oh-my-zsh.sh
-source $ZSHRC_DIR/.aliases
-source $ZSHRC_DIR/.functions
+source $HOME/.aliases
+source $HOME/.functions
 
 # Python
 export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
