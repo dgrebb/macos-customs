@@ -643,12 +643,16 @@
 			</dict>
 			<key>Ansi 12 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
 				<real>1</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.4274120780651614</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.2977752685546875</real>
 			</dict>
 			<key>Ansi 13 Color</key>
 			<dict>
@@ -792,9 +796,9 @@
 			<key>Blinking Cursor</key>
 			<true/>
 			<key>Blur</key>
-			<false/>
+			<true/>
 			<key>Blur Radius</key>
-			<real>47.855053191489361</real>
+			<real>24</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1196,7 +1200,7 @@
 			<key>Normal Font</key>
 			<string>HackNFM-Regular 12</string>
 			<key>Only The Default BG Color Uses Transparency</key>
-			<false/>
+			<true/>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1513,7 +1517,7 @@
 			<key>Title Components</key>
 			<integer>3</integer>
 			<key>Transparency</key>
-			<real>0.18929521276595745</real>
+			<real>0.20999999999999999</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -1727,9 +1731,9 @@
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
-			<false/>
+			<true/>
 			<key>Blur Radius</key>
-			<real>12.164943484042553</real>
+			<real>24</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -2594,7 +2598,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.06652260638297873</real>
+			<real>0.20999999999999999</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -2661,12 +2665,16 @@
 			</dict>
 			<key>Ansi 12 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
 				<real>1</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.39561062376244205</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.2587738037109375</real>
 			</dict>
 			<key>Ansi 13 Color</key>
 			<dict>
@@ -2810,9 +2818,9 @@
 			<key>Blinking Cursor</key>
 			<true/>
 			<key>Blur</key>
-			<false/>
+			<true/>
 			<key>Blur Radius</key>
-			<real>47.855053191489361</real>
+			<real>24</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -3218,7 +3226,7 @@
 			<key>Normal Font</key>
 			<string>HackNFM-Regular 12</string>
 			<key>Only The Default BG Color Uses Transparency</key>
-			<false/>
+			<true/>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -3535,7 +3543,7 @@
 			<key>Title Components</key>
 			<integer>512</integer>
 			<key>Transparency</key>
-			<real>0.11</real>
+			<real>0.20999999999999999</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -3604,12 +3612,16 @@
 			</dict>
 			<key>Ansi 12 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
 				<real>1</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.42316939578142615</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.292572021484375</real>
 			</dict>
 			<key>Ansi 13 Color</key>
 			<dict>
@@ -3753,9 +3765,9 @@
 			<key>Blinking Cursor</key>
 			<true/>
 			<key>Blur</key>
-			<false/>
+			<true/>
 			<key>Blur Radius</key>
-			<real>47.855053191489361</real>
+			<real>24</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -4161,7 +4173,7 @@
 			<key>Normal Font</key>
 			<string>HackNFM-Regular 12</string>
 			<key>Only The Default BG Color Uses Transparency</key>
-			<false/>
+			<true/>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -4478,7 +4490,7 @@
 			<key>Title Components</key>
 			<integer>512</integer>
 			<key>Transparency</key>
-			<real>0.11</real>
+			<real>0.20999999999999999</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
