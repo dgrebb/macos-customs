@@ -26,7 +26,8 @@ alias gca='git commit --amend'
 
 # Projects
 alias p="cd ~/Projects/"
-alias dgc="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Home/dgrebb.com\ content"
+alias dgc="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/_dgrebb.com/Content"
+alias dgw="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/_dgrebb.com/GitHub\ Wiki"
 
 # Github
 alias ghpl='nocorrect ghpl'
