@@ -1,5 +1,8 @@
 #!/bin/bash
 
+source "$HOME/.config/machine.sh"
+source "$HOME/.config/yabai/_displays.sh"
+
 # Setup or destroy spaces as needed to match 9
 for _ in $(yabai -m query --spaces | jq '.[].index | select(. > 9)'); do
   yabai -m space --destroy 10
@@ -48,11 +51,27 @@ yabai -m config --space 1 layout float
 yabai -m config --space 3 layout float
 
 # Assign apps to spaces
-yabai -m rule --add app="^Music$" space=1
-yabai -m rule --add app="^(Firefox|Obsidian)$" space=^2
-yabai -m rule --add app="^(Notion|Photoshop|Lightroom|Pym)$" space=3
-yabai -m rule --add app="^iTerm$" space=4
-yabai -m rule --add app="^(OmniFocus|Mail|Calendar)$" space=5
-yabai -m rule --add app="^(Microsoft Teams (work or school)|Microsoft Outlook)$" space=6
-yabai -m rule --add app="^Visual Studio Code$" space=8
-yabai -m rule --add app="^dg project$" space=9
+
+# Set Apps to Spaces for Office and Home
+main_display=$(getMainDisplayUUID)
+
+if [ "$main_display" == "$HOME_EX_MAIN_UUID" ]; then
+
+  yabai -m rule --add app="^Music$" space=1
+  yabai -m rule --add app="^(Firefox|Obsidian)$" space=^2
+  yabai -m rule --add app="^(Notion|Photoshop|Lightroom|Pym)$" space=3
+  yabai -m rule --add app="^iTerm$" space=4
+  yabai -m rule --add app="^(OmniFocus|Mail|Calendar)$" space=5
+  yabai -m rule --add app="^Visual Studio Code$" space=8
+  yabai -m rule --add app="^dg project$" space=9
+
+elif [[ "$MACHINE" == 'work' ]]; then
+
+  yabai -m rule --add app="^Music$" space=1
+  yabai -m rule --add app="^(Firefox|Obsidian)$" space=^2
+  yabai -m rule --add app="^iTerm$" space=4
+  yabai -m rule --add app="^(OmniFocus|Calendar)$" space=5
+  yabai -m rule --add app="^(Microsoft Teams (work or school)|Microsoft Outlook)$" space=6
+  yabai -m rule --add app="^Visual Studio Code$" space=8
+
+fi
