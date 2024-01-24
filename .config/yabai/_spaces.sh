@@ -3,11 +3,6 @@
 source "$HOME/.config/machine.sh"
 source "$HOME/.config/yabai/_displays.sh"
 
-# Setup or destroy spaces as needed to match 9
-for _ in $(yabai -m query --spaces | jq '.[].index | select(. > 9)'); do
-  yabai -m space --destroy 10
-done
-
 # Space Mapper
 setup_space() {
   local idx="$1"
@@ -21,7 +16,19 @@ setup_space() {
   fi
 
   yabai -m space "$idx" --label "$name"
+  if [[ "$idx" -gt "3" && "$idx" -lt "7" ]]; then
+    yabai -m space "$idx" --display 2
+  elif [ "$idx" -lt "4" ]; then
+    yabai -m space "$idx" --display 1
+  else
+    yabai -m space "$idx" --display 3
+  fi
 }
+
+# Setup or destroy spaces as needed to match 9
+for _ in $(yabai -m query --spaces | jq '.[].index | select(. > 9)'); do
+  yabai -m space --destroy 10
+done
 
 # Set Up Spaces
 setup_space 1 music
@@ -62,10 +69,12 @@ if [ "$main_display" == "$HOME_EX_MAIN_UUID" ]; then
   yabai -m rule --add app="^(Notion|Photoshop|Lightroom|Pym)$" space=3
   yabai -m rule --add app="^iTerm$" space=4
   yabai -m rule --add app="^(OmniFocus|Mail|Calendar)$" space=5
-  yabai -m rule --add app="^Visual Studio Code$" space=8
+  yabai -m rule --add app="^Code$" space=8
   yabai -m rule --add app="^dg project$" space=9
 
 elif [[ "$MACHINE" == 'work' ]]; then
+
+  echo "Work Stuff happens here."
 
   # TODO: When yabai can manage windows without script-addition and SIP disabled
 
