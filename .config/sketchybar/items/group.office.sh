@@ -7,7 +7,6 @@ office_items=()
 
 office_spacer=(
   background.drawing=off
-  associated_display=1
   # width=0
   icon.padding_left=0
   icon.padding_right=0
