@@ -33,3 +33,7 @@ Temporary Items
 .vscode/settings.json
 .config/.sketchyrw/wallpaper
 .config/.secrets
+
+# Aliases
+.dotfiles/cron/obsidian
+.dotfiles/cron/templates
