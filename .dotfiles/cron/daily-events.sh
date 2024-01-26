@@ -34,10 +34,14 @@ else
 fi
 
 # Get Tomorrow's Activities from Apple Calendar
-TEXT=$(icalBuddy -n -sc -ss "" -b "- [ ] " -ab "- [ ] ‼️ " -iep title,datetime -ps "| ⤇ |" -po "datetime,title" -tf "%H:%M" -nrd -df "" eventsFrom:"tomorrow" to:"tomorrow")
+TEXT=$(icalBuddy -n -nc -ss "" -b "- " -ab "- ‼️ " -iep title,datetime -ps "| 🕔 |" -po "title,datetime" -tf "%H:%M" -nrd -df "" eventsFrom:"tomorrow" to:"tomorrow")
 
 # Print that list to the "# Today" section of tomorrow's Daily Obsidian note
 # echo "# Today's Activities" >>
-echo "Creating daily log for $TOMORROW_DATE"
+# echo "Creating daily log for $TOMORROW_DATE"
 
-echo "$CONTENT"
+CLIPBOARD="# Schedule
+
+$(echo "$TEXT" | sed -E 's/🕔 ([0-9]{2}:[0-9]{2}) - ([0-9]{2}:[0-9]{2})/\[startTime:: \1\]  [endTime:: \2]/g')"
+
+echo "$CLIPBOARD"
