@@ -66,7 +66,7 @@ if [ "$main_display" == "$HOME_EX_MAIN_UUID" ]; then
 
   yabai -m rule --add app="^Music$" space=1
   yabai -m rule --add app="^(Firefox|Obsidian)$" space=^2
-  yabai -m rule --add app="^(Notion|Photoshop|Lightroom|Pym)$" space=3
+  yabai -m rule --add app="^(Notion|Photoshop|Lightroom|Pym|Slack|Discord)$" space=3
   yabai -m rule --add app="^iTerm$" space=4
   yabai -m rule --add app="^(OmniFocus|Mail|Calendar)$" space=5
   yabai -m rule --add app="^Code$" space=8
