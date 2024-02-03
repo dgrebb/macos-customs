@@ -2,7 +2,7 @@
 sketchybar -m --add event song_update com.apple.Music.playerInfo
 
 # Different workstations have different Music.app API versions
-if [[ "$MACHINE" == 'work' ]]; then
+if [[ "$MACHINE" == 'office' ]]; then
   MUSIC_CLICK_SCRIPT="$PLUGIN_DIR/music_click-work.sh"
 else
   MUSIC_CLICK_SCRIPT="$PLUGIN_DIR/music_click.sh"

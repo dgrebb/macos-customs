@@ -2,6 +2,13 @@
 
 # Get the path of the currently playing album art in Music.app
 
+# Exit if not running
+APP_STATE=$(pgrep -x Music)
+if [[ ! $APP_STATE ]]; then
+    sketchybar -m --set music drawing=off
+    exit 0
+fi
+
 # Specify the temporary directory and file name with a .png extension
 temp_dir="$HOME/.config/.sketchyrw"
 temp_file="$HOME/Pictures/album_art.png"

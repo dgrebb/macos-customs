@@ -1,7 +1,7 @@
 #!/bin/bash
 source "$HOME/.config/machine.sh"
 
-if [[ "$MACHINE" == 'work' ]]; then
+if [[ "$MACHINE" == 'office' ]]; then
   PATH+=:/usr/local/opt/python/libexec/bin/
 else
   PATH+=:/opt/homebrew/opt/python@3.11/libexec/bin/

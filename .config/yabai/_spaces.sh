@@ -72,7 +72,7 @@ if [ "$main_display" == "$HOME_EX_MAIN_UUID" ]; then
   yabai -m rule --add app="^Code$" space=8
   yabai -m rule --add app="^dg project$" space=9
 
-elif [[ "$MACHINE" == 'work' ]]; then
+elif [[ "$MACHINE" == 'office' ]]; then
 
   echo "Work Stuff happens here."
 

@@ -25,7 +25,7 @@ fi
 TITLE=$(osascript -e 'tell application "Music" to get name of current track')
 ARTIST=$(osascript -e 'tell application "Music" to get artist of current track')
 ALBUM=$(osascript -e 'tell application "Music" to get album of current track')
-if [[ "$MACHINE" == 'work' ]]; then
+if [[ "$MACHINE" == 'office' ]]; then
   loved=$(osascript -l JavaScript -e "Application('Music').currentTrack().loved()")
 else
   loved=$(osascript -l JavaScript -e "Application('Music').currentTrack().favorited()")

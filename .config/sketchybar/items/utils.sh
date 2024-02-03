@@ -11,7 +11,7 @@ utils_bracket=(
 # Set up machine-specific apps
 utils=()
 
-if [[ "$MACHINE" == 'work' ]]; then
+if [[ "$MACHINE" == 'office' ]]; then
   utils+='rescuetime '
   utils+='teams '
 else

@@ -78,7 +78,7 @@ TEAMS=$(lsappinfo info "Microsoft Teams (work or school)")
 source "$ITEM_DIR/apple.sh"
 
 main_display=$(getMainDisplayUUID)
-if [[ "$main_display" != "$HOME_MACBOOK_UUID" ]] && [[ "$MACHINE" != 'work' ]]; then
+if [[ "$main_display" != "$HOME_MACBOOK_UUID" ]] && [[ "$MACHINE" != 'office' ]]; then
   source "$ITEM_DIR/spaces.sh"
   source "$ITEM_DIR/yabai.sh"
 fi

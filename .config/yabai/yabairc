@@ -69,7 +69,7 @@ fi
 
 # If Home Clamshell Open
 main_display=$(getMainDisplayUUID)
-if [ "$main_display" == "$HOME_MACBOOK_UUID" ] || [ "$MACHINE" == 'work' ]; then
+if [ "$main_display" == "$HOME_MACBOOK_UUID" ] || [ "$MACHINE" == 'office' ]; then
   LAYOUT=float
 fi
 
