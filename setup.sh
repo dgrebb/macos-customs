@@ -17,7 +17,7 @@ chmod a+x $cwd/**/*.sh
 $cwd/steps/all.sh
 
 # Done
-printf "${BOLDGREEN}dotfiles installed and configured!${NC}\n\n"
+printf "${BOLDGREEN}System ready.${NC}\n\n"
 read -p $'\e[33mReboot now? \n\n  > ' -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   sudo reboot now

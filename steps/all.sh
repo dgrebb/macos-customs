@@ -2,5 +2,7 @@
 
 echo "Running installation steps..."
 
-# Install and configure yabai
-$cwd./steps/yabai.sh
+# Install and configure xcode commandline tools
+$cwd./steps/xcode.sh
+# Install and configure homebrew
+$cwd./steps/homebrew.sh
