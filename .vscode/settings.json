@@ -90,6 +90,7 @@
   "git.confirmSync": false,
   "git.ignoreRebaseWarning": true,
   "git.openRepositoryInParentFolders": "always",
+  "git.enableCommitSigning": true,
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.stickyScroll.enabled": true,

@@ -80,9 +80,16 @@ elif [[ "$MACHINE" == 'office' ]]; then
 
   yabai -m rule --add app="^Music$" space=1
   yabai -m rule --add app="^(Firefox|Obsidian)$" space=^2
-  yabai -m rule --add app="^iTerm$" space=4
-  yabai -m rule --add app="^(OmniFocus|Calendar)$" space=5
+  yabai -m rule --add app="^iTerm$" space=7
+  yabai -m rule --add app="^(OmniFocus|Calendar)$" space=8
   yabai -m rule --add app="^(Microsoft Teams (work or school)|Microsoft Outlook)$" space=6
-  yabai -m rule --add app="^Visual Studio Code$" space=8
+  yabai -m rule --add app="^Visual Studio Code$" space=5
+
+  yabai -m config --space 2 layout bsp
+  yabai -m config --space 4 layout bsp
+  yabai -m config --space 5 layout bsp
+  yabai -m config --space 6 layout bsp
+  yabai -m config --space 7 layout bsp
+  yabai -m config --space 8 layout bsp
 
 fi
