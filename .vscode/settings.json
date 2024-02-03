@@ -1,0 +1,370 @@
+{
+  "apc.activityBar": {
+    "size": 77,
+    "itemSize": 48,
+    "itemMargin": 0
+  },
+  "apc.electron": {
+    "titleBarStyle": "hiddenInset",
+    "opacity": 0.85,
+    "backgroundColor": "#00000000"
+  },
+  "apc.header": {
+    "height": 37
+  },
+  "apc.sidebar.titlebar": {
+    "height": 37
+  },
+  "apc.stylesheet": {
+    ".custom-sidebar-titlebar .sidebar .composite.title": "padding-left: 0;",
+    ".monaco-workbench .part.statusbar>.items-container>.statusbar-item.left.first-visible-item": "padding-left: 0;",
+    ".monaco-workbench.nosidebar.no-activity-bar .part.editor>.content .editor-group-container>.title> .tabs-and-actions-container": "margin-left: 77px;",
+    ".custom-sidebar-titlebar .monaco-workbench .part.basepanel>.composite.title>.panel-switcher-container>.monaco-action-bar .action-item.checked .action-label, .custom-sidebar-titlebar .monaco-workbench .part.sidebar>.title>.title-label h2": "display: none",
+    ".monaco-editor .cursor": "background: #ffffffaa !important; box-shadow: 0 0 70px 5px #ffffff, #ffffff 0px 0px 34px 1px; color: [#161616](https://github.com/AlexOwl/vscode-transparent-color-theme/issues/161616) !important",
+    ".editor-group-container.empty": "background-color: #FFFFFF;",
+    ".editor-group-container.empty .editor-group-watermark": "display: none !important;",
+    ".title-label > h2": "display: none", // Remove primary side bar title
+    ".title-actions": "display: none", // Remove primary side bar action icons
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#000000",
+    "activityBar.border": "#d9ff0017",
+    "diffEditorGutter.insertedLineBackground": "#1ade0069",
+    "diffEditorGutter.removedLineBackground": "#ff000083",
+    "editor.background": "#000000",
+    "editor.findMatchBackground": "#5d3e0012",
+    "editor.findMatchHighlightBackground": "#ff0f0f0e",
+    "editor.lineHighlightBackground": "#ffe1002a",
+    "editor.rangeHighlightBackground": "#de787822",
+    "editor.selectionBackground": "#ffee2f2a",
+    "editor.selectionForeground": "#1c0000",
+    "editorCursor.background": "#600000",
+    "editorCursor.foreground": "#b5a8d8",
+    "editorGroup.emptyBackground": "#000300",
+    "editorGutter.modifiedBackground": "#eeff00",
+    "editorLineNumber.activeForeground": "#fff",
+    "editorLineNumber.foreground": "#3c3e23",
+    "editorOverviewRuler.incomingContentForeground": "#29232300",
+    "editorWhitespace.foreground": "#af9c2ecd",
+    "focusBackground": "#ffffff",
+    "focusBorder": "#6f1414",
+    "list.inactiveSelectionBackground": "#ff000076",
+    "list.inactiveSelectionForeground": "#ffffff",
+    "panel.border": "#ff0000",
+    "panelTitle.activeBorder": "#808080",
+    "sideBar.background": "#000000",
+    "sideBar.border": "#d9ff0017",
+    "sideBarSectionHeader.background": "#2a280073",
+    "statusBar.background": "#000000",
+    "statusBar.border": "#35350395",
+    "tab.activeBackground": "#7472b164",
+    "tab.activeBorder": "#d9ff00",
+    "terminal.background": "#000000",
+    "welcomePage.background": "#031000",
+  },
+  "editor.find.seedSearchStringFromSelection": "never",
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": false,
+  "editor.linkedEditing": true,
+  "editor.fontFamily": "'Operator Mono Lig Light', 'Operator Mono Nerd Font', 'FuraCode Nerd Font Mono Light', 'FiraCode Nerd Font Light', 'Hack Nerd Font', fonFuraCode, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "editor.minimap.enabled": false,
+  "editor.hover.delay": 1500,
+  "editor.tabSize": 2,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "editor.quickSuggestions": {
+    "other": "on",
+    "comments": "on",
+    "strings": "on"
+  },
+  "editor.acceptSuggestionOnCommitCharacter": true,
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.quickSuggestionsDelay": 5,
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.parameterHints.enabled": false,
+  "explorer.sortOrder": "filesFirst",
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.ignoreRebaseWarning": true,
+  "git.openRepositoryInParentFolders": "always",
+  "editor.cursorBlinking": "phase",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.stickyScroll.enabled": true,
+  "search.defaultViewMode": "tree",
+  "workbench.tips.enabled": false,
+  "workbench.editor.enablePreview": false,
+  "vsicons.dontShowNewVersionMessage": true,
+  "animations.Install-Method": "Apc Customize UI++",
+  "animations.Enabled": true,
+  "apc.imports": [
+    "file:///Users/dgrebb/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.1/dist/updateHandler.js",
+    "file:///Users/dgrebb/.vscode/styles/vscode-opmono-ligatures.css"
+  ],
+  "workbench.productIconTheme": "developer-icons",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "formattingToggle.affects": [
+    "editor.formatOnSave",
+  ],
+  "formattingToggle.statusBarText": {
+    "formattingEnabled": "$(heart-filled)",
+    "formattingDisabled": "$(heart)"
+  },
+  "extensions.ignoreRecommendations": true,
+  "todohighlight.keywords": [
+    {
+      "text": "NOTE:",
+      "color": "#e2dfff",
+      "backgroundColor": "#7357ff",
+      "overviewRulerColor": "#5c4bb2"
+    }
+  ],
+  "shellformat.useEditorConfig": true,
+  "editor.accessibilitySupport": "off",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "cSpell.enabled": false,
+  "diffEditor.codeLens": true,
+  "workbench.colorTheme": "Ayu Mirage",
+  "settingsSync.ignoredExtensions": [
+    "alexowl.transparent-color-theme",
+    "github.copilot"
+  ],
+  "settingsSync.ignoredSettings": [
+    "apc.imports",
+    "apc.electron"
+  ],
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.layoutControl.enabled": false,
+  "workbench.startupEditor": "none",
+  "terminal.external.osxExec": "iterm 2.app",
+  "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+  "terminal.integrated.fontSize": 12,
+  "update.mode": "manual",
+  "workbench.iconTheme": "material-icon-theme",
+  "window.commandCenter": false,
+  "window.titleBarStyle": "native",
+  "window.nativeTabs": false,
+  "workbench.settings.editor": "json",
+  "workbench.editor.labelFormat": "short",
+  "telemetry.telemetryLevel": "off",
+  "editor.tokenColorCustomizations": {
+    "[Dobri Next -C06- Ayu]": {
+      "textMateRules": [
+        {
+          "scope": "emphasis",
+          "settings": {
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": "strong",
+          "settings": {
+            "fontStyle": "bold"
+          }
+        },
+        {
+          "scope": "entity.other.attribute-name",
+          "settings": {
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": "markup.underline",
+          "settings": {
+            "fontStyle": "underline"
+          }
+        },
+        {
+          "scope": "markup.bold",
+          "settings": {
+            "fontStyle": "bold"
+          }
+        },
+        {
+          "scope": "markup.heading",
+          "settings": {
+            "fontStyle": "bold"
+          }
+        },
+        {
+          "scope": "markup.italic",
+          "settings": {
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": "storage.type",
+          "settings": {
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": "storage.modifier",
+          "settings": {
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "name": "String interpolation",
+          "scope": [
+            "punctuation.definition.template-expression.begin",
+            "punctuation.definition.template-expression.end",
+            "punctuation.section.embedded"
+          ],
+          "settings": {
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": "keyword.control",
+          "settings": {
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": [
+            "keyword.operator.new",
+            "keyword.operator.expression",
+            "keyword.operator.cast",
+            "keyword.operator.sizeof",
+            "keyword.operator.logical.python"
+          ],
+          "settings": {
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "name": "this.self",
+          "scope": "variable.language",
+          "settings": {
+            "fontStyle": "italic",
+            "foreground": "#ff5874"
+          }
+        },
+        {
+          "name": "@Decorator",
+          "scope": [
+            "meta.decorator punctuation.decorator"
+          ],
+          "settings": {
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "scope": [
+            "punctuation.definition.comment",
+            "comment"
+          ],
+          "settings": {
+            // "foreground": "#ff5874",
+            "fontStyle": "italic"
+          }
+        }
+      ]
+    }
+  },
+  "files.associations": {
+    "*.scpt": "bash"
+  },
+  "[css]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.formatOnSave": false,
+    "editor.inlayHints.enabled": "off",
+    "editor.parameterHints.enabled": false
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    "editor.formatOnSave": false,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+  "markdown.extension.print.theme": "dark",
+  "markdown.extension.toc.omittedFromToc": {
+    "README.md": [
+      "## Table of Contents"
+    ]
+  },
+  "[postcss]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[shellscript]": {
+    "files.eol": "\n",
+    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "editor.formatOnSave": true
+  },
+  "[.scpt]": {
+    "files.eol": "\n",
+    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "editor.formatOnSave": false
+  },
+  "python.analysis.extraPaths": [
+    "/Users/dgrebb/.vscode/extensions/continue.continue-0.0.412-darwin-arm64",
+    "/Users/dgrebb/.vscode/extensions/continue.continue-0.6.15-darwin-arm64"
+  ],
+  "python.autoComplete.extraPaths": [
+    "/Users/dgrebb/.vscode/extensions/continue.continue-0.0.412-darwin-arm64",
+    "/Users/dgrebb/.vscode/extensions/continue.continue-0.6.15-darwin-arm64"
+  ],
+  "[sieve]": {},
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[tailwindcss]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "bodil.prettier-toml"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.preferences.renameMatchingJsxTags": true,
+  "[javascript]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.maxTokenizationLineLength": 2500,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "svelte.plugin.svelte.compilerWarnings": {
+    "css-unused-selector": "ignore"
+  },
+  "svelte.plugin.css.diagnostics.enable": false,
+  "svelte.ask-to-enable-ts-plugin": false,
+  "[svelte]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "versionlens.suggestions.showOnStartup": true,
+  "workbench.activityBar.location": "hidden",
+}
