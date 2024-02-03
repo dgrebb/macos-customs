@@ -6,4 +6,4 @@ GROUP=$(if [ ${PLATFORM} == "linux" ]; then echo "${USER}"; else echo "staff"; f
 install -d -m 0755 -o "${USER}" -g "${GROUP}" "${HOME}/.nvm"
 
 # Install Node
-source "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh" && nvm install stable
+source "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh" && nvm install --lts && nvm use --lts
