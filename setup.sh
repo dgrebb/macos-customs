@@ -1,5 +1,5 @@
 #!/bin/bash
-cwd=$(pwd)
+export cwd=$(pwd)
 green="32"
 red="31"
 yellow="33"
@@ -11,7 +11,7 @@ NC="\033[0m" # No Color
 
 # Set permissions on shell scripts
 echo "Setting permissions on shell scripts"
-chmod a+x $cwd/**/*.sh
+chmod +x $cwd/**/*.sh
 
 # Run Everything
 $cwd/steps/all.sh
