@@ -17,5 +17,8 @@ echo "Running installation steps..."
 # Set up macOS defaults
 # $cwd/.dotfiles/.macos
 
-# Set up macOS defaults
+# Install Node
 $cwd/steps/node.sh
+
+# Set up macOS defaults
+# $cwd/steps/node.sh

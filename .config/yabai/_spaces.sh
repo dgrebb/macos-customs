@@ -78,11 +78,11 @@ elif [[ "$MACHINE" == 'office' ]]; then
 
   # TODO: When yabai can manage windows without script-addition and SIP disabled
 
-  # yabai -m rule --add app="^Music$" space=1
-  # yabai -m rule --add app="^(Firefox|Obsidian)$" space=^2
-  # yabai -m rule --add app="^iTerm$" space=4
-  # yabai -m rule --add app="^(OmniFocus|Calendar)$" space=5
-  # yabai -m rule --add app="^(Microsoft Teams (work or school)|Microsoft Outlook)$" space=6
-  # yabai -m rule --add app="^Visual Studio Code$" space=8
+  yabai -m rule --add app="^Music$" space=1
+  yabai -m rule --add app="^(Firefox|Obsidian)$" space=^2
+  yabai -m rule --add app="^iTerm$" space=4
+  yabai -m rule --add app="^(OmniFocus|Calendar)$" space=5
+  yabai -m rule --add app="^(Microsoft Teams (work or school)|Microsoft Outlook)$" space=6
+  yabai -m rule --add app="^Visual Studio Code$" space=8
 
 fi

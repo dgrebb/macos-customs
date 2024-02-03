@@ -33,11 +33,13 @@ if [[ "$MACHINE" == 'home' ]]; then
     source "$ITEM_DIR/ghmon.sh"
     office_items+="omnifocus mail github ghmon"
   fi
+  DISPLAYS=1,2,3
 else
   source "$ITEM_DIR/omnifocus.sh"
   source "$ITEM_DIR/teams.sh"
   source "$ITEM_DIR/rescuetime.sh"
   office_items+="rescuetime teams omnifocus"
+  DISPLAYS=1
 fi
 
 office_bracket=(
@@ -49,4 +51,5 @@ sketchybar --add item spacer20 right \
   --set spacer20 "${office_spacer[@]}"
 
 sketchybar --add bracket office spacer1 $office_items spacer20 \
-  --set office "${office_bracket[@]}"
+  --set office "${office_bracket[@]}" \
+  display=$DISPLAYS
