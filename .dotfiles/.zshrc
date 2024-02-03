@@ -17,11 +17,15 @@ plugins=(
     zsh-syntax-highlighting
     fast-syntax-highlighting
     zsh-autocomplete
+    wakatime
 )
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 source $HOME/.functions
+
+# Homebrew
+PATH="/usr/local/bin:$PATH"
 
 # Python
 export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
@@ -110,7 +114,7 @@ else
 fi
 
 # pnpm
-export PNPM_HOME="/Users/dgrebb/Library/pnpm"
+export PNPM_HOME="$USER/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
