@@ -12,7 +12,6 @@ alias -- -="cd -"
 alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias p="cd ~/projects"
 alias g="git"
 alias mk='minikube'
 alias kc='kubectl'
@@ -25,7 +24,7 @@ alias yr='yabai --restart-service'
 alias gca='git commit --amend'
 
 # Projects
-alias p="cd ~/Projects/"
+alias p="cd ~/Projects || cd ~/Repos"
 alias dgc="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/_dgrebb.com/Content"
 alias dgw="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/_dgrebb.com/GitHub\ Wiki"
 
