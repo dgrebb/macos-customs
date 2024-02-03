@@ -366,5 +366,5 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "versionlens.suggestions.showOnStartup": true,
-  "workbench.activityBar.location": "hidden",
+  "workbench.activityBar.location": "top",
 }
