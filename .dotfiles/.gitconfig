@@ -1,6 +1,7 @@
-[user]
-name =
-email =
+[includeIf "gitdir:~/Projects/Comcast/"]
+path = ~/Projects/Comcast/.gitconfig
+[includeIf "gitdir:~/Projects/dgrebb/"]
+path = ~/Projects/dgrebb/.gitconfig
 
 [core]
 editor = code -n -w # VS Code
