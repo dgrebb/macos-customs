@@ -85,11 +85,19 @@ elif [[ "$MACHINE" == 'office' ]]; then
   yabai -m rule --add app="^(Microsoft Teams (work or school)|Microsoft Outlook)$" space=6
   yabai -m rule --add app="^Visual Studio Code$" space=5
 
-  yabai -m config --space 2 layout bsp
-  yabai -m config --space 4 layout bsp
-  yabai -m config --space 5 layout bsp
-  yabai -m config --space 6 layout bsp
-  yabai -m config --space 7 layout bsp
-  yabai -m config --space 8 layout bsp
+  if [ "$main_display" == "$WORK_MACBOOK_UUID" ]; then
+
+    yabai -m config layout float
+
+  else
+
+    yabai -m config --space 2 layout bsp
+    yabai -m config --space 4 layout bsp
+    yabai -m config --space 5 layout bsp
+    yabai -m config --space 6 layout bsp
+    yabai -m config --space 7 layout bsp
+    yabai -m config --space 8 layout bsp
+
+  fi
 
 fi
