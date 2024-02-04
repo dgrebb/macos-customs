@@ -82,8 +82,3 @@ rename = "!moveit() { git push origin --delete $(git branch --show-current) || t
 
 [advice]
 skippedCherryPicks = false
-
-[commit]
-gpgsign = true
-[gpg]
-	program = /opt/homebrew/bin/gpg
