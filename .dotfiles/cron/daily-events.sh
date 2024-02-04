@@ -14,24 +14,24 @@ if ! command -v icalBuddy &>/dev/null; then
 fi
 
 # Settings
-OBSIDIAN_VAULT="/Users/dgrebb200/Library/Mobile Documents/iCloud"~md~obsidian/Documents/Office
-TEMPLATE_PATH="$OBSIDIAN_VAULT"/_Logs/_Templates
+# OBSIDIAN_VAULT="/Users/dgrebb200/Library/Mobile Documents/iCloud"~md~obsidian/Documents/Office
+# TEMPLATE_PATH="$OBSIDIAN_VAULT"/_Logs/_Templates
 
-ln -sf "${TEMPLATE_PATH}" ./templates
+# ln -sf "${TEMPLATE_PATH}" ./templates
 
-# Set Template
-TEMPLATE="obsidian/_Daily.md"
+# # Set Template
+# TEMPLATE="obsidian/_Daily.md"
 
-CONTENT=cat "${TEMPLATE}"
+# CONTENT=cat "${TEMPLATE}"
 
-# Get tomorrow's date in YY.MM.DD format (cross-platform)
-if [[ $(uname) == "Darwin" ]]; then
-  # macOS
-  TOMORROW_DATE=$(date -j -v+1d "+%y.%m.%d")
-else
-  # Linux and other Unix-like systems
-  TOMORROW_DATE=$(date -d "tomorrow" "+%y.%m.%d")
-fi
+# # Get tomorrow's date in YY.MM.DD format (cross-platform)
+# if [[ $(uname) == "Darwin" ]]; then
+#   # macOS
+#   TOMORROW_DATE=$(date -j -v+1d "+%y.%m.%d")
+# else
+#   # Linux and other Unix-like systems
+#   TOMORROW_DATE=$(date -d "tomorrow" "+%y.%m.%d")
+# fi
 
 # Get Tomorrow's Activities from Apple Calendar
 TEXT=$(icalBuddy -n -nc -ss "" -b "- " -ab "- ‼️ " -iep title,datetime -ps "| 🕔 |" -po "title,datetime" -tf "%H:%M" -nrd -df "" eventsFrom:"tomorrow" to:"tomorrow")
