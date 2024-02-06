@@ -17,7 +17,7 @@ plugins=(
     zsh-syntax-highlighting
     fast-syntax-highlighting
     zsh-autocomplete
-    wakatime
+    zsh-wakatime
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -42,9 +42,18 @@ export PATH="$HOME/Projects/terravision:$PATH"
 GPG_TTY=$(tty)
 export GPG_TTY
 
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -112,11 +121,3 @@ if [[ -z "${ZSH_VERSION-}" ]]; then
 else
     compdef _python_argcomplete cz
 fi
-
-# pnpm
-export PNPM_HOME="$USER/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
