@@ -90,7 +90,6 @@
   "git.confirmSync": false,
   "git.ignoreRebaseWarning": true,
   "git.openRepositoryInParentFolders": "always",
-  "git.enableCommitSigning": true,
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.stickyScroll.enabled": true,
@@ -367,5 +366,5 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "versionlens.suggestions.showOnStartup": true,
-  "workbench.activityBar.location": "top",
+  "workbench.activityBar.location": "hidden",
 }
