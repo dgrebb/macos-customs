@@ -42,6 +42,10 @@ export PATH="$HOME/Projects/terravision:$PATH"
 GPG_TTY=$(tty)
 export GPG_TTY
 
+# npm
+export DISABLE_OPENCOLLECTIVE=1
+export ADBLOCK=1
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
