@@ -11,6 +11,7 @@ zen_on() {
     --set omnifocus updates=off \
     --set mail updates=off \
     --set office drawing=off \
+    --set omnifocus drawing=off \
     --set ghmon.status drawing=off \
     --set "iStat Menus Status,com.bjango.istatmenus.cpu" drawing=off \
     --set "iStat Menus Status,com.bjango.istatmenus.memory" drawing=off \
@@ -35,6 +36,7 @@ zen_off() {
     --set omnifocus updates=on \
     --set mail updates=on \
     --set office drawing=on \
+    --set omnifocus drawing=on \
     --set ghmon.status drawing=on \
     --set "iStat Menus Status,com.bjango.istatmenus.cpu" drawing=on \
     --set "iStat Menus Status,com.bjango.istatmenus.memory" drawing=on \
