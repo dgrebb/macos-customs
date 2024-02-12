@@ -80,10 +80,11 @@ elif [[ "$MACHINE" == 'office' ]]; then
 
   yabai -m rule --add app="^Music$" space=1
   yabai -m rule --add app="^(Firefox|Obsidian)$" space=^2
+  yabai -m rule --add app="^Microsoft Outlook$" space=^3
+  yabai -m rule --add app="^Visual Studio Code$" space=5
+  yabai -m rule --add app="^Microsoft Teams (work or school)$" space=6
   yabai -m rule --add app="^iTerm$" space=7
   yabai -m rule --add app="^(OmniFocus|Calendar)$" space=8
-  yabai -m rule --add app="^(Microsoft Teams (work or school)|Microsoft Outlook)$" space=6
-  yabai -m rule --add app="^Visual Studio Code$" space=5
 
   if [ "$main_display" == "$WORK_MACBOOK_UUID" ]; then
 
