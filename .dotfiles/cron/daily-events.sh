@@ -33,15 +33,34 @@ fi
 #   TOMORROW_DATE=$(date -d "tomorrow" "+%y.%m.%d")
 # fi
 
-# Get Tomorrow's Activities from Apple Calendar
-TEXT=$(icalBuddy -n -nc -ss "" -b "- " -ab "- ‼️ " -iep title,datetime -ps "| 🕔 |" -po "title,datetime" -tf "%H:%M" -nrd -df "" eventsFrom:"tomorrow" to:"tomorrow")
+if [ "$1" == "today" ]; then
 
-# Print that list to the "# Today" section of tomorrow's Daily Obsidian note
-# echo "# Today's Activities" >>
-# echo "Creating daily log for $TOMORROW_DATE"
+  # Get Today's Activities from Apple Calendar
+  TEXT=$(icalBuddy -n -sc -ss "" -b "- [ ] " -ab "- [ ] ‼️ " -iep title,datetime -ps "| ➡ |" -po "datetime,title" -tf "%H:%M" -nrd -df "" eventsFrom:"today" to:"today")
 
-CLIPBOARD="# Schedule
+  # Print that list to the "# Today" section of tomorrow's Daily Obsidian note
+  # echo "# Today's Activities" >>
+  # echo "Creating daily log for $TOMORROW_DATE"
 
-$(echo "$TEXT" | sed -E 's/🕔 ([0-9]{2}:[0-9]{2}) - ([0-9]{2}:[0-9]{2})/\[startTime:: \1\]  [endTime:: \2]/g')"
+  CLIPBOARD="# Schedule
 
-echo "$CLIPBOARD"
+  $(echo "$TEXT" | sed -E 's/➡ ([0-9]{2}:[0-9]{2}) - ([0-9]{2}:[0-9]{2})/\[startTime:: \1\]  [endTime:: \2]/g')"
+
+  echo "$CLIPBOARD"
+
+else
+
+  # Get Tomorrow's Activities from Apple Calendar
+  TEXT=$(icalBuddy -n -sc -ss "" -b "- [ ] " -ab "- [ ] ‼️ " -iep title,datetime -ps "| ➡ |" -po "title,datetime" -tf "%H:%M" -nrd -df "" eventsFrom:"tomorrow" to:"tomorrow")
+
+  # Print that list to the "# Today" section of tomorrow's Daily Obsidian note
+  # echo "# Today's Activities" >>
+  # echo "Creating daily log for $TOMORROW_DATE"
+
+  CLIPBOARD="# Schedule
+
+  $(echo "$TEXT" | sed -E 's/➡ ([0-9]{2}:[0-9]{2}) - ([0-9]{2}:[0-9]{2})/\[startTime:: \1\]  [endTime:: \2]/g')"
+
+  echo "$CLIPBOARD"
+
+fi
