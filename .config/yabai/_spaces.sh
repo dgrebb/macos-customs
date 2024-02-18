@@ -34,12 +34,12 @@ done
 setup_space 1 music
 setup_space 2 web
 setup_space 3 work
-setup_space 4 code
-setup_space 5 maincode
+setup_space 4 maincode
+setup_space 5 code
 setup_space 6 project
-setup_space 7 terminal
+setup_space 7 plan
 setup_space 8 office
-setup_space 9 plan
+setup_space 9 terminal
 
 main_display_padding=(
   top_padding 133
@@ -67,9 +67,9 @@ if [ "$main_display" == "$HOME_EX_MAIN_UUID" ]; then
   yabai -m rule --add app="^Music$" space=1
   yabai -m rule --add app="^(Firefox|Obsidian)$" space=^2
   yabai -m rule --add app="^(Notion|Photoshop|Lightroom|Pym|Slack|Discord)$" space=3
-  yabai -m rule --add app="^iTerm$" space=4
+  yabai -m rule --add app="^iTerm$" space=9
   yabai -m rule --add app="^(OmniFocus|Mail|Calendar)$" space=5
-  yabai -m rule --add app="^Code$" space=8
+  yabai -m rule --add app="^Code$" space=7
   yabai -m rule --add app="^dg project$" space=9
 
 elif [[ "$MACHINE" == 'office' ]]; then
