@@ -10,6 +10,9 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle ':omz:update' frequency 1
 
+# wakatime project detection
+ZSH_WAKATIME_PROJECT_DETECTION=true
+
 plugins=(
     aws
     git
