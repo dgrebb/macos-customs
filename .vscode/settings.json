@@ -6,7 +6,7 @@
   },
   "apc.electron": {
     "titleBarStyle": "hiddenInset",
-    "opacity": 0.85,
+    "opacity": 0.93,
     "backgroundColor": "#00000000"
   },
   "apc.header": {
