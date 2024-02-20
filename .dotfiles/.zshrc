@@ -20,7 +20,7 @@ plugins=(
     zsh-syntax-highlighting
     fast-syntax-highlighting
     zsh-autocomplete
-    zsh-wakatime
+    wakatime
 )
 
 source $ZSH/oh-my-zsh.sh
