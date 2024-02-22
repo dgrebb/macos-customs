@@ -6,7 +6,7 @@ STATUS_LABEL=$(lsappinfo info -only StatusLabel "Microsoft Teams (work or school
 ICON="󰊻"
 ICON_COLOR="$WHITE"
 DRAWING=on
-LABEL_DRAWING=on
+LABEL_DRAWING=off
 WIDTH=0
 PADDING=0
 if [[ $STATUS_LABEL =~ \"label\"=\"([^\"]*)\" ]]; then
