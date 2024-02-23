@@ -87,6 +87,7 @@ elif [[ "$MACHINE" == 'office' ]]; then
   if [ "$main_display" == "$WORK_MACBOOK_UUID" ]; then
 
     yabai -m config layout float
+    yabai -m config focus_follows_mouse off
 
   else
 
