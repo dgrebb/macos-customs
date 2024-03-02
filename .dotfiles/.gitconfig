@@ -4,7 +4,7 @@ path = ~/Projects/Comcast/.gitconfig
 path = ~/Projects/dgrebb/.gitconfig
 
 [core]
-editor = code -n -w # VS Code
+editor = nano
 ignorecase = false
 
 [diff]
@@ -82,3 +82,6 @@ rename = "!moveit() { git push origin --delete $(git branch --show-current) || t
 
 [advice]
 skippedCherryPicks = false
+
+[commit]
+status = false
