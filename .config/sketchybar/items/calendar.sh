@@ -6,6 +6,7 @@ calendar=(
   icon.padding_right=15
   icon.padding_left=0
   label.padding_right=10
+  label.padding_left=0
   label.width=45
   label.align=right
   padding_left=0
@@ -18,6 +19,17 @@ calendar_bracket=(
   background.color=0x9c1c1c1c
   background.border_color=$BACKGROUND_2
 )
+
+sketchybar --add alias "WorkingHours,Item-0" right \
+  --set "WorkingHours,Item-0" "${alias[@]}" \
+  alias.color=#RED \
+  width=15 \
+  label.padding_right=0 \
+  icon.padding_right=0 \
+  label.padding_left=0 \
+  icon.padding_left=0 \
+  alias.scale=0.8 \
+  associated_display=1
 
 sketchybar --add item calendar right \
   --set calendar "${calendar[@]}" \
@@ -36,5 +48,5 @@ sketchybar --add alias "iStat Menus Status,com.bjango.istatmenus.weather" right 
 
 source "$ITEM_DIR/nightscout.sh"
 
-sketchybar --add bracket calendarb battery calendar "Glucose Graph,Item-0" "iStat Menus Status,com.bjango.istatmenus.weather" \
+sketchybar --add bracket calendarb "WorkingHours,Item-0" battery calendar "Glucose Graph,Item-0" "iStat Menus Status,com.bjango.istatmenus.weather" \
   --set calendarb "${calendar_bracket[@]}"

@@ -38,7 +38,7 @@ else
   source "$ITEM_DIR/omnifocus.sh"
   source "$ITEM_DIR/teams.sh"
   source "$ITEM_DIR/rescuetime.sh"
-  office_items+="rescuetime teams omnifocus"
+  office_items+="rescuetime teams omnifocus \"WorkingHours,Item-0\""
   DISPLAYS=1
 fi
 
