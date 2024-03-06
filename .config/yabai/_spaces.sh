@@ -82,7 +82,7 @@ elif [[ "$MACHINE" == 'office' ]]; then
   yabai -m rule --add app="^Firefox$" space=^2
   yabai -m rule --add app="^Obsidian$" space=^4
   yabai -m rule --add app="^Code$" space=5
-  yabai -m rule --add app="^Microsoft Teams (work or school)$" space=7
+  yabai -m rule --add app="^Microsoft Teams \(work or school\)$" space=7
   yabai -m rule --add app="^(OmniFocus|Calendar)$" space=8
   yabai -m rule --add app="^iTerm2$" space=^9
 
