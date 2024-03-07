@@ -19,6 +19,7 @@ alias gbclean='git branch --merged | egrep -v "(^\*|master|main|dev)" | xargs gi
 alias gbc='gbclean'
 alias gbcs='git pull --prune && git rm-merged'
 alias yr='yabai --restart-service'
+alias myip='ifconfig | grep inet'
 
 # Override silly oh-my-zsh git plugin aliases
 alias gca='git commit --amend'
