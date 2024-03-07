@@ -5,7 +5,7 @@ calendar=(
   icon.font="$FONT:Black:12.0"
   icon.padding_right=15
   icon.padding_left=0
-  label.padding_right=10
+  label.padding_right=3
   label.padding_left=0
   label.width=45
   label.align=right
@@ -28,7 +28,7 @@ sketchybar --add alias "WorkingHours,Item-0" right \
   icon.padding_right=0 \
   label.padding_left=0 \
   icon.padding_left=0 \
-  alias.scale=0.8 \
+  alias.scale=0.3 \
   associated_display=1
 
 sketchybar --add item calendar right \
