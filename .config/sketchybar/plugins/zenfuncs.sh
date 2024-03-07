@@ -10,6 +10,7 @@ zen_on() {
     --set utils drawing=off \
     --set omnifocus updates=off \
     --set mail updates=off \
+    --set mail drawing=off \
     --set office drawing=off \
     --set omnifocus drawing=off \
     --set ghmon.status drawing=off \
