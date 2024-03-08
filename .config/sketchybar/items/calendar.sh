@@ -3,15 +3,16 @@
 calendar=(
   icon=cal
   icon.font="$FONT:Black:12.0"
-  icon.padding_right=0
-  icon.padding_left=0
-  label.padding_right=5
-  label.padding_left=0
-  label.width=45
+  icon.padding_right=3
+  icon.padding_left=3
+  label.padding_right=3
+  label.padding_left=3
   label.align=right
-  padding_left=0
-  update_freq=30
+  update_freq=15
   script="$PLUGIN_DIR/calendar.sh"
+  associated_display=1
+  background.padding_left=0
+  background.padding_right=0
 )
 
 calendar_bracket=(
@@ -21,7 +22,6 @@ calendar_bracket=(
 
 sketchybar --add alias "iStat Menus Status,com.bjango.istatmenus.weather" right \
   --set "iStat Menus Status,com.bjango.istatmenus.weather" \
-  width=42 \
   background.padding_left=0 \
   background.padding_right=0 \
   background.drawing=off \
@@ -30,12 +30,12 @@ sketchybar --add alias "iStat Menus Status,com.bjango.istatmenus.weather" right 
   label.padding_right=0 \
   position=right \
   alias.scale=0.88 \
+  background.padding_left=0 \
+  background.padding_right=0 \
   click_script="$PLUGIN_DIR/zen.sh"
 
 sketchybar --add alias "WorkingHours,Item-0" right \
   --set "WorkingHours,Item-0" "${alias[@]}" \
-  alias.color=#RED \
-  width=15 \
   label.padding_right=0 \
   icon.padding_right=0 \
   label.padding_left=0 \
@@ -49,5 +49,5 @@ sketchybar --add item calendar right \
 
 source "$ITEM_DIR/nightscout.sh"
 
-sketchybar --add bracket calendarb "WorkingHours,Item-0" battery calendar "Glucose Graph,Item-0" "iStat Menus Status,com.bjango.istatmenus.weather" \
+sketchybar --add bracket calendarb battery "WorkingHours,Item-0" calendar "Glucose Graph,Item-0" "iStat Menus Status,com.bjango.istatmenus.weather" \
   --set calendarb "${calendar_bracket[@]}"
