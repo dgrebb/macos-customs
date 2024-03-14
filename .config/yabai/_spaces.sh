@@ -103,3 +103,5 @@ elif [[ "$MACHINE" == 'office' ]]; then
   fi
 
 fi
+
+yabai -m rule --apply
