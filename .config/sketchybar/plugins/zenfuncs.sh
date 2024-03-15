@@ -23,7 +23,7 @@ zen_on() {
     --set ip_address drawing=off \
     --set wallpaper drawing=off \
     --set rescuetime drawing=off \
-    --set teams drawing=off
+    --set teams drawing=off updates=off
 }
 
 zen_off() {
@@ -48,5 +48,5 @@ zen_off() {
     --set ip_address drawing=on \
     --set wallpaper drawing=on \
     --set rescuetime drawing=on \
-    --set teams drawing=on
+    --set teams drawing=on updates=on
 }
