@@ -14,7 +14,7 @@ nightscout=(
   icon.padding_right=0
   icon.padding_left=0
   label.padding_left=0
-  # associated_display=1
+  associated_display=1
 )
 
 sketchybar --add alias "Glucose Graph,Item-0" right \
