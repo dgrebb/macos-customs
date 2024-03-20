@@ -40,7 +40,7 @@ if [ "$1" == "today" ]; then
 
   OBSIDIAN_DATES="$(echo "$TEXT" | sed -E 's/➡ ([0-9]{2}:[0-9]{2}) - ([0-9]{2}:[0-9]{2})/\[startTime:: \1\]  [endTime:: \2]/g')"
 
-  CLIPBOARD="$(echo "$OBSIDIAN_DATES" | sed -E 's/^(Life|Calendar|Appointments):/## &/')"
+  CLIPBOARD="$(echo "$OBSIDIAN_DATES" | sed -E 's/^(Life|Calendar|Appointments):/## \1/')"
 
   echo "$CLIPBOARD"
 
@@ -51,7 +51,7 @@ else
 
   OBSIDIAN_DATES="$(echo "$TEXT" | sed -E 's/➡ ([0-9]{2}:[0-9]{2}) - ([0-9]{2}:[0-9]{2})/\[startTime:: \1\]  [endTime:: \2]/g')"
 
-  CLIPBOARD="$(echo "$OBSIDIAN_DATES" | sed -E 's/^(Life|Calendar|Appointments):/## &/')"
+  CLIPBOARD="$(echo "$OBSIDIAN_DATES" | sed -E 's/^(Life|Calendar|Appointments):/## \1/')"
 
   echo "$CLIPBOARD"
 
