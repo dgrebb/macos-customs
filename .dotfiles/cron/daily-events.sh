@@ -36,18 +36,22 @@ fi
 if [ "$1" == "today" ]; then
 
   # Get Tomorrow's Activities from Apple Calendar
-  TEXT=$(icalBuddy -n -sc -ss "" -b "- [ ] " -ab "- [ ] ‼️ " -iep title,datetime -ps "| ➡ |" -po "title,datetime" -tf "%H:%M" -nrd -df "" eventsFrom:"today" to:"today")
+  TEXT=$(icalBuddy -ic "Calendar,Vacation,Dan Grebb,Personal,Business,Appointments,Reminders,Life" -n -sc -ss "\n" -b "- [ ] " -ab "- [ ] ‼️ " -iep title,datetime -ps "| ➡ |" -po "title,datetime" -tf "%H:%M" -nrd -df "" eventsFrom:"today" to:"today")
 
-  CLIPBOARD="$(echo "$TEXT" | sed -E 's/➡ ([0-9]{2}:[0-9]{2}) - ([0-9]{2}:[0-9]{2})/\[startTime:: \1\]  [endTime:: \2]/g')"
+  OBSIDIAN_DATES="$(echo "$TEXT" | sed -E 's/➡ ([0-9]{2}:[0-9]{2}) - ([0-9]{2}:[0-9]{2})/\[startTime:: \1\]  [endTime:: \2]/g')"
+
+  CLIPBOARD="$(echo "$OBSIDIAN_DATES" | sed -E 's/^(Life|Calendar|Appointments):/## &/')"
 
   echo "$CLIPBOARD"
 
 else
 
   # Get Tomorrow's Activities from Apple Calendar
-  TEXT=$(icalBuddy -n -sc -ss "" -b "- [ ] " -ab "- [ ] ‼️ " -iep title,datetime -ps "| ➡ |" -po "title,datetime" -tf "%H:%M" -nrd -df "" eventsFrom:"tomorrow" to:"tomorrow")
+  TEXT=$(icalBuddy -ic "Calendar,Vacation,Dan Grebb,Personal,Business,Appointments,Reminders,Life" -n -sc -ss "\n" -b "- [ ] " -ab "- [ ] ‼️ " -iep title,datetime -ps "| ➡ |" -po "title,datetime" -tf "%H:%M" -nrd -df "" eventsFrom:"tomorrow" to:"tomorrow")
 
-  CLIPBOARD="$(echo "$TEXT" | sed -E 's/➡ ([0-9]{2}:[0-9]{2}) - ([0-9]{2}:[0-9]{2})/\[startTime:: \1\]  [endTime:: \2]/g')"
+  OBSIDIAN_DATES="$(echo "$TEXT" | sed -E 's/➡ ([0-9]{2}:[0-9]{2}) - ([0-9]{2}:[0-9]{2})/\[startTime:: \1\]  [endTime:: \2]/g')"
+
+  CLIPBOARD="$(echo "$OBSIDIAN_DATES" | sed -E 's/^(Life|Calendar|Appointments):/## &/')"
 
   echo "$CLIPBOARD"
 
