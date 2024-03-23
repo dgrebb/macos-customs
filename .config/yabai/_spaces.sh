@@ -69,7 +69,7 @@ if [ "$main_display" == "$HOME_EX_MAIN_UUID" ]; then
   yabai -m rule --add app="^Obsidian$" space=^9
   yabai -m rule --add app="^(Notion|Photoshop|Lightroom|Pym|Slack|Discord)$" space=3
   yabai -m rule --add app="^(iTerm2)$" space=^6
-  yabai -m rule --add app="^(OmniFocus|Mail|Calendar)$" space=5
+  yabai -m rule --add app="^(OmniFocus|Mail|eM Client|Calendar)$" space=5
   yabai -m rule --add app="^Code$" space=7
   yabai -m rule --add app="^dg project$" space=9
 
