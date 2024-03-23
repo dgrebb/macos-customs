@@ -1,3 +1,3 @@
-#!/usr/bin/env osascript
+#!/usr/bin/env bash
 
-tell application "Mail" to activate
+open -a "eM Client"
