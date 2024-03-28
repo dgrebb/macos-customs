@@ -27,8 +27,14 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 source $HOME/.functions
 
-# Homebrew
+# usr commands
 PATH="/usr/local/bin:$PATH"
+
+# homebrew
+export PATH="$HOMEBREW_PREFIX/bin:$PATH"
+
+# postgresql tools
+export PATH="$HOMEBREW_PREFIX/Cellar/postgresql@15/*/bin:$PATH"
 
 # Python
 export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
